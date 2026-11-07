@@ -1,309 +1,267 @@
 [
   {
-    "requested_name": "bass",
-    "language": "en",
+    "identifier": "Python",
     "candidates": [
       {
-        "wikidata_id": "Q46185",
-        "wikidata_label": "bass guitar",
-        "wikipedia_title": "Bass guitar",
+        "wikidata_id": "Q28865",
+        "wikidata_label": "Python",
+        "wikipedia_title": "Python (programming language)",
         "phrases": [
-          "The bass guitar, also known as the electric bass, is the lowest-pitched member of the guitar family.",
-          "It is similar in appearance and construction to an electric guitar but with a longer neck and scale length."
+          "Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection.",
+          "Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing."
         ],
-        "description": "The bass guitar, also known as the electric bass, is the lowest-pitched member of the guitar family. It is similar in appearance and construction to an electric guitar but with a longer neck and scale length."
+        "description": "Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing."
       },
       {
-        "wikidata_id": "Q27911",
-        "wikidata_label": "bass",
-        "wikipedia_title": "Bass (voice type)",
+        "wikidata_id": "Q271218",
+        "wikidata_label": "Python",
+        "wikipedia_title": "Python (genus)",
         "phrases": [
-          "A bass is a type of classical male singing voice and has the lowest vocal range of all voice types.",
-          "According to The New Grove Dictionary of Opera, a bass is typically classified as having a vocal range extending from around the second E below middle C to the E above middle C."
+          "Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere.",
+          "The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes."
         ],
-        "description": "A bass is a type of classical male singing voice and has the lowest vocal range of all voice types. According to The New Grove Dictionary of Opera, a bass is typically classified as having a vocal range extending from around the second E below middle C to the E above middle C."
-      },
-      {
-        "wikidata_id": "Q80019",
-        "wikidata_label": "double bass",
-        "wikipedia_title": "Double bass",
-        "phrases": [
-          "The double bass, also known as the upright bass, the acoustic bass, the bull fiddle, the bass fiddle, the string bass, the contrabass, or simply the bass, is the largest and lowest-pitched chordophone in the modern symphony orchestra.",
-          "It has four or five strings, and its construction is in between that of the gamba and the violin family."
-        ],
-        "description": "The double bass, also known as the upright bass, the acoustic bass, the bull fiddle, the bass fiddle, the string bass, the contrabass, or simply the bass, is the largest and lowest-pitched chordophone in the modern symphony orchestra. It has four or five strings, and its construction is in between that of the gamba and the violin family."
-      },
-      {
-        "wikidata_id": "Q755105",
-        "wikidata_label": "largemouth bass",
-        "wikipedia_title": "Largemouth bass",
-        "phrases": [
-          "The largemouth bass is a carnivorous, freshwater, ray-finned fish in the Centrarchidae family, native to the eastern and central United States, southeastern Canada and northern Mexico.",
-          "It is known by a variety of regional names, such as the widemouth bass, bigmouth bass, black bass, largie, potter's fish, Florida bass or Florida largemouth, green bass, bucketmouth bass, green trout, growler, Gilsdorf bass, Oswego bass, southern largemouth, northern largemouth, Alabama bass or Alabama largemouth, marsh bass, and swamp bass."
-        ],
-        "description": "The largemouth bass is a carnivorous, freshwater, ray-finned fish in the Centrarchidae family, native to the eastern and central United States, southeastern Canada and northern Mexico. It is known by a variety of regional names, such as the widemouth bass, bigmouth bass, black bass, largie, potter's fish, Florida bass or Florida largemouth, green bass, bucketmouth bass, green trout, growler, Gilsdorf bass, Oswego bass, southern largemouth, northern largemouth, Alabama bass or Alabama largemouth, marsh bass, and swamp bass."
-      },
-      {
-        "wikidata_id": "Q188994",
-        "wikidata_label": "drum and bass",
-        "wikipedia_title": "Drum and bass",
-        "phrases": [
-          "Drum and bass, also known as drum 'n' bass, is a genre of electronic dance music that emerged in the United Kingdom in the early 1990s.",
-          "It is characterised by fast breakbeats with heavy bass and sub-bass lines, samples, and synthesizers."
-        ],
-        "description": "Drum and bass, also known as drum 'n' bass, is a genre of electronic dance music that emerged in the United Kingdom in the early 1990s. It is characterised by fast breakbeats with heavy bass and sub-bass lines, samples, and synthesizers."
-      },
-      {
-        "wikidata_id": "Q21501431",
-        "wikidata_label": "Bass",
-        "wikipedia_title": "Bass (surname)",
-        "phrases": [
-          "Bass is a surname of English origin, and may refer to:"
-        ],
-        "description": "Bass is a surname of English origin, and may refer to:"
-      },
-      {
-        "wikidata_id": "Q810447",
-        "wikidata_label": "bass instrument",
-        "wikipedia_title": "Bass instrument",
-        "phrases": [
-          "Bass describes tones of low frequency, pitch and range from 16 to 250 Hz and bass instruments that produce tones in the low-pitched range C2-C4.",
-          "They belong to different families of instruments and can cover a wide range of musical roles."
-        ],
-        "description": "Bass describes tones of low frequency, pitch and range from 16 to 250 Hz and bass instruments that produce tones in the low-pitched range C2-C4. They belong to different families of instruments and can cover a wide range of musical roles."
-      },
-      {
-        "wikidata_id": "Q2887271",
-        "wikidata_label": "Bass",
-        "wikipedia_title": "Division of Bass",
-        "phrases": [
-          "The Division of Bass is an Australian electoral division in Tasmania.",
-          "It includes most of the city of Launceston and its surrounds."
-        ],
-        "description": "The Division of Bass is an Australian electoral division in Tasmania. It includes most of the city of Launceston and its surrounds."
-      },
-      {
-        "wikidata_id": "Q5284494",
-        "wikidata_label": "Bass",
-        "wikipedia_title": "Division of Bass (state)",
-        "phrases": [
-          "The electoral division of Bass is one of the five electorates in the Tasmanian House of Assembly, it includes north-east Tasmania and Flinders Island.",
-          "Bass takes its name from the British naval surgeon and explorer of Australia: George Bass."
-        ],
-        "description": "The electoral division of Bass is one of the five electorates in the Tasmanian House of Assembly, it includes north-east Tasmania and Flinders Island. Bass takes its name from the British naval surgeon and explorer of Australia: George Bass."
-      },
-      {
-        "wikidata_id": "Q810480",
-        "wikidata_label": "bass-baritone",
-        "wikipedia_title": "Bass-baritone",
-        "phrases": [
-          "A bass-baritone is a high-lying bass or low-lying baritone voice type which shares certain qualities with the true baritone voice.",
-          "The term arose in the late 19th century to describe the particular type of voice required to sing three Wagnerian roles: the title role in Der fliegende Holländer, Wotan/Der Wanderer in the Ring Cycle and Hans Sachs in Die Meistersinger von Nürnberg."
-        ],
-        "description": "A bass-baritone is a high-lying bass or low-lying baritone voice type which shares certain qualities with the true baritone voice. The term arose in the late 19th century to describe the particular type of voice required to sing three Wagnerian roles: the title role in Der fliegende Holländer, Wotan/Der Wanderer in the Ring Cycle and Hans Sachs in Die Meistersinger von Nürnberg."
+        "description": "Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes."
       }
     ]
   },
   {
-    "requested_name": "mouse",
-    "language": "en",
+    "identifier": "Mercury",
     "candidates": [
       {
-        "wikidata_id": "Q7987",
-        "wikidata_label": "computer mouse",
-        "wikipedia_title": "Computer mouse",
+        "wikidata_id": "Q165745",
+        "wikidata_label": "Mercury Records",
+        "wikipedia_title": "Mercury Records",
         "phrases": [
-          "A computer mouse is a hand-held pointing device that detects two-dimensional motion relative to a surface.",
-          "This motion is typically translated into the motion of the pointer on a display, which allows a smooth control of the graphical user interface of a computer."
+          "Mercury Records is an American record label owned by Universal Music Group.",
+          "It had significant success as an independent operation in the 1940s and 1950s."
         ],
-        "description": "A computer mouse is a hand-held pointing device that detects two-dimensional motion relative to a surface. This motion is typically translated into the motion of the pointer on a display, which allows a smooth control of the graphical user interface of a computer."
+        "description": "Mercury Records is an American record label owned by Universal Music Group. It had significant success as an independent operation in the 1940s and 1950s."
       },
       {
-        "wikidata_id": "Q83310",
-        "wikidata_label": "house mouse",
-        "wikipedia_title": "House mouse",
+        "wikidata_id": "Q613883",
+        "wikidata_label": "Mercury",
+        "wikipedia_title": "Mercury (automobile)",
         "phrases": [
-          "The house mouse is a small mammal of the rodent family Muridae, characteristically having a pointed snout, large rounded ears, and a long and almost hairless tail.",
-          "It is one of the most abundant species of the genus Mus."
+          "Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years.",
+          "Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company."
         ],
-        "description": "The house mouse is a small mammal of the rodent family Muridae, characteristically having a pointed snout, large rounded ears, and a long and almost hairless tail. It is one of the most abundant species of the genus Mus."
-      },
-      {
-        "wikidata_id": "Q1364740",
-        "wikidata_label": "knockout mouse",
-        "wikipedia_title": "Knockout mouse",
-        "phrases": [
-          "A knockout mouse, or knock-out mouse, is a genetically modified mouse in which researchers have inactivated, or, an existing gene by replacing it or disrupting it with an artificial piece of DNA.",
-          "They are important animal models for studying the role of genes which have been sequenced but whose functions have not been determined."
-        ],
-        "description": "A knockout mouse, or knock-out mouse, is a genetically modified mouse in which researchers have inactivated, or, an existing gene by replacing it or disrupting it with an artificial piece of DNA. They are important animal models for studying the role of genes which have been sequenced but whose functions have not been determined."
-      },
-      {
-        "wikidata_id": "Q39275",
-        "wikidata_label": "Mus",
-        "wikipedia_title": "Mus (genus)",
-        "phrases": [
-          "The genus Mus or typical mice refers to a specific genus of muroid rodents, all typically called mice, though the term can be used for other rodents.",
-          "They are the only members of the tribe Murini."
-        ],
-        "description": "The genus Mus or typical mice refers to a specific genus of muroid rodents, all typically called mice, though the term can be used for other rodents. They are the only members of the tribe Murini."
-      },
-      {
-        "wikidata_id": "Q2751034",
-        "wikidata_label": "mouse",
-        "wikipedia_title": "Mouse",
-        "phrases": [
-          "A mouse (pl.",
-          "mice) is a small rodent, characteristically known to have a pointed snout, small rounded ears, a body-length scaly tail, and a high breeding rate."
-        ],
-        "description": "A mouse (pl. mice) is a small rodent, characteristically known to have a pointed snout, small rounded ears, a body-length scaly tail, and a high breeding rate."
-      },
-      {
-        "wikidata_id": "Q11936",
-        "wikidata_label": "Minnie Mouse",
-        "wikipedia_title": "Minnie Mouse",
-        "phrases": [
-          "Minerva Mouse is a cartoon character created by Walt Disney and Ub Iwerks.",
-          "First appearing in Steamboat Willie, she is presented as the longtime sweetheart of Mickey Mouse."
-        ],
-        "description": "Minerva Mouse is a cartoon character created by Walt Disney and Ub Iwerks. First appearing in Steamboat Willie, she is presented as the longtime sweetheart of Mickey Mouse."
-      },
-      {
-        "wikidata_id": "Q11934",
-        "wikidata_label": "Mickey Mouse",
-        "wikipedia_title": "Mickey Mouse",
-        "phrases": [
-          "Mickey Mouse is a cartoon character co-created in 1928 by Walt Disney and Ub Iwerks.",
-          "The longtime corporate icon and mascot of the Walt Disney Company and a figurehead of American animation, Mickey is an anthropomorphic mouse who typically wears red shorts, large shoes, and white gloves."
-        ],
-        "description": "Mickey Mouse is a cartoon character co-created in 1928 by Walt Disney and Ub Iwerks. The longtime corporate icon and mascot of the Walt Disney Company and a figurehead of American animation, Mickey is an anthropomorphic mouse who typically wears red shorts, large shoes, and white gloves."
-      },
-      {
-        "wikidata_id": "Q1951035",
-        "wikidata_label": "Mouse Genome Informatics",
-        "wikipedia_title": "Mouse Genome Informatics",
-        "phrases": [
-          "Mouse Genome Informatics is a free, online database and bioinformatics resource hosted by The Jackson Laboratory, with funding by the National Human Genome Research Institute, the National Cancer Institute, and the Eunice Kennedy Shriver National Institute of Child Health and Human Development.",
-          "MGI provides access to data on the genetics, genomics and biology of the laboratory mouse to facilitate the study of human health and disease."
-        ],
-        "description": "Mouse Genome Informatics is a free, online database and bioinformatics resource hosted by The Jackson Laboratory, with funding by the National Human Genome Research Institute, the National Cancer Institute, and the Eunice Kennedy Shriver National Institute of Child Health and Human Development. MGI provides access to data on the genetics, genomics and biology of the laboratory mouse to facilitate the study of human health and disease."
-      },
-      {
-        "wikidata_id": "Q158695",
-        "wikidata_label": "Arabidopsis thaliana",
-        "wikipedia_title": "Arabidopsis thaliana",
-        "phrases": [
-          "Arabidopsis thaliana, the thale cress, mouse-ear cress or arabidopsis, is a small plant from the mustard family, native to Eurasia and Africa.",
-          "Commonly found along the shoulders of roads and in disturbed land, it is generally considered a weed."
-        ],
-        "description": "Arabidopsis thaliana, the thale cress, mouse-ear cress or arabidopsis, is a small plant from the mustard family, native to Eurasia and Africa. Commonly found along the shoulders of roads and in disturbed land, it is generally considered a weed."
-      },
-      {
-        "wikidata_id": "Q494748",
-        "wikidata_label": "Mickey Mouse Clubhouse",
-        "wikipedia_title": "Mickey Mouse Clubhouse",
-        "phrases": [
-          "Mickey Mouse Clubhouse is an American animated interactive children's television series for preschoolers.",
-          "Produced by Disney Television Animation, the series was created by Disney veteran Bobs Gannaway."
-        ],
-        "description": "Mickey Mouse Clubhouse is an American animated interactive children's television series for preschoolers. Produced by Disney Television Animation, the series was created by Disney veteran Bobs Gannaway."
+        "description": "Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company."
       }
     ]
   },
   {
-    "requested_name": "jaguar",
-    "language": "en",
+    "identifier": "Saturn",
     "candidates": [
       {
-        "wikidata_id": "Q650601",
-        "wikidata_label": "Atari Jaguar",
-        "wikipedia_title": "Atari Jaguar",
+        "wikidata_id": "Q134388",
+        "wikidata_label": "Saturn",
+        "wikipedia_title": "Saturn (mythology)",
         "phrases": [
-          "The Atari Jaguar is a home video game console developed by Atari Corporation and released in North America in November 1993.",
-          "Atari marketed it as the world's first 64-bit game system, drawing controversy as some argued that this configuration did not meet the definition of a 64-bit system."
+          "Saturn was a god in ancient Roman religion, and a character in Roman mythology.",
+          "He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation."
         ],
-        "description": "The Atari Jaguar is a home video game console developed by Atari Corporation and released in North America in November 1993. Atari marketed it as the world's first 64-bit game system, drawing controversy as some argued that this configuration did not meet the definition of a 64-bit system."
+        "description": "Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation."
       },
       {
-        "wikidata_id": "Q30055",
-        "wikidata_label": "Jaguar Cars",
-        "wikipedia_title": "Jaguar Cars",
+        "wikidata_id": "Q193",
+        "wikidata_label": "Saturn",
+        "wikipedia_title": "Saturn",
         "phrases": [
-          "Jaguar is a British sports car and luxury vehicle brand owned by Tata Motors, operating under the merged division Jaguar Land Rover Limited.",
-          "Jaguar's business was founded as the Swallow Sidecar Company in 1922, originally making motorcycle sidecars before developing bodies for passenger cars."
+          "Saturn is the sixth planet from the Sun, and is the second largest planet in the Solar System, after Jupiter.",
+          "It is a gas giant, with an average radius of about 9 times that of Earth."
         ],
-        "description": "Jaguar is a British sports car and luxury vehicle brand owned by Tata Motors, operating under the merged division Jaguar Land Rover Limited. Jaguar's business was founded as the Swallow Sidecar Company in 1922, originally making motorcycle sidecars before developing bodies for passenger cars."
-      },
-      {
-        "wikidata_id": "Q35694",
-        "wikidata_label": "jaguar",
-        "wikipedia_title": "Jaguar",
-        "phrases": [
-          "The jaguar is a large cat species and the only living member of the genus Panthera that is native to the Americas.",
-          "Its coat features pale yellow to tan colored fur covered with spots that transition to rosettes on the sides; some individuals have a melanistic spotted coat."
-        ],
-        "description": "The jaguar is a large cat species and the only living member of the genus Panthera that is native to the Americas. Its coat features pale yellow to tan colored fur covered with spots that transition to rosettes on the sides; some individuals have a melanistic spotted coat."
-      },
-      {
-        "wikidata_id": "Q21170490",
-        "wikidata_label": "Jaguar",
-        "wikipedia_title": "Jaguar (marque)",
-        "phrases": [
-          "Jaguar is a British sports car and luxury vehicle brand owned by Tata Motors, operating under the merged division Jaguar Land Rover Limited.",
-          "Jaguar's business was founded as the Swallow Sidecar Company in 1922, originally making motorcycle sidecars before developing bodies for passenger cars."
-        ],
-        "description": "Jaguar is a British sports car and luxury vehicle brand owned by Tata Motors, operating under the merged division Jaguar Land Rover Limited. Jaguar's business was founded as the Swallow Sidecar Company in 1922, originally making motorcycle sidecars before developing bodies for passenger cars."
-      },
-      {
-        "wikidata_id": "Q775605",
-        "wikidata_label": "Fender Jaguar",
-        "wikipedia_title": "Fender Jaguar",
-        "phrases": [
-          "The Fender Jaguar is an electric guitar by Fender Musical Instruments characterized by an offset-waist body, a relatively unusual switching system with two separate circuits for lead and rhythm, and a short-scale 24\" neck.",
-          "Owing some roots to the Jazzmaster, it was introduced in 1962 as Fender's feature-laden top-of-the-line model, designed to lure players from Gibson."
-        ],
-        "description": "The Fender Jaguar is an electric guitar by Fender Musical Instruments characterized by an offset-waist body, a relatively unusual switching system with two separate circuits for lead and rhythm, and a short-scale 24\" neck. Owing some roots to the Jazzmaster, it was introduced in 1962 as Fender's feature-laden top-of-the-line model, designed to lure players from Gibson."
-      },
-      {
-        "wikidata_id": "Q687440",
-        "wikidata_label": "Grumman XF10F Jaguar",
-        "wikipedia_title": "Grumman XF10F Jaguar",
-        "phrases": [
-          "The Grumman XF10F Jaguar was a prototype swing-wing fighter aircraft offered to the United States Navy in the early 1950s.",
-          "Although it never entered service, its research paved the way toward the later General Dynamics F-111 and Grumman's own F-14 Tomcat."
-        ],
-        "description": "The Grumman XF10F Jaguar was a prototype swing-wing fighter aircraft offered to the United States Navy in the early 1950s. Although it never entered service, its research paved the way toward the later General Dynamics F-111 and Grumman's own F-14 Tomcat."
-      },
-      {
-        "wikidata_id": "Q2382933",
-        "wikidata_label": "Le Jaguar",
-        "wikipedia_title": "Le Jaguar",
-        "phrases": [
-          "Le Jaguar is a 1996 French film directed by Francis Veber starring Jean Reno, Patrick Bruel, Harrison Lowe and Patricia Velásquez.",
-          "A shaman from the South American rain forest visits Paris for a public relations campaign along with a French ethnologist."
-        ],
-        "description": "Le Jaguar is a 1996 French film directed by Francis Veber starring Jean Reno, Patrick Bruel, Harrison Lowe and Patricia Velásquez. A shaman from the South American rain forest visits Paris for a public relations campaign along with a French ethnologist."
-      },
-      {
-        "wikidata_id": "Q13410262",
-        "wikidata_label": "Jaguar",
-        "wikipedia_title": "Jaguar (microarchitecture)",
-        "phrases": [
-          "The AMD Jaguar Family 16h is a low-power microarchitecture designed by AMD.",
-          "It is used in APUs succeeding the Bobcat Family microarchitecture in 2013 and being succeeded by AMD's Puma architecture in 2014."
-        ],
-        "description": "The AMD Jaguar Family 16h is a low-power microarchitecture designed by AMD. It is used in APUs succeeding the Bobcat Family microarchitecture in 2013 and being succeeded by AMD's Puma architecture in 2014."
-      },
-      {
-        "wikidata_id": "Q6122893",
-        "wikidata_label": "Jaguar Land Rover",
-        "wikipedia_title": "Jaguar Land Rover",
-        "phrases": [
-          "Jaguar Land Rover Automotive PLC is a British multinational luxury automotive manufacturer and a wholly owned subsidiary of TATA.CARS.",
-          "Headquartered in Whitley, Coventry, United Kingdom, the company specializes in designing, developing, manufacturing, and selling luxury automobiles under the brands Jaguar and Land Rover."
-        ],
-        "description": "Jaguar Land Rover Automotive PLC is a British multinational luxury automotive manufacturer and a wholly owned subsidiary of TATA.CARS. Headquartered in Whitley, Coventry, United Kingdom, the company specializes in designing, developing, manufacturing, and selling luxury automobiles under the brands Jaguar and Land Rover."
+        "description": "Saturn is the sixth planet from the Sun, and is the second largest planet in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth."
       }
     ]
+  },
+  {
+    "identifier": "Amazon",
+    "candidates": [
+      {
+        "wikidata_id": "Q3884",
+        "wikidata_label": "Amazon",
+        "wikipedia_title": "Amazon (company)",
+        "phrases": [
+          "Amazon.com, Inc.",
+          "is an American multinational conglomerate engaged in e-commerce, retail, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence."
+        ],
+        "description": "Amazon.com, Inc. is an American multinational conglomerate engaged in e-commerce, retail, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence."
+      },
+      {
+        "wikidata_id": "Q40040",
+        "wikidata_label": "Amazonas",
+        "wikipedia_title": "Amazonas (Brazilian state)",
+        "phrases": [
+          "Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country.",
+          "It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers."
+        ],
+        "description": "Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers."
+      }
+    ]
+  },
+  {
+    "identifier": "Seal",
+    "candidates": [
+      {
+        "wikidata_id": "Q218091",
+        "wikidata_label": "Seal",
+        "wikipedia_title": "Seal (musician)",
+        "phrases": [
+          "Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer.",
+          "He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold."
+        ],
+        "description": "Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold."
+      },
+      {
+        "wikidata_id": "Q7439813",
+        "wikidata_label": "SeaLifeBase",
+        "wikipedia_title": "SeaLifeBase",
+        "phrases": [
+          "SeaLifeBase is a global online database of information about marine life.",
+          "It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish."
+        ],
+        "description": "SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish."
+      }
+    ]
+  },
+  {
+    "identifier": "House-Building",
+    "candidates": [
+      {
+        "identifier": "House",
+        "wikidata_id": "Q3947",
+        "wikidata_label": "house",
+        "wikipedia_title": "House",
+        "phrases": [
+          "A house is a residential building.",
+          "It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems."
+        ],
+        "description": "A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems."
+      },
+      {
+        "identifier": "Building",
+        "wikidata_id": "Q41176",
+        "wikidata_label": "building",
+        "wikipedia_title": "Building",
+        "phrases": [
+          "A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory.",
+          "Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons."
+        ],
+        "description": "A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons."
+      }
+    ],
+    "description": "A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons."
+  },
+  {
+    "identifier": "River-Stream",
+    "candidates": [
+      {
+        "identifier": "River",
+        "wikidata_id": "Q4022",
+        "wikidata_label": "river",
+        "wikipedia_title": "River",
+        "phrases": [
+          "A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river.",
+          "A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons."
+        ],
+        "description": "A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons."
+      },
+      {
+        "identifier": "Stream",
+        "wikidata_id": "Q47521",
+        "wikidata_label": "stream",
+        "wikipedia_title": "Stream",
+        "phrases": [
+          "A stream is a continuous body of surface water flowing within the bed and banks of a channel.",
+          "The channel is a watercourse, although the watercourse may be seasonally or periodically dry."
+        ],
+        "description": "A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry."
+      }
+    ],
+    "description": "A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry."
+  },
+  {
+    "identifier": "Mountain-Hill",
+    "candidates": [
+      {
+        "identifier": "Mountain",
+        "wikidata_id": "Q8502",
+        "wikidata_label": "mountain",
+        "wikipedia_title": "Mountain",
+        "phrases": [
+          "A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock.",
+          "Although there are no universally accepted definitions, a mountain is usually considered higher than a hill."
+        ],
+        "description": "A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill."
+      },
+      {
+        "identifier": "Hill",
+        "wikidata_id": "Q973239",
+        "wikidata_label": "Hill",
+        "wikipedia_title": "Hill (surname)",
+        "phrases": [
+          "Hill is a surname of English and Scottish origin, meaning.",
+          "It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States."
+        ],
+        "description": "Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States."
+      }
+    ],
+    "description": "A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States."
+  },
+  {
+    "identifier": "Lake-Pond",
+    "candidates": [
+      {
+        "identifier": "Lake",
+        "wikidata_id": "Q23397",
+        "wikidata_label": "lake",
+        "wikipedia_title": "Lake",
+        "phrases": [
+          "A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface.",
+          "It is localized in a basin or interconnected basins surrounded by dry land."
+        ],
+        "description": "A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land."
+      },
+      {
+        "identifier": "Pond",
+        "wikidata_id": "Q21450328",
+        "wikidata_label": "Pond",
+        "wikipedia_title": "Pond (surname)",
+        "phrases": [
+          "Pond is an English surname.",
+          "Initial recordings of potential spelling variations of this surname first appear in Sussex, England in the 12th century, suggesting Old English origin."
+        ],
+        "description": "Pond is an English surname. Initial recordings of potential spelling variations of this surname first appear in Sussex, England in the 12th century, suggesting Old English origin."
+      }
+    ],
+    "description": "A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. Pond is an English surname. Initial recordings of potential spelling variations of this surname first appear in Sussex, England in the 12th century, suggesting Old English origin."
+  },
+  {
+    "identifier": "Forest-Woodland",
+    "candidates": [
+      {
+        "identifier": "Forest",
+        "wikidata_id": "Q72946",
+        "wikidata_label": "Forest",
+        "wikipedia_title": "Forest, Belgium",
+        "phrases": [
+          "Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium.",
+          "Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos."
+        ],
+        "description": "Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos."
+      },
+      {
+        "identifier": "Woodland",
+        "wikidata_id": "Q2615722",
+        "wikidata_label": "Woodland",
+        "wikipedia_title": "Woodland, Devon",
+        "phrases": [
+          "Woodland is a small hamlet and civil parish in Teignbridge, Devon, England.",
+          "The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town."
+        ],
+        "description": "Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town."
+      }
+    ],
+    "description": "Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town."
   }
 ]

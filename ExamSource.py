@@ -10,16 +10,13 @@ For each input name this script:
 The output is JSON so it can be used as source material for later
 knowledge-graph construction experiments.
 
-Example::
+Run from the ``KGTestBench`` directory with no command-line arguments:
 
-    python KGTestBench/ExamSource.py bass mouse
-    python KGTestBench/ExamSource.py jaguar --output KGTestBench/sources.json
+    python ExamSource.py
 """
 
 from __future__ import annotations
 
-import argparse
-import gzip
 import json
 import os
 import re
@@ -30,6 +27,9 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
+
+from api import request_json
+from wikipedia import fetch_extract
 
 
 ENV_FILE = Path(__file__).resolve().parent / ".env"
@@ -47,27 +47,32 @@ def load_env(path: Path) -> None:
         os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
 
 
-def env_int(name: str, default: int) -> int:
-    """Read an integer environment setting."""
-    return int(os.getenv(name, str(default)))
+def parse_int(value: str | None, default: int) -> int:
+    """Parse an integer value or return its default."""
+    return int(value) if value is not None else default
 
 
-def env_float(name: str, default: float) -> float:
-    """Read a floating-point environment setting."""
-    return float(os.getenv(name, str(default)))
+def parse_float(value: str | None, default: float) -> float:
+    """Parse a floating-point value or return its default."""
+    return float(value) if value is not None else default
 
 
 load_env(ENV_FILE)
 
 LANGUAGE = os.getenv("KG_LANGUAGE", "en")
-DEFAULT_CANDIDATE_LIMIT = env_int("KG_CANDIDATE_LIMIT", 10)
-DEFAULT_PHRASE_LIMIT = env_int("KG_PHRASE_LIMIT", 2)
+DEFAULT_CANDIDATE_LIMIT = parse_int(os.getenv("KG_CANDIDATE_LIMIT"), 2)
+SEARCH_CANDIDATE_LIMIT = parse_int(os.getenv("KG_SEARCH_CANDIDATE_LIMIT"), 10)
+DEFAULT_PHRASE_LIMIT = parse_int(os.getenv("KG_PHRASE_LIMIT"), 2)
+INPUT_FILES = (
+    Path(__file__).resolve().parent / "data" / "ambiguous_words.txt",
+    Path(__file__).resolve().parent / "data" / "synonyms.txt",
+)
 WIKIDATA_URL = os.getenv("KG_WIKIDATA_URL", "https://www.wikidata.org/w/api.php")
 WIKIPEDIA_URL = os.getenv(
     "KG_WIKIPEDIA_URL", "https://{language}.wikipedia.org/w/api.php"
 )
-REQUEST_TIMEOUT = env_float("KG_REQUEST_TIMEOUT", 15.0)
-REQUEST_INTERVAL = env_float("KG_REQUEST_INTERVAL", 1.0)
+REQUEST_TIMEOUT = parse_float(os.getenv("KG_REQUEST_TIMEOUT"), 15.0)
+REQUEST_INTERVAL = parse_float(os.getenv("KG_REQUEST_INTERVAL"), 1.0)
 RETRY_STATUSES = {
     int(status)
     for status in os.getenv("KG_RETRY_STATUSES", "429,500,502,503,504").split(",")
@@ -77,71 +82,30 @@ USER_AGENT = os.getenv(
     "KG_USER_AGENT",
     "KGTestBench/0.1 (source collection; contact: you@example.org)",
 )
-_last_request_time = 0.0
-
-
-def wait_for_request() -> None:
-    """Keep external requests at least one second apart."""
-    global _last_request_time
-    elapsed = time.monotonic() - _last_request_time
-    if elapsed < REQUEST_INTERVAL:
-        time.sleep(REQUEST_INTERVAL - elapsed)
-    _last_request_time = time.monotonic()
-
-
-def decode_response(response: Any) -> str:
-    """Decode a UTF-8 API response, including gzip content."""
-    body = response.read()
-    if response.headers.get("Content-Encoding") == "gzip":
-        body = gzip.decompress(body)
-    return body.decode("utf-8")
-
-
-def request_json(url: str, params: dict[str, Any]) -> dict[str, Any]:
-    """Fetch JSON from an API with throttling and retries."""
-    query = urllib.parse.urlencode(params)
-    request = urllib.request.Request(
-        f"{url}?{query}",
-        headers={
-            "Accept": "application/json",
-            "Accept-Encoding": "gzip",
-            "User-Agent": USER_AGENT,
-        },
-    )
-    last_error: Exception | None = None
-    for attempt in range(3):
-        wait_for_request()
-        try:
-            with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
-                return json.loads(decode_response(response))
-        except urllib.error.HTTPError as error:
-            last_error = error
-            if error.code not in RETRY_STATUSES or attempt == 2:
-                raise
-            time.sleep(2**attempt)
-        except (urllib.error.URLError, TimeoutError) as error:
-            last_error = error
-            if attempt == 2:
-                raise
-            time.sleep(2**attempt)
-    raise RuntimeError("API request failed") from last_error
-
-
 def find_entity_ids(name: str, language: str, limit: int) -> list[str]:
     """Search Wikidata and return matching entity IDs."""
     response = request_json(
         WIKIDATA_URL,
         {
-            "action": "query",
-            "list": "search",
-            "srsearch": name,
-            "srnamespace": 0,
-            "srlimit": limit,
+            "action": "wbsearchentities",
+            "search": name,
+            "language": language,
             "uselang": language,
+            "limit": limit,
+            "type": "item",
             "format": "json",
         },
+        timeout=REQUEST_TIMEOUT,
+        interval=REQUEST_INTERVAL,
+        retry_statuses=RETRY_STATUSES,
+        user_agent=USER_AGENT,
     )
-    return [item["title"] for item in response.get("query", {}).get("search", [])]
+    return extract_entity_ids(response)
+
+
+def extract_entity_ids(response: dict[str, Any]) -> list[str]:
+    """Extract Wikidata IDs from a wbsearchentities response."""
+    return [item["id"] for item in response.get("search", []) if item.get("id")]
 
 
 def fetch_entity(entity_id: str, language: str) -> dict[str, Any]:
@@ -155,6 +119,10 @@ def fetch_entity(entity_id: str, language: str) -> dict[str, Any]:
             "languages": language,
             "format": "json",
         },
+        timeout=REQUEST_TIMEOUT,
+        interval=REQUEST_INTERVAL,
+        retry_statuses=RETRY_STATUSES,
+        user_agent=USER_AGENT,
     )
     return response.get("entities", {}).get(entity_id, {})
 
@@ -163,26 +131,6 @@ def split_phrases(text: str, limit: int) -> list[str]:
     """Split introductory text into at most ``limit`` sentences."""
     phrases = re.split(r"(?<=[.!?])\s+", text.strip())
     return [phrase for phrase in phrases if phrase][:limit]
-
-
-def fetch_phrases(title: str, language: str, limit: int) -> list[str]:
-    """Fetch introductory Wikipedia sentences for one page."""
-    response = request_json(
-        WIKIPEDIA_URL.format(language=language),
-        {
-            "action": "query",
-            "prop": "extracts",
-            "exintro": 1,
-            "explaintext": 1,
-            "redirects": 1,
-            "titles": title,
-            "format": "json",
-            "formatversion": 2,
-        },
-    )
-    pages = response.get("query", {}).get("pages", [])
-    extract = pages[0].get("extract", "") if pages else ""
-    return split_phrases(extract, limit)
 
 
 def clean_text(text: str) -> str:
@@ -201,8 +149,41 @@ def wikipedia_title(entity: dict[str, Any], language: str) -> str:
     return sitelinks.get(f"{language}wiki", {}).get("title", "")
 
 
+def clean_phrases(text: str, limit: int) -> list[str]:
+    """Split and clean introductory phrases, keeping non-empty results."""
+    return [
+        cleaned
+        for phrase in split_phrases(text, limit)
+        if (cleaned := clean_text(phrase))
+    ]
+
+
+def build_candidate(
+    entity_id: str,
+    entity: dict[str, Any],
+    title: str,
+    phrases: list[str],
+    language: str,
+) -> dict[str, Any]:
+    """Build one selected candidate record from resolved data."""
+    return {
+        "wikidata_id": entity_id,
+        "wikidata_label": entity.get("labels", {})
+        .get(language, {})
+        .get("value", ""),
+        "wikipedia_title": title,
+        "phrases": phrases,
+        "description": " ".join(phrases),
+    }
+
+
+def build_source(identifier: str, candidates: list[dict[str, Any]]) -> dict[str, Any]:
+    """Build an individual source record."""
+    return {"identifier": identifier, "candidates": candidates}
+
+
 def collect_source(
-    requested_name: str,
+    identifier: str,
     *,
     language: str = LANGUAGE,
     candidate_limit: int = DEFAULT_CANDIDATE_LIMIT,
@@ -210,90 +191,210 @@ def collect_source(
 ) -> dict[str, Any]:
     """Resolve one name and collect its available introductory phrases."""
     candidates: list[dict[str, Any]] = []
-    for entity_id in find_entity_ids(requested_name, language, candidate_limit):
+    for entity_id in find_entity_ids(
+        identifier, language, SEARCH_CANDIDATE_LIMIT
+    ):
         entity = fetch_entity(entity_id, language)
         title = wikipedia_title(entity, language)
         if not title:
             continue
 
-        phrases = [
-            cleaned
-            for phrase in fetch_phrases(title, language, phrase_limit)
-            if (cleaned := clean_text(phrase))
-        ]
+        phrases = clean_phrases(
+            fetch_extract(
+                title,
+                language,
+                api_url=WIKIPEDIA_URL,
+                timeout=REQUEST_TIMEOUT,
+                interval=REQUEST_INTERVAL,
+                retry_statuses=RETRY_STATUSES,
+                user_agent=USER_AGENT,
+            ),
+            phrase_limit,
+        )
         if not phrases:
             continue
 
-        candidates.append(
-            {
-                "wikidata_id": entity_id,
-                "wikidata_label": entity.get("labels", {})
-                .get(language, {})
-                .get("value", ""),
-                "wikipedia_title": title,
-                "phrases": phrases,
-                "description": " ".join(phrases),
-            }
+        candidates.append(build_candidate(entity_id, entity, title, phrases, language))
+        if len(candidates) == candidate_limit:
+            break
+
+    return build_source(identifier, candidates)
+
+
+def normalize_source(source: dict[str, Any]) -> dict[str, Any]:
+    """Normalize legacy records to the current identifier-only schema."""
+    normalized = dict(source)
+    identifier = str(
+        normalized.get("identifier") or normalized.get("requested_name") or ""
+    )
+    normalized.pop("requested_name", None)
+    normalized.pop("language", None)
+    normalized["identifier"] = identifier
+    candidates = normalized.get("candidates", [])
+    if isinstance(candidates, list):
+        limit = 2
+        normalized["candidates"] = candidates[:limit]
+    return normalized
+
+
+def load_sources(path: Path) -> list[dict[str, Any]]:
+    """Load and normalize existing source records."""
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, list):
+        raise ValueError(f"source file must contain a JSON list: {path}")
+    return [normalize_source(source) for source in data]
+
+
+def split_pair(value: str) -> list[str]:
+    """Split one synonym pair while preserving ordinary entity names."""
+    if "," in value:
+        parts = value.split(",", 1)
+    elif "-" in value:
+        parts = value.split("-", 1)
+    else:
+        parts = [value]
+    return [part.strip() for part in parts if part.strip()]
+
+
+def format_identifier(names: list[str]) -> str:
+    """Create the stable identifier for one entity or a synonym pair."""
+    return "-".join(names)
+
+
+def read_input_groups(paths: tuple[Path, ...] = INPUT_FILES) -> list[list[str]]:
+    """Read individual names and synonym pairs from the input files."""
+    groups: list[list[str]] = []
+    for path in paths:
+        if not path.is_file():
+            continue
+        for raw_line in path.read_text(encoding="utf-8").splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+            group = split_pair(line) if path.name == "synonyms.txt" else [line]
+            if group and group not in groups:
+                groups.append(group)
+    return groups
+
+
+def collect_group_source(
+    names: list[str],
+    *,
+    language: str = LANGUAGE,
+    candidate_limit: int = DEFAULT_CANDIDATE_LIMIT,
+    phrase_limit: int = DEFAULT_PHRASE_LIMIT,
+) -> dict[str, Any]:
+    """Collect one source record for an individual name or synonym pair."""
+    if len(names) == 1:
+        return collect_source(
+            names[0],
+            language=language,
+            candidate_limit=candidate_limit,
+            phrase_limit=phrase_limit,
         )
 
+    candidates: list[dict[str, Any]] = []
+    for name in names:
+        source = collect_source(
+            name,
+            language=language,
+            candidate_limit=1,
+            phrase_limit=phrase_limit,
+        )
+        for candidate in source["candidates"]:
+            candidates.append({"identifier": name, **candidate})
+
+    return combine_group_source(format_identifier(names), candidates)
+
+
+def combine_group_source(
+    identifier: str, candidates: list[dict[str, Any]]
+) -> dict[str, Any]:
+    """Build one synonym-pair record from its selected candidates."""
     return {
-        "requested_name": requested_name,
-        "language": language,
+        "identifier": identifier,
         "candidates": candidates,
+        "description": " ".join(
+            phrase for candidate in candidates for phrase in candidate["phrases"]
+        ),
     }
 
 
-def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
-    """Parse command-line arguments."""
-    parser = argparse.ArgumentParser(
-        description="Resolve Wikidata entities and collect Wikipedia source phrases."
-    )
-    parser.add_argument(
-        "names",
-        nargs="+",
-        help="Entity names to resolve, for example bass mouse",
-    )
-    parser.add_argument(
-        "--output",
-        type=Path,
-        default=Path(__file__).resolve().parent / "data" / "exam_sources.json",
-        help="JSON output path (default: KGTestBench/data/exam_sources.json)",
-    )
-    parser.add_argument("--language", default=LANGUAGE)
-    parser.add_argument("--candidate-limit", type=int, default=DEFAULT_CANDIDATE_LIMIT)
-    parser.add_argument("--phrase-limit", type=int, default=DEFAULT_PHRASE_LIMIT)
-    return parser.parse_args(argv)
+def merge_sources(
+    existing: list[dict[str, Any]],
+    new: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Preserve records and repair previous empty results when possible."""
+    new_pair_terms = {
+        term
+        for source in new
+        if source.get("identifier") and "-" in str(source["identifier"])
+        for term in str(source["identifier"]).split("-")
+    }
+    merged = [
+        source
+        for source in existing
+        if not (
+            str(source.get("identifier", "")) in new_pair_terms
+            or (
+                not source.get("candidates")
+                and "," in str(source.get("identifier", ""))
+            )
+        )
+    ]
+    positions = {
+        source.get("identifier"): index
+        for index, source in enumerate(merged)
+        if source.get("identifier")
+    }
+    for source in new:
+        name = source.get("identifier")
+        if name not in positions:
+            positions[name] = len(merged)
+            merged.append(source)
+        elif not merged[positions[name]].get("candidates") and source.get(
+            "candidates"
+        ):
+            merged[positions[name]] = source
+    return merged
 
 
-def main(argv: list[str] | None = None) -> int:
-    """Run source collection and write the JSON result."""
-    args = parse_arguments(argv)
-    if args.candidate_limit < 1 or args.phrase_limit < 1:
+def main() -> int:
+    """Collect names from the data files and write the fixed JSON output."""
+    groups = read_input_groups()
+    if not groups:
+        print("No entity names found in the data files.", file=sys.stderr)
+        return 1
+    if DEFAULT_CANDIDATE_LIMIT < 1 or DEFAULT_PHRASE_LIMIT < 1:
         print("candidate-limit and phrase-limit must be positive", file=sys.stderr)
         return 2
 
     sources: list[dict[str, Any]] = []
     try:
-        for name in args.names:
-            print(f"Resolving {name!r}...", file=sys.stderr)
+        for group in groups:
+            print(f"Resolving {format_identifier(group)!r}...", file=sys.stderr)
             sources.append(
-                collect_source(
-                    name.strip(),
-                    language=args.language,
-                    candidate_limit=args.candidate_limit,
-                    phrase_limit=args.phrase_limit,
+                collect_group_source(
+                    group,
+                    language=LANGUAGE,
+                    candidate_limit=DEFAULT_CANDIDATE_LIMIT,
+                    phrase_limit=DEFAULT_PHRASE_LIMIT,
                 )
             )
     except (RuntimeError, OSError, ValueError) as exc:
         print(f"Error collecting sources: {exc}", file=sys.stderr)
         return 1
 
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(
-        json.dumps(sources, ensure_ascii=False, indent=2) + "\n",
+    output = Path(__file__).resolve().parent / "data" / "exam_sources.json"
+    output.parent.mkdir(parents=True, exist_ok=True)
+    merged_sources = merge_sources(load_sources(output), sources)
+    output.write_text(
+        json.dumps(merged_sources, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    print(f"Saved {len(sources)} source(s) to {args.output}")
+    print(f"Saved {len(merged_sources)} source(s) to {output}")
     return 0
 
 
