@@ -195,7 +195,7 @@ def normalize_source(source: dict[str, Any]) -> dict[str, Any]:
     normalized.pop("requested_name", None)
     normalized.pop("language", None)
     normalized["identifier"] = identifier
-    candidates = normalized.get("candidates", [])
+    candidates = normalized.get("candidates")
     if isinstance(candidates, list):
         limit = 2
         normalized["candidates"] = candidates[:limit]
