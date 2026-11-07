@@ -6,6 +6,7 @@ The result is a small, inspectable JSON source layer that can be used by later g
 
 - `ExamSource.py` orchestrates input loading, Wikidata resolution, and output merging. See [docs/ExamSource.md](./docs/ExamSource.md) for the script's behavior, configuration variables, input format, output schema, and examples.
 - `api.py` provides shared HTTP, retry, throttling, and JSON response handling.
+- `wikidata.py` handles Wikidata entity searches and entity retrieval.
 - `wikipedia.py` uses `api.py` for Wikipedia-specific requests and extract retrieval.
 
 ## Requirements
@@ -38,3 +39,6 @@ Run the local test suite from the `KGTestBench` directory:
 ```powershell
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
+
+The PR workflow measures coverage for project modules outside `tests/`, except
+`api.py`, `wikidata.py`, and `wikipedia.py`.

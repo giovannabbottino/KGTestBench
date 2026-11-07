@@ -21,14 +21,10 @@ import json
 import os
 import re
 import sys
-import time
-import urllib.error
-import urllib.parse
-import urllib.request
 from pathlib import Path
 from typing import Any
 
-from api import request_json
+from wikidata import WIKIDATA_URL, fetch_entity, find_entity_ids
 from wikipedia import fetch_extract
 
 
@@ -67,7 +63,6 @@ INPUT_FILES = (
     Path(__file__).resolve().parent / "data" / "ambiguous_words.txt",
     Path(__file__).resolve().parent / "data" / "synonyms.txt",
 )
-WIKIDATA_URL = os.getenv("KG_WIKIDATA_URL", "https://www.wikidata.org/w/api.php")
 WIKIPEDIA_URL = os.getenv(
     "KG_WIKIPEDIA_URL", "https://{language}.wikipedia.org/w/api.php"
 )
@@ -82,51 +77,6 @@ USER_AGENT = os.getenv(
     "KG_USER_AGENT",
     "KGTestBench/0.1 (source collection; contact: you@example.org)",
 )
-def find_entity_ids(name: str, language: str, limit: int) -> list[str]:
-    """Search Wikidata and return matching entity IDs."""
-    response = request_json(
-        WIKIDATA_URL,
-        {
-            "action": "wbsearchentities",
-            "search": name,
-            "language": language,
-            "uselang": language,
-            "limit": limit,
-            "type": "item",
-            "format": "json",
-        },
-        timeout=REQUEST_TIMEOUT,
-        interval=REQUEST_INTERVAL,
-        retry_statuses=RETRY_STATUSES,
-        user_agent=USER_AGENT,
-    )
-    return extract_entity_ids(response)
-
-
-def extract_entity_ids(response: dict[str, Any]) -> list[str]:
-    """Extract Wikidata IDs from a wbsearchentities response."""
-    return [item["id"] for item in response.get("search", []) if item.get("id")]
-
-
-def fetch_entity(entity_id: str, language: str) -> dict[str, Any]:
-    """Fetch one Wikidata entity with its label and sitelinks."""
-    response = request_json(
-        WIKIDATA_URL,
-        {
-            "action": "wbgetentities",
-            "ids": entity_id,
-            "props": "labels|sitelinks",
-            "languages": language,
-            "format": "json",
-        },
-        timeout=REQUEST_TIMEOUT,
-        interval=REQUEST_INTERVAL,
-        retry_statuses=RETRY_STATUSES,
-        user_agent=USER_AGENT,
-    )
-    return response.get("entities", {}).get(entity_id, {})
-
-
 def split_phrases(text: str, limit: int) -> list[str]:
     """Split introductory text into at most ``limit`` sentences."""
     phrases = re.split(r"(?<=[.!?])\s+", text.strip())
@@ -192,9 +142,24 @@ def collect_source(
     """Resolve one name and collect its available introductory phrases."""
     candidates: list[dict[str, Any]] = []
     for entity_id in find_entity_ids(
-        identifier, language, SEARCH_CANDIDATE_LIMIT
+        identifier,
+        language,
+        SEARCH_CANDIDATE_LIMIT,
+        api_url=os.getenv("KG_WIKIDATA_URL", WIKIDATA_URL),
+        timeout=REQUEST_TIMEOUT,
+        interval=REQUEST_INTERVAL,
+        retry_statuses=RETRY_STATUSES,
+        user_agent=USER_AGENT,
     ):
-        entity = fetch_entity(entity_id, language)
+        entity = fetch_entity(
+            entity_id,
+            language,
+            api_url=os.getenv("KG_WIKIDATA_URL", WIKIDATA_URL),
+            timeout=REQUEST_TIMEOUT,
+            interval=REQUEST_INTERVAL,
+            retry_statuses=RETRY_STATUSES,
+            user_agent=USER_AGENT,
+        )
         title = wikipedia_title(entity, language)
         if not title:
             continue

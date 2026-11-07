@@ -15,6 +15,7 @@ PROJECT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_DIR))
 
 import ExamSource  # noqa: E402
+from wikidata import extract_entity_ids  # noqa: E402
 
 
 class ExamSourcePureTests(unittest.TestCase):
@@ -62,7 +63,7 @@ class ExamSourcePureTests(unittest.TestCase):
             ]
         }
         self.assertEqual(
-            ExamSource.extract_entity_ids(response), ["Q72946", "Q2615722"]
+            extract_entity_ids(response), ["Q72946", "Q2615722"]
         )
 
     def test_build_candidate(self) -> None:
