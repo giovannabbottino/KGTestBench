@@ -99,3 +99,7 @@ def validate_collection_limits(candidate_limit: int, phrase_limit: int) -> None:
     """Reject sizes that cannot produce a complete source."""
     if candidate_limit < 1 or phrase_limit < 1:
         raise ValueError("candidate-limit and phrase-limit must be positive")
+
+
+EXAM_PREP_FILE = SETTINGS.output_file.with_name("exam_prep.json")
+NLTK_DATA_DIR = Path(__file__).resolve().parents[1] / ".nltk_data"

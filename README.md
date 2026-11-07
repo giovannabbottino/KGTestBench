@@ -11,6 +11,7 @@ The result is a small, inspectable JSON source layer that can be used by later g
 - `utils/config.py` loads `.env` settings and provides runtime configuration.
 - `utils/wikidata.py` handles entity searches, candidate selection, metadata and Wikipedia sitelinks.
 - `utils/wikipedia.py` uses `utils/api.py` for Wikipedia-specific requests and extract retrieval.
+- [ExamPrep.py](./ExamPrep.py) prepares individual and combined RDF graphs from source JSON. See [docs/ExamPrep.md](./docs/ExamPrep.md) for usage and output.
 
 ## Requirements
 
