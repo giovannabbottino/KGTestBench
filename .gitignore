@@ -1,0 +1,17 @@
+# Resultados gerados pelo ExamSource
+*.json
+data/*.json
+
+# Cache e artefatos Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Arquivos locais de configuração
+.env
