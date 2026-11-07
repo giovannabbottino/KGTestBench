@@ -100,3 +100,28 @@ def find_candidate_ids(names: list[str], language: str) -> list[str]:
     if ids[0] == ids[1]:
         raise RuntimeError("the two names resolved to the same Wikidata entity")
     return ids
+
+
+def find_entity_id_by_name(name: str, language: str) -> str | None:
+    """Resolve a description phrase to its first result, allowing no match."""
+    matches = find_entity_ids(name, language, 1, **request_options(SETTINGS.wikidata_url))
+    return matches[0] if matches else None
+
+
+def fetch_labels(entity_ids: set[str], language: str) -> dict[str, str]:
+    """Fetch labels in batches of at most 50 Wikidata items."""
+    labels = {}
+    ordered = sorted(entity_ids)
+    for start in range(0, len(ordered), 50):
+        options = request_options(SETTINGS.wikidata_url)
+        url = options.pop("api_url")
+        response = request_json(url, {
+            "action": "wbgetentities", "format": "json",
+            "ids": "|".join(ordered[start:start + 50]),
+            "languages": language, "props": "labels",
+        }, **options)
+        for entity_id, entity in response.get("entities", {}).items():
+            label = entity.get("labels", {}).get(language, {}).get("value")
+            if label:
+                labels[entity_id] = label
+    return labels
