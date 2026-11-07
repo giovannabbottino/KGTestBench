@@ -32,10 +32,9 @@ jobs:
           python -m pip install -r requirements.txt coverage
 
       - name: Run KGTestBench tests with coverage
-        run: >-
+        run: |
           # Coverage is intentionally limited to ExamSource.py.
-          python -m coverage run --branch --source=ExamSource
-          -m unittest discover -s tests -p "test_*.py" -v
+          python -m coverage run --branch --source=ExamSource -m unittest discover -s tests -p "test_*.py" -v
 
       - name: Check coverage
         run: python -m coverage report --show-missing --fail-under=40
