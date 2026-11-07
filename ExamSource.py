@@ -256,8 +256,8 @@ def parse_arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path(__file__).resolve().parent / "exam_sources.json",
-        help="JSON output path (default: KGTestBench/exam_sources.json)",
+        default=Path(__file__).resolve().parent / "data" / "exam_sources.json",
+        help="JSON output path (default: KGTestBench/data/exam_sources.json)",
     )
     parser.add_argument("--language", default=LANGUAGE)
     parser.add_argument("--candidate-limit", type=int, default=DEFAULT_CANDIDATE_LIMIT)

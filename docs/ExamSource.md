@@ -24,10 +24,16 @@ changing the source-collection workflow.
 Run from the repository root:
 
 ```powershell
-python KGTestBench/ExamSource.py bass mouse jaguar --output KGTestBench/data/exam_sources.json
+python KGTestBench/ExamSource.py bass mouse jaguar
 ```
 
-The default output path is `KGTestBench/exam_sources.json`.
+If your current directory is `KGTestBench`, omit the `KGTestBench/` prefix:
+
+```powershell
+python ExamSource.py bass mouse jaguar
+```
+
+The default output path is `KGTestBench/data/exam_sources.json`.
 
 Before running the script, copy the environment template:
 
@@ -46,7 +52,7 @@ values loaded from that file. The available settings are `KG_LANGUAGE`,
 | Option | Default | Description |
 | --- | --- | --- |
 | positional `names` | required | One or more names to resolve. |
-| `--output` | `KGTestBench/exam_sources.json` | JSON output path. |
+| `--output` | `KGTestBench/data/exam_sources.json` | JSON output path. |
 | `--language` | `en` | Wikidata and Wikipedia language code. |
 | `--candidate-limit` | `10` | Maximum Wikidata candidates per name. |
 | `--phrase-limit` | `2` | Maximum introductory phrases per candidate. |

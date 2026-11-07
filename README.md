@@ -55,11 +55,11 @@ Or, from inside the KGTestBench directory:
 python ExamSource.py Python Mercury Saturn --output data/exam_sources.json
 ```
 
-The default output is `exam_sources.json` in the KGTestBench directory. To
-write a different file:
+The default output is `data/exam_sources.json` in the KGTestBench directory. To
+write a different file inside `data/`:
 
 ```powershell
-python KGTestBench/ExamSource.py Amazon Seal --output data/amazon_seal.json
+python KGTestBench/ExamSource.py Amazon Seal --output KGTestBench/data/amazon_seal.json
 ```
 
 The script also supports `--language`, `--candidate-limit`, and
