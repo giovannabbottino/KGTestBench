@@ -5,10 +5,12 @@ KGTestBench collects source material for knowledge-graph experiments. Given an e
 The result is a small, inspectable JSON source layer that can be used by later graph-construction or evaluation workflows.
 
 - `ExamSource.py` orchestrates input loading, Wikidata resolution, and output merging. See [docs/ExamSource.md](./docs/ExamSource.md) for the script's behavior, configuration variables, input format, output schema, and examples.
-- `api.py` provides shared HTTP, retry, throttling, and JSON response handling.
-- `config.py` loads `.env` settings and provides runtime configuration.
-- `wikidata.py` handles Wikidata entity searches and entity retrieval.
-- `wikipedia.py` uses `api.py` for Wikipedia-specific requests and extract retrieval.
+- `utils/text.py` provides pure text cleaning, splitting and uniqueness helpers.
+- `utils/file.py` provides reusable UTF-8 file operations.
+- `utils/api.py` provides shared HTTP, retry, throttling, and JSON response handling.
+- `utils/config.py` loads `.env` settings and provides runtime configuration.
+- `utils/wikidata.py` handles entity searches, candidate selection, metadata and Wikipedia sitelinks.
+- `utils/wikipedia.py` uses `utils/api.py` for Wikipedia-specific requests and extract retrieval.
 
 ## Requirements
 
@@ -40,6 +42,3 @@ Run the local test suite from the `KGTestBench` directory:
 ```powershell
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
-
-The PR workflow measures coverage for project modules outside `tests/`, except
-`api.py`, `config.py`, `wikidata.py`, and `wikipedia.py`.

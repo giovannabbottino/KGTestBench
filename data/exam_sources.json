@@ -28,16 +28,6 @@
     "identifier": "Mercury",
     "candidates": [
       {
-        "wikidata_id": "Q165745",
-        "wikidata_label": "Mercury Records",
-        "wikipedia_title": "Mercury Records",
-        "phrases": [
-          "Mercury Records is an American record label owned by Universal Music Group.",
-          "It had significant success as an independent operation in the 1940s and 1950s."
-        ],
-        "description": "Mercury Records is an American record label owned by Universal Music Group. It had significant success as an independent operation in the 1940s and 1950s."
-      },
-      {
         "wikidata_id": "Q613883",
         "wikidata_label": "Mercury",
         "wikipedia_title": "Mercury (automobile)",
@@ -46,6 +36,16 @@
           "Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company."
         ],
         "description": "Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company."
+      },
+      {
+        "wikidata_id": "Q1231263",
+        "wikidata_label": "Mercury",
+        "wikipedia_title": "Mercury, Savoie",
+        "phrases": [
+          "Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France.",
+          "It is part of the urban area of Albertville."
+        ],
+        "description": "Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville."
       }
     ]
   },
@@ -67,10 +67,10 @@
         "wikidata_label": "Saturn",
         "wikipedia_title": "Saturn",
         "phrases": [
-          "Saturn is the sixth planet from the Sun, and is the second largest planet in the Solar System, after Jupiter.",
+          "Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter.",
           "It is a gas giant, with an average radius of about 9 times that of Earth."
         ],
-        "description": "Saturn is the sixth planet from the Sun, and is the second largest planet in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth."
+        "description": "Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth."
       }
     ]
   },
@@ -82,10 +82,9 @@
         "wikidata_label": "Amazon",
         "wikipedia_title": "Amazon (company)",
         "phrases": [
-          "Amazon.com, Inc.",
-          "is an American multinational conglomerate engaged in e-commerce, retail, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence."
+          "Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence."
         ],
-        "description": "Amazon.com, Inc. is an American multinational conglomerate engaged in e-commerce, retail, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence."
+        "description": "Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence."
       },
       {
         "wikidata_id": "Q40040",
@@ -128,7 +127,6 @@
     "identifier": "House-Building",
     "candidates": [
       {
-        "identifier": "House",
         "wikidata_id": "Q3947",
         "wikidata_label": "house",
         "wikipedia_title": "House",
@@ -136,10 +134,10 @@
           "A house is a residential building.",
           "It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems."
         ],
-        "description": "A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems."
+        "description": "A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems.",
+        "identifier": "House"
       },
       {
-        "identifier": "Building",
         "wikidata_id": "Q41176",
         "wikidata_label": "building",
         "wikipedia_title": "Building",
@@ -147,7 +145,8 @@
           "A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory.",
           "Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons."
         ],
-        "description": "A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons."
+        "description": "A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.",
+        "identifier": "Building"
       }
     ],
     "description": "A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons."
@@ -156,7 +155,6 @@
     "identifier": "River-Stream",
     "candidates": [
       {
-        "identifier": "River",
         "wikidata_id": "Q4022",
         "wikidata_label": "river",
         "wikipedia_title": "River",
@@ -164,10 +162,10 @@
           "A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river.",
           "A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons."
         ],
-        "description": "A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons."
+        "description": "A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons.",
+        "identifier": "River"
       },
       {
-        "identifier": "Stream",
         "wikidata_id": "Q47521",
         "wikidata_label": "stream",
         "wikipedia_title": "Stream",
@@ -175,7 +173,8 @@
           "A stream is a continuous body of surface water flowing within the bed and banks of a channel.",
           "The channel is a watercourse, although the watercourse may be seasonally or periodically dry."
         ],
-        "description": "A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry."
+        "description": "A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.",
+        "identifier": "Stream"
       }
     ],
     "description": "A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry."
@@ -184,7 +183,6 @@
     "identifier": "Mountain-Hill",
     "candidates": [
       {
-        "identifier": "Mountain",
         "wikidata_id": "Q8502",
         "wikidata_label": "mountain",
         "wikipedia_title": "Mountain",
@@ -192,10 +190,10 @@
           "A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock.",
           "Although there are no universally accepted definitions, a mountain is usually considered higher than a hill."
         ],
-        "description": "A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill."
+        "description": "A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill.",
+        "identifier": "Mountain"
       },
       {
-        "identifier": "Hill",
         "wikidata_id": "Q973239",
         "wikidata_label": "Hill",
         "wikipedia_title": "Hill (surname)",
@@ -203,7 +201,8 @@
           "Hill is a surname of English and Scottish origin, meaning.",
           "It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States."
         ],
-        "description": "Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States."
+        "description": "Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.",
+        "identifier": "Hill"
       }
     ],
     "description": "A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States."
@@ -212,7 +211,6 @@
     "identifier": "Lake-Pond",
     "candidates": [
       {
-        "identifier": "Lake",
         "wikidata_id": "Q23397",
         "wikidata_label": "lake",
         "wikipedia_title": "Lake",
@@ -220,27 +218,27 @@
           "A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface.",
           "It is localized in a basin or interconnected basins surrounded by dry land."
         ],
-        "description": "A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land."
+        "description": "A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land.",
+        "identifier": "Lake"
       },
       {
-        "identifier": "Pond",
-        "wikidata_id": "Q21450328",
-        "wikidata_label": "Pond",
-        "wikipedia_title": "Pond (surname)",
+        "wikidata_id": "Q12719646",
+        "wikidata_label": "pond",
+        "wikipedia_title": "Pond",
         "phrases": [
-          "Pond is an English surname.",
-          "Initial recordings of potential spelling variations of this surname first appear in Sussex, England in the 12th century, suggesting Old English origin."
+          "A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially.",
+          "A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands."
         ],
-        "description": "Pond is an English surname. Initial recordings of potential spelling variations of this surname first appear in Sussex, England in the 12th century, suggesting Old English origin."
+        "description": "A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.",
+        "identifier": "Pond"
       }
     ],
-    "description": "A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. Pond is an English surname. Initial recordings of potential spelling variations of this surname first appear in Sussex, England in the 12th century, suggesting Old English origin."
+    "description": "A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands."
   },
   {
     "identifier": "Forest-Woodland",
     "candidates": [
       {
-        "identifier": "Forest",
         "wikidata_id": "Q72946",
         "wikidata_label": "Forest",
         "wikipedia_title": "Forest, Belgium",
@@ -248,10 +246,10 @@
           "Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium.",
           "Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos."
         ],
-        "description": "Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos."
+        "description": "Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos.",
+        "identifier": "Forest"
       },
       {
-        "identifier": "Woodland",
         "wikidata_id": "Q2615722",
         "wikidata_label": "Woodland",
         "wikipedia_title": "Woodland, Devon",
@@ -259,7 +257,8 @@
           "Woodland is a small hamlet and civil parish in Teignbridge, Devon, England.",
           "The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town."
         ],
-        "description": "Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town."
+        "description": "Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.",
+        "identifier": "Woodland"
       }
     ],
     "description": "Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town."

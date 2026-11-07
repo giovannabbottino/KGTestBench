@@ -11,3 +11,5 @@ env/
 
 # Arquivos locais de configuração
 .env
+
+.nltk_data/
