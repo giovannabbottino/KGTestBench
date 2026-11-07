@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import os
 import sys
 import unittest
 from pathlib import Path
@@ -31,12 +30,6 @@ class ExamSourcePureTests(unittest.TestCase):
             ExamSource.clean_phrases('First. "discarded" Second.', 2),
             ["First.", "Second."],
         )
-
-    def test_parse_values(self) -> None:
-        self.assertEqual(ExamSource.parse_int("7", 1), 7)
-        self.assertEqual(ExamSource.parse_int(None, 1), 1)
-        self.assertEqual(ExamSource.parse_float("2.5", 1.0), 2.5)
-        self.assertEqual(ExamSource.parse_float(None, 1.0), 1.0)
 
     def test_split_pair_supports_comma_and_hyphen(self) -> None:
         self.assertEqual(
@@ -154,20 +147,6 @@ class ExamSourcePureTests(unittest.TestCase):
 
     def test_wikipedia_title_missing(self) -> None:
         self.assertEqual(ExamSource.wikipedia_title({}, "en"), "")
-
-    def test_load_env(self) -> None:
-        with TemporaryDirectory() as directory:
-            env_path = Path(directory) / ".env"
-            env_path.write_text(
-                "NEW_SETTING=from-file\nEXISTING_SETTING=from-file\n",
-                encoding="utf-8",
-            )
-            with patch.dict(
-                os.environ, {"EXISTING_SETTING": "from-shell"}, clear=False
-            ):
-                ExamSource.load_env(env_path)
-                self.assertEqual(os.environ["NEW_SETTING"], "from-file")
-                self.assertEqual(os.environ["EXISTING_SETTING"], "from-shell")
 
     def test_read_input_groups(self) -> None:
         with TemporaryDirectory() as directory:

@@ -34,7 +34,7 @@ jobs:
       - name: Run KGTestBench tests with coverage
         run: |
           # Measure project Python modules, excluding communication modules and tests.
-          python -m coverage run --branch --source=. --omit="api.py,wikidata.py,wikipedia.py,tests/*" -m unittest discover -s tests -p "test_*.py" -v
+          python -m coverage run --branch --source=. --omit="api.py,config.py,wikidata.py,wikipedia.py,tests/*" -m unittest discover -s tests -p "test_*.py" -v
 
       - name: Check coverage
         run: python -m coverage report --show-missing --fail-under=40

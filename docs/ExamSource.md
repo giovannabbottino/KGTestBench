@@ -11,8 +11,9 @@ For each input item, the script:
 3. retrieves up to two introductory phrases; and
 4. writes the result to `data/exam_sources.json`.
 
-Shared HTTP communication is implemented in `api.py`; Wikipedia-specific
-requests are implemented in `wikipedia.py`.
+Runtime settings are loaded from `.env` by `config.py`. Shared HTTP
+communication is implemented in `api.py`; Wikidata and Wikipedia requests are
+implemented in `wikidata.py` and `wikipedia.py`.
 
 ## Usage
 

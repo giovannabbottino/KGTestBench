@@ -18,65 +18,26 @@ Run from the ``KGTestBench`` directory with no command-line arguments:
 from __future__ import annotations
 
 import json
-import os
 import re
 import sys
 from pathlib import Path
 from typing import Any
 
-from wikidata import WIKIDATA_URL, fetch_entity, find_entity_ids
+from config import SETTINGS
+from wikidata import fetch_entity, find_entity_ids
 from wikipedia import fetch_extract
 
 
-ENV_FILE = Path(__file__).resolve().parent / ".env"
-
-
-def load_env(path: Path) -> None:
-    """Load simple KEY=VALUE settings without overwriting shell variables."""
-    if not path.is_file():
-        return
-    for raw_line in path.read_text(encoding="utf-8").splitlines():
-        line = raw_line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
-
-
-def parse_int(value: str | None, default: int) -> int:
-    """Parse an integer value or return its default."""
-    return int(value) if value is not None else default
-
-
-def parse_float(value: str | None, default: float) -> float:
-    """Parse a floating-point value or return its default."""
-    return float(value) if value is not None else default
-
-
-load_env(ENV_FILE)
-
-LANGUAGE = os.getenv("KG_LANGUAGE", "en")
-DEFAULT_CANDIDATE_LIMIT = parse_int(os.getenv("KG_CANDIDATE_LIMIT"), 2)
-SEARCH_CANDIDATE_LIMIT = parse_int(os.getenv("KG_SEARCH_CANDIDATE_LIMIT"), 10)
-DEFAULT_PHRASE_LIMIT = parse_int(os.getenv("KG_PHRASE_LIMIT"), 2)
-INPUT_FILES = (
-    Path(__file__).resolve().parent / "data" / "ambiguous_words.txt",
-    Path(__file__).resolve().parent / "data" / "synonyms.txt",
-)
-WIKIPEDIA_URL = os.getenv(
-    "KG_WIKIPEDIA_URL", "https://{language}.wikipedia.org/w/api.php"
-)
-REQUEST_TIMEOUT = parse_float(os.getenv("KG_REQUEST_TIMEOUT"), 15.0)
-REQUEST_INTERVAL = parse_float(os.getenv("KG_REQUEST_INTERVAL"), 1.0)
-RETRY_STATUSES = {
-    int(status)
-    for status in os.getenv("KG_RETRY_STATUSES", "429,500,502,503,504").split(",")
-    if status.strip()
-}
-USER_AGENT = os.getenv(
-    "KG_USER_AGENT",
-    "KGTestBench/0.1 (source collection; contact: you@example.org)",
-)
+LANGUAGE = SETTINGS.language
+DEFAULT_CANDIDATE_LIMIT = SETTINGS.candidate_limit
+SEARCH_CANDIDATE_LIMIT = SETTINGS.search_candidate_limit
+DEFAULT_PHRASE_LIMIT = SETTINGS.phrase_limit
+INPUT_FILES = SETTINGS.input_files
+WIKIPEDIA_URL = SETTINGS.wikipedia_url
+REQUEST_TIMEOUT = SETTINGS.request_timeout
+REQUEST_INTERVAL = SETTINGS.request_interval
+RETRY_STATUSES = SETTINGS.retry_statuses
+USER_AGENT = SETTINGS.user_agent
 def split_phrases(text: str, limit: int) -> list[str]:
     """Split introductory text into at most ``limit`` sentences."""
     phrases = re.split(r"(?<=[.!?])\s+", text.strip())
@@ -145,7 +106,7 @@ def collect_source(
         identifier,
         language,
         SEARCH_CANDIDATE_LIMIT,
-        api_url=os.getenv("KG_WIKIDATA_URL", WIKIDATA_URL),
+        api_url=SETTINGS.wikidata_url,
         timeout=REQUEST_TIMEOUT,
         interval=REQUEST_INTERVAL,
         retry_statuses=RETRY_STATUSES,
@@ -154,7 +115,7 @@ def collect_source(
         entity = fetch_entity(
             entity_id,
             language,
-            api_url=os.getenv("KG_WIKIDATA_URL", WIKIDATA_URL),
+            api_url=SETTINGS.wikidata_url,
             timeout=REQUEST_TIMEOUT,
             interval=REQUEST_INTERVAL,
             retry_statuses=RETRY_STATUSES,
@@ -352,7 +313,7 @@ def main() -> int:
         print(f"Error collecting sources: {exc}", file=sys.stderr)
         return 1
 
-    output = Path(__file__).resolve().parent / "data" / "exam_sources.json"
+    output = SETTINGS.output_file
     output.parent.mkdir(parents=True, exist_ok=True)
     merged_sources = merge_sources(load_sources(output), sources)
     output.write_text(

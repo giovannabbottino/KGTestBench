@@ -1,3 +1,4 @@
 nltk
 stopwordsiso
 rdflib
+python-dotenv
