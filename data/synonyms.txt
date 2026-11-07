@@ -1,0 +1,5 @@
+House,Building
+River,Stream
+Mountain,Hill
+Lake,Pond
+Forest,Woodland
