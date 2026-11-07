@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from api import request_json
+from utils.api import request_json
+from utils.config import SETTINGS, request_options
 
 
 WIKIDATA_URL = "https://www.wikidata.org/w/api.php"
@@ -72,3 +73,30 @@ def fetch_entity(
         user_agent=user_agent,
     )
     return response.get("entities", {}).get(entity_id, {})
+
+
+def wikipedia_title(entity: dict[str, Any], language: str) -> str:
+    return entity.get("sitelinks", {}).get(f"{language}wiki", {}).get("title", "")
+
+
+def find_first_entity_id(name: str, language: str) -> str:
+    """Return the first match, failing when the search returns no entity."""
+    matches = find_entity_ids(
+        name, language, 1, **request_options(SETTINGS.wikidata_url),
+    )
+    if not matches:
+        raise RuntimeError(f"no entity found for '{name}'")
+    return matches[0]
+
+
+def find_candidate_ids(names: list[str], language: str) -> list[str]:
+    """Search candidates for one ambiguous name or the first match of each term."""
+    if len(names) == 1:
+        return find_entity_ids(
+            names[0], language, SETTINGS.search_candidate_limit,
+            **request_options(SETTINGS.wikidata_url),
+        )
+    ids = [find_first_entity_id(name, language) for name in names]
+    if ids[0] == ids[1]:
+        raise RuntimeError("the two names resolved to the same Wikidata entity")
+    return ids

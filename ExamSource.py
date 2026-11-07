@@ -1,90 +1,30 @@
 #!/usr/bin/env python3
-"""Collect source texts for KG test-bench experiments.
-
-For each input name this script:
-
-1. searches Wikidata for candidate entities;
-2. resolves each candidate to its English Wikipedia page; and
-3. retrieves the introductory sentences from that page.
-
-The output is JSON so it can be used as source material for later
-knowledge-graph construction experiments.
-
-Run from the ``KGTestBench`` directory with no command-line arguments:
-
-    python ExamSource.py
-"""
+"""Collect complete Wikipedia sources and manage experiment records."""
 
 from __future__ import annotations
 
-import json
-import re
 import sys
 from pathlib import Path
 from typing import Any
 
-from config import SETTINGS
-from wikidata import fetch_entity, find_entity_ids
-from wikipedia import fetch_extract
-
-
-LANGUAGE = SETTINGS.language
-DEFAULT_CANDIDATE_LIMIT = SETTINGS.candidate_limit
-SEARCH_CANDIDATE_LIMIT = SETTINGS.search_candidate_limit
-DEFAULT_PHRASE_LIMIT = SETTINGS.phrase_limit
-INPUT_FILES = SETTINGS.input_files
-WIKIPEDIA_URL = SETTINGS.wikipedia_url
-REQUEST_TIMEOUT = SETTINGS.request_timeout
-REQUEST_INTERVAL = SETTINGS.request_interval
-RETRY_STATUSES = SETTINGS.retry_statuses
-USER_AGENT = SETTINGS.user_agent
-def split_phrases(text: str, limit: int) -> list[str]:
-    """Split introductory text into at most ``limit`` sentences."""
-    phrases = re.split(r"(?<=[.!?])\s+", text.strip())
-    return [phrase for phrase in phrases if phrase][:limit]
-
-
-def clean_text(text: str) -> str:
-    """Remove quoted/parenthesized fragments and normalize whitespace."""
-    text = re.sub(r'"[^"]*"', "", text)
-    while re.search(r"\([^()]*\)", text):
-        text = re.sub(r"\([^()]*\)", "", text)
-    text = re.sub(r"\s+", " ", text)
-    text = re.sub(r"\s+([,.;:!?])", r"\1", text)
-    return text.strip()
-
-
-def wikipedia_title(entity: dict[str, Any], language: str) -> str:
-    """Return the Wikipedia title linked from a Wikidata entity."""
-    sitelinks = entity.get("sitelinks", {})
-    return sitelinks.get(f"{language}wiki", {}).get("title", "")
-
-
-def clean_phrases(text: str, limit: int) -> list[str]:
-    """Split and clean introductory phrases, keeping non-empty results."""
-    return [
-        cleaned
-        for phrase in split_phrases(text, limit)
-        if (cleaned := clean_text(phrase))
-    ]
+from utils.config import SETTINGS, request_options, validate_collection_limits
+from utils.wikidata import fetch_entity, find_candidate_ids, wikipedia_title
+from utils.wikipedia import fetch_clean_phrases
+from utils.file import read_json_records, read_lines, write_json_records
+from utils.text import format_identifier, phrase_key, select_unique_phrases, sentence_text
 
 
 def build_candidate(
-    entity_id: str,
-    entity: dict[str, Any],
-    title: str,
-    phrases: list[str],
-    language: str,
+    entity_id: str, entity: dict[str, Any], title: str,
+    phrases: list[str], language: str,
 ) -> dict[str, Any]:
-    """Build one selected candidate record from resolved data."""
+    """Build candidate metadata from collected data without performing I/O."""
     return {
         "wikidata_id": entity_id,
-        "wikidata_label": entity.get("labels", {})
-        .get(language, {})
-        .get("value", ""),
+        "wikidata_label": entity.get("labels", {}).get(language, {}).get("value", ""),
         "wikipedia_title": title,
         "phrases": phrases,
-        "description": " ".join(phrases),
+        "description": " ".join(sentence_text(phrase) for phrase in phrases),
     }
 
 
@@ -93,58 +33,85 @@ def build_source(identifier: str, candidates: list[dict[str, Any]]) -> dict[str,
     return {"identifier": identifier, "candidates": candidates}
 
 
-def collect_source(
-    identifier: str,
-    *,
-    language: str = LANGUAGE,
-    candidate_limit: int = DEFAULT_CANDIDATE_LIMIT,
-    phrase_limit: int = DEFAULT_PHRASE_LIMIT,
+def combine_group_source(
+    identifier: str, candidates: list[dict[str, Any]],
 ) -> dict[str, Any]:
-    """Resolve one name and collect its available introductory phrases."""
-    candidates: list[dict[str, Any]] = []
-    for entity_id in find_entity_ids(
-        identifier,
-        language,
-        SEARCH_CANDIDATE_LIMIT,
-        api_url=SETTINGS.wikidata_url,
-        timeout=REQUEST_TIMEOUT,
-        interval=REQUEST_INTERVAL,
-        retry_statuses=RETRY_STATUSES,
-        user_agent=USER_AGENT,
-    ):
-        entity = fetch_entity(
-            entity_id,
-            language,
-            api_url=SETTINGS.wikidata_url,
-            timeout=REQUEST_TIMEOUT,
-            interval=REQUEST_INTERVAL,
-            retry_statuses=RETRY_STATUSES,
-            user_agent=USER_AGENT,
-        )
-        title = wikipedia_title(entity, language)
-        if not title:
+    """Combine candidate descriptions without modifying the input records."""
+    phrases = [phrase for candidate in candidates for phrase in candidate["phrases"]]
+    return {
+        **build_source(identifier, candidates),
+        "description": " ".join(sentence_text(phrase) for phrase in phrases),
+    }
+
+
+def normalize_names(names: list[str]) -> list[str]:
+    """Validate and trim one name or two pair terms."""
+    normalized = [name.strip() for name in names]
+    if len(normalized) not in (1, 2) or not all(normalized):
+        raise ValueError("provide one or two non-empty entity names")
+    return normalized
+
+
+def fetch_candidate(
+    entity_id: str, language: str, phrase_limit: int, excluded: set[str],
+) -> dict[str, Any] | None:
+    """Fetch one entity and return a candidate only when its text is complete."""
+    entity = fetch_entity(entity_id, language, **request_options(SETTINGS.wikidata_url))
+    title = wikipedia_title(entity, language)
+    phrases = select_unique_phrases(
+        fetch_clean_phrases(title, language, phrase_limit), excluded, phrase_limit,
+    )
+    if len(phrases) != phrase_limit:
+        return None
+    return build_candidate(entity_id, entity, title, phrases, language)
+
+
+def collect_candidates(
+    entity_ids: list[str], language: str, required: int, phrase_limit: int,
+) -> list[dict[str, Any]]:
+    """Collect complete candidates without reusing accepted phrases."""
+    candidates = []
+    seen: set[str] = set()
+    for entity_id in entity_ids:
+        candidate = fetch_candidate(entity_id, language, phrase_limit, seen)
+        if candidate is None:
             continue
+        candidates.append(candidate)
+        seen.update(phrase_key(phrase) for phrase in candidate["phrases"])
+        if len(candidates) == required:
+            return candidates
+    raise RuntimeError(
+        f"must resolve to {required} entities with {phrase_limit} unique Wikipedia phrases each"
+    )
 
-        phrases = clean_phrases(
-            fetch_extract(
-                title,
-                language,
-                api_url=WIKIPEDIA_URL,
-                timeout=REQUEST_TIMEOUT,
-                interval=REQUEST_INTERVAL,
-                retry_statuses=RETRY_STATUSES,
-                user_agent=USER_AGENT,
-            ),
-            phrase_limit,
-        )
-        if not phrases:
-            continue
 
-        candidates.append(build_candidate(entity_id, entity, title, phrases, language))
-        if len(candidates) == candidate_limit:
-            break
+def build_group_source(
+    names: list[str], candidates: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Assemble a group without mutating its candidate dictionaries."""
+    identifier = format_identifier(names)
+    if len(names) == 1:
+        return build_source(identifier, candidates)
+    named = [dict(candidate, identifier=name) for name, candidate in zip(names, candidates)]
+    return combine_group_source(identifier, named)
 
-    return build_source(identifier, candidates)
+
+def collect_group_source(
+    names: list[str], *, language: str = SETTINGS.language,
+    candidate_limit: int = SETTINGS.candidate_limit,
+    phrase_limit: int = SETTINGS.phrase_limit,
+) -> dict[str, Any]:
+    """Resolve names, collect complete texts, and assemble the source record."""
+    names = normalize_names(names)
+    validate_collection_limits(candidate_limit, phrase_limit)
+    ids = find_candidate_ids(names, language)
+    required = candidate_limit if len(names) == 1 else 2
+    candidates = collect_candidates(ids, language, required, phrase_limit)
+    return build_group_source(names, candidates)
+
+
+def collect_source(identifier: str, **options: Any) -> dict[str, Any]:
+    return collect_group_source([identifier], **options)
 
 
 def normalize_source(source: dict[str, Any]) -> dict[str, Any]:
@@ -156,21 +123,12 @@ def normalize_source(source: dict[str, Any]) -> dict[str, Any]:
     normalized.pop("requested_name", None)
     normalized.pop("language", None)
     normalized["identifier"] = identifier
-    candidates = normalized.get("candidates")
-    if isinstance(candidates, list):
-        limit = 2
-        normalized["candidates"] = candidates[:limit]
     return normalized
 
 
 def load_sources(path: Path) -> list[dict[str, Any]]:
-    """Load and normalize existing source records."""
-    if not path.exists():
-        return []
-    data = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(data, list):
-        raise ValueError(f"source file must contain a JSON list: {path}")
-    return [normalize_source(source) for source in data]
+    """Load and normalize persisted experiment records."""
+    return [normalize_source(row) for row in read_json_records(path)]
 
 
 def split_pair(value: str) -> list[str]:
@@ -184,143 +142,107 @@ def split_pair(value: str) -> list[str]:
     return [part.strip() for part in parts if part.strip()]
 
 
-def format_identifier(names: list[str]) -> str:
-    """Create the stable identifier for one entity or a synonym pair."""
-    return "-".join(names)
+def parse_input_line(line: str, paired: bool) -> list[str]:
+    """Parse an input line, ignoring blanks and comments."""
+    line = line.strip()
+    if not line or line.startswith("#"):
+        return []
+    return split_pair(line) if paired else [line]
 
 
-def read_input_groups(paths: tuple[Path, ...] = INPUT_FILES) -> list[list[str]]:
-    """Read individual names and synonym pairs from the input files."""
-    groups: list[list[str]] = []
+def read_input_groups(paths: tuple[Path, ...]) -> list[list[str]]:
+    """Read unique groups from configured input files."""
+    groups = []
     for path in paths:
-        if not path.is_file():
-            continue
-        for raw_line in path.read_text(encoding="utf-8").splitlines():
-            line = raw_line.strip()
-            if not line or line.startswith("#"):
-                continue
-            group = split_pair(line) if path.name == "synonyms.txt" else [line]
+        for line in read_lines(path):
+            group = parse_input_line(line, path.name == "synonyms.txt")
             if group and group not in groups:
                 groups.append(group)
     return groups
 
 
-def collect_group_source(
-    names: list[str],
-    *,
-    language: str = LANGUAGE,
-    candidate_limit: int = DEFAULT_CANDIDATE_LIMIT,
-    phrase_limit: int = DEFAULT_PHRASE_LIMIT,
-) -> dict[str, Any]:
-    """Collect one source record for an individual name or synonym pair."""
-    if len(names) == 1:
-        return collect_source(
-            names[0],
-            language=language,
-            candidate_limit=candidate_limit,
-            phrase_limit=phrase_limit,
-        )
-
-    candidates: list[dict[str, Any]] = []
-    for name in names:
-        source = collect_source(
-            name,
-            language=language,
-            candidate_limit=1,
-            phrase_limit=phrase_limit,
-        )
-        for candidate in source["candidates"]:
-            candidates.append({"identifier": name, **candidate})
-
-    return combine_group_source(format_identifier(names), candidates)
+def source_key(source: dict[str, Any]) -> str:
+    """Normalize an identifier for matching stored records."""
+    return str(source.get("identifier", "")).strip().casefold()
 
 
-def combine_group_source(
-    identifier: str, candidates: list[dict[str, Any]]
-) -> dict[str, Any]:
-    """Build one synonym-pair record from its selected candidates."""
+def pair_terms(sources: list[dict[str, Any]]) -> set[str]:
+    """Find standalone terms superseded by newly combined pair records."""
     return {
-        "identifier": identifier,
-        "candidates": candidates,
-        "description": " ".join(
-            phrase for candidate in candidates for phrase in candidate["phrases"]
-        ),
+        term for source in sources if "-" in source_key(source)
+        for term in source_key(source).split("-")
     }
+
+
+def is_obsolete_source(source: dict[str, Any], terms: set[str]) -> bool:
+    """Identify legacy standalone terms and empty comma-separated pairs."""
+    key = source_key(source)
+    return key in terms or (not source.get("candidates") and "," in key)
 
 
 def merge_sources(
-    existing: list[dict[str, Any]],
-    new: list[dict[str, Any]],
+    existing: list[dict[str, Any]], new: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Preserve records and repair previous empty results when possible."""
-    new_pair_terms = {
-        term
-        for source in new
-        if source.get("identifier") and "-" in str(source["identifier"])
-        for term in str(source["identifier"]).split("-")
+    """Keep populated records and replace empty ones without mutating inputs."""
+    terms = pair_terms(new)
+    merged = {
+        source_key(row): row for row in existing
+        if not is_obsolete_source(row, terms)
     }
-    merged = [
-        source
-        for source in existing
-        if not (
-            str(source.get("identifier", "")) in new_pair_terms
-            or (
-                not source.get("candidates")
-                and "," in str(source.get("identifier", ""))
-            )
+    for row in new:
+        key = source_key(row)
+        if key not in merged or (not merged[key].get("candidates") and row.get("candidates")):
+            merged[key] = row
+    return list(merged.values())
+
+
+def pending_groups(
+    groups: list[list[str]], existing: list[dict[str, Any]],
+) -> list[list[str]]:
+    """Filter completed identifiers without performing I/O."""
+    completed = {
+        source_key(row)
+        for row in existing if row.get("candidates")
+    }
+    return [group for group in groups if format_identifier(group).casefold() not in completed]
+
+
+def collect_sources(groups: list[list[str]]) -> list[dict[str, Any]]:
+    """Collect a complete batch before any result is written."""
+    return [
+        collect_group_source(
+            group, language=SETTINGS.language,
+            candidate_limit=SETTINGS.candidate_limit, phrase_limit=SETTINGS.phrase_limit,
         )
+        for group in groups
     ]
-    positions = {
-        source.get("identifier"): index
-        for index, source in enumerate(merged)
-        if source.get("identifier")
-    }
-    for source in new:
-        name = source.get("identifier")
-        if name not in positions:
-            positions[name] = len(merged)
-            merged.append(source)
-        elif not merged[positions[name]].get("candidates") and source.get(
-            "candidates"
-        ):
-            merged[positions[name]] = source
-    return merged
+
+
+def generate_sources() -> int:
+    """Read inputs, collect pending records, and persist successful results."""
+    groups = read_input_groups(SETTINGS.input_files)
+    if not groups:
+        raise ValueError("No entity names found in the data files.")
+    existing = load_sources(SETTINGS.output_file)
+    sources = collect_sources(pending_groups(groups, existing))
+    if sources:
+        write_json_records(SETTINGS.output_file, merge_sources(existing, sources))
+    return len(sources)
 
 
 def main() -> int:
-    """Collect names from the data files and write the fixed JSON output."""
-    groups = read_input_groups()
-    if not groups:
-        print("No entity names found in the data files.", file=sys.stderr)
-        return 1
-    if DEFAULT_CANDIDATE_LIMIT < 1 or DEFAULT_PHRASE_LIMIT < 1:
-        print("candidate-limit and phrase-limit must be positive", file=sys.stderr)
-        return 2
-
-    sources: list[dict[str, Any]] = []
+    """Translate configuration and collection outcomes into CLI exit codes."""
     try:
-        for group in groups:
-            print(f"Resolving {format_identifier(group)!r}...", file=sys.stderr)
-            sources.append(
-                collect_group_source(
-                    group,
-                    language=LANGUAGE,
-                    candidate_limit=DEFAULT_CANDIDATE_LIMIT,
-                    phrase_limit=DEFAULT_PHRASE_LIMIT,
-                )
-            )
+        validate_collection_limits(SETTINGS.candidate_limit, SETTINGS.phrase_limit)
+    except ValueError as exc:
+        print(f"Invalid configuration: {exc}", file=sys.stderr)
+        return 2
+    try:
+        count = generate_sources()
     except (RuntimeError, OSError, ValueError) as exc:
         print(f"Error collecting sources: {exc}", file=sys.stderr)
         return 1
-
-    output = SETTINGS.output_file
-    output.parent.mkdir(parents=True, exist_ok=True)
-    merged_sources = merge_sources(load_sources(output), sources)
-    output.write_text(
-        json.dumps(merged_sources, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    print(f"Saved {len(merged_sources)} source(s) to {output}")
+    print(f"Saved {count} new source(s) to {SETTINGS.output_file}")
     return 0
 
 

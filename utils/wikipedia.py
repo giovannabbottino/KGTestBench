@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Any
 
-from api import request_json
+from utils.api import request_json
+from utils.config import SETTINGS, request_options
+from utils.text import clean_phrases
 
 
 def fetch_extract(
@@ -38,3 +39,13 @@ def fetch_extract(
     pages = response.get("query", {}).get("pages", [])
     extract = pages[0].get("extract", "") if pages else ""
     return extract
+
+
+def fetch_clean_phrases(title: str, language: str, limit: int) -> list[str]:
+    """Fetch and clean leading phrases, without searching alternative pages."""
+    if not title:
+        return []
+    extract = fetch_extract(
+        title, language, **request_options(SETTINGS.wikipedia_url),
+    )
+    return clean_phrases(extract, limit)

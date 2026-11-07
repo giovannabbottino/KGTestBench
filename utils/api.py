@@ -31,6 +31,21 @@ def decode_response(response: Any) -> str:
     return body.decode("utf-8")
 
 
+def build_request(
+    url: str, params: dict[str, Any], user_agent: str,
+) -> urllib.request.Request:
+    """Build an HTTP request independently of retries and network I/O."""
+    query = urllib.parse.urlencode(params)
+    return urllib.request.Request(
+        f"{url}?{query}",
+        headers={
+            "Accept": "application/json",
+            "Accept-Encoding": "gzip",
+            "User-Agent": user_agent,
+        },
+    )
+
+
 def request_json(
     url: str,
     params: dict[str, Any],
@@ -41,15 +56,7 @@ def request_json(
     user_agent: str,
 ) -> dict[str, Any]:
     """Fetch JSON with throttling, retries, and response decoding."""
-    query = urllib.parse.urlencode(params)
-    request = urllib.request.Request(
-        f"{url}?{query}",
-        headers={
-            "Accept": "application/json",
-            "Accept-Encoding": "gzip",
-            "User-Agent": user_agent,
-        },
-    )
+    request = build_request(url, params, user_agent)
     last_error: Exception | None = None
     for attempt in range(3):
         wait_for_request(interval)

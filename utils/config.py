@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 from dotenv import load_dotenv
 
@@ -33,33 +35,25 @@ def load_env(path: Path) -> None:
 
 def env_int(name: str, default: int) -> int:
     """Read an integer setting from the environment."""
-    import os
-
     value = os.getenv(name)
     return int(value) if value is not None else default
 
 
 def env_float(name: str, default: float) -> float:
     """Read a floating-point setting from the environment."""
-    import os
-
     value = os.getenv(name)
     return float(value) if value is not None else default
 
 
 def env_statuses(name: str, default: str) -> set[int]:
     """Read comma-separated HTTP status codes from the environment."""
-    import os
-
     value = os.getenv(name, default)
     return {int(status.strip()) for status in value.split(",") if status.strip()}
 
 
 def load_settings(base_dir: Path | None = None) -> Settings:
     """Load application settings relative to the project directory."""
-    import os
-
-    root = base_dir or Path(__file__).resolve().parent
+    root = base_dir or Path(__file__).resolve().parents[1]
     load_env(root / ".env")
     return Settings(
         language=os.getenv("KG_LANGUAGE", "en"),
@@ -88,3 +82,20 @@ def load_settings(base_dir: Path | None = None) -> Settings:
 
 
 SETTINGS = load_settings()
+
+
+def request_options(api_url: str, settings: Settings = SETTINGS) -> dict[str, Any]:
+    """Build client arguments without making an HTTP request."""
+    return {
+        "api_url": api_url,
+        "timeout": settings.request_timeout,
+        "interval": settings.request_interval,
+        "retry_statuses": settings.retry_statuses,
+        "user_agent": settings.user_agent,
+    }
+
+
+def validate_collection_limits(candidate_limit: int, phrase_limit: int) -> None:
+    """Reject sizes that cannot produce a complete source."""
+    if candidate_limit < 1 or phrase_limit < 1:
+        raise ValueError("candidate-limit and phrase-limit must be positive")
