@@ -1,0 +1,994 @@
+[
+  {
+    "Identifier": "Amazon_01_01",
+    "pergunta": "Which entities are directly linked to Amazon?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q3884> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Amazon\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"1\"@en",
+      "\"570\"@en",
+      "\"745\"@en",
+      "\"American English\"@en",
+      "\"American Multinationals and Japan: The Political Economy of Japanese Capital Controls, 1899-1980\"@en",
+      "\"Artificial Organs\"@en",
+      "\"Brazil\"@en",
+      "\"Brazilian Portuguese\"@en",
+      "\"Corner\"@en",
+      "\"Digital Equipment Corporation\"@en",
+      "\"Intelligence\"@en",
+      "\"North\"@en",
+      "\"Northwestern University\"@en",
+      "\"Online Games-Datenbank\"@en",
+      "\"administrative divisions of Russia\"@en",
+      "\"administrative territorial entity of a single country\"@en",
+      "\"advertising\"@en",
+      "\"cloud\"@en",
+      "\"country music\"@en",
+      "\"e-commerce\"@en",
+      "\"enterprise\"@en",
+      "\"entertainment\"@en",
+      "\"maximum\"@en",
+      "\"multinational corporation\"@en",
+      "\"music streaming\"@en",
+      "\"region\"@en",
+      "\"technology\"@en"
+    ]
+  },
+  {
+    "Identifier": "Amazon_01_02",
+    "pergunta": "Which predicates directly link entities to Amazon?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q3884> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Amazon\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beBy>",
+      "<https://example.org/wikidata-description/beOf>",
+      "<https://example.org/wikidata-description/compute>",
+      "<https://example.org/wikidata-description/engage>",
+      "<https://example.org/wikidata-description/engageIn>",
+      "<https://example.org/wikidata-description/locateIn>",
+      "<https://example.org/wikidata-description/locateOf>"
+    ]
+  },
+  {
+    "Identifier": "Amazon_01_03",
+    "pergunta": "Is the entity Amazon directly linked to technology?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q3884> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q11016> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q11016>"
+    ]
+  },
+  {
+    "Identifier": "Amazon_02_01",
+    "pergunta": "Which entities are directly linked to Amazonas?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q40040> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Amazonas\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"1\"@en",
+      "\"570\"@en",
+      "\"745\"@en",
+      "\"Brazil\"@en",
+      "\"Brazilian Portuguese\"@en",
+      "\"Corner\"@en",
+      "\"North\"@en",
+      "\"Northwestern University\"@en",
+      "\"administrative divisions of Russia\"@en",
+      "\"administrative territorial entity of a single country\"@en",
+      "\"country music\"@en",
+      "\"maximum\"@en",
+      "\"region\"@en"
+    ]
+  },
+  {
+    "Identifier": "Amazon_02_02",
+    "pergunta": "Which predicates directly link entities to Amazonas?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q40040> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Amazonas\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beBy>",
+      "<https://example.org/wikidata-description/beOf>",
+      "<https://example.org/wikidata-description/locateIn>",
+      "<https://example.org/wikidata-description/locateOf>"
+    ]
+  },
+  {
+    "Identifier": "Amazon_02_03",
+    "pergunta": "Is the entity Amazonas directly linked to Brazil?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q40040> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q155> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q155>"
+    ]
+  },
+  {
+    "Identifier": "Forest_Woodland_01_01",
+    "pergunta": "Which entities are directly linked to Forest?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q72946> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Forest\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"19\"@en",
+      "\"Anderlecht\"@en",
+      "\"Belgium\"@en",
+      "\"Crux\"@en",
+      "\"Drogenbos\"@en",
+      "\"Flemish Dutch\"@en",
+      "\"Ixelles\"@en",
+      "\"Saint-Gilles\"@en",
+      "\"Uccle\"@en",
+      "\"municipality\"@en",
+      "\"region\"@en"
+    ]
+  },
+  {
+    "Identifier": "Forest_Woodland_01_02",
+    "pergunta": "Which predicates directly link entities to Forest?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q72946> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Forest\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beOf>",
+      "<https://example.org/wikidata-description/border>",
+      "<https://example.org/wikidata-description/borderBy>",
+      "<https://example.org/wikidata-description/locateIn>"
+    ]
+  },
+  {
+    "Identifier": "Forest_Woodland_01_03",
+    "pergunta": "Is the entity Forest directly linked to 19?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q72946> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q39850> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q39850>"
+    ]
+  },
+  {
+    "Identifier": "Forest_Woodland_02_01",
+    "pergunta": "Which entities are directly linked to Woodland?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q2615722> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Woodland\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"2\"@en",
+      "\"Ashburton\"@en",
+      "\"Civil\"@en",
+      "\"Devon\"@en",
+      "\"England\"@en",
+      "\"Teignbridge\"@en",
+      "\"east\"@en",
+      "\"hamlet\"@en",
+      "\"parish\"@en",
+      "\"town\"@en"
+    ]
+  },
+  {
+    "Identifier": "Forest_Woodland_02_02",
+    "pergunta": "Which predicates directly link entities to Woodland?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q2615722> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Woodland\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beAbout>",
+      "<https://example.org/wikidata-description/beIn>",
+      "<https://example.org/wikidata-description/lie>",
+      "<https://example.org/wikidata-description/lieOf>"
+    ]
+  },
+  {
+    "Identifier": "Forest_Woodland_02_03",
+    "pergunta": "Is the entity Woodland directly linked to hamlet?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q2615722> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q5084> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q5084>"
+    ]
+  },
+  {
+    "Identifier": "House_Building_01_01",
+    "pergunta": "Which entities are directly linked to house?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q3947> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"house\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"Air\"@en",
+      "\"Complex structure theory in English law\"@en",
+      "\"Complexity\"@en",
+      "\"Hut\"@en",
+      "\"Wood\"@en",
+      "\"architectural ensemble\"@en",
+      "\"breathing\"@en",
+      "\"building\"@en",
+      "\"built structure\"@en",
+      "\"concrete\"@en",
+      "\"electrical injury\"@en",
+      "\"freemasonry\"@en",
+      "\"heating\"@en",
+      "\"material\"@en",
+      "\"plumbing\"@en",
+      "\"r\"@en",
+      "\"residential community\"@en",
+      "\"systems\"@en"
+    ]
+  },
+  {
+    "Identifier": "House_Building_01_02",
+    "pergunta": "Which predicates directly link entities to house?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q3947> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"house\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/condition>",
+      "<https://example.org/wikidata-description/outfit>",
+      "<https://example.org/wikidata-description/outfitWith>",
+      "<https://example.org/wikidata-description/range>",
+      "<https://example.org/wikidata-description/rangeFrom>",
+      "<https://example.org/wikidata-description/rangeIn>",
+      "<https://example.org/wikidata-description/rangeOf>",
+      "<https://example.org/wikidata-description/rangeTo>",
+      "<https://example.org/wikidata-description/stand>"
+    ]
+  },
+  {
+    "Identifier": "House_Building_01_03",
+    "pergunta": "Is the entity house directly linked to building?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q3947> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q41176> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q41176>"
+    ]
+  },
+  {
+    "Identifier": "House_Building_02_01",
+    "pergunta": "Which entities are directly linked to building?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q41176> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"building\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"Aesthetic Plastic Surgery\"@en",
+      "\"Conditions\"@en",
+      "\"Ground conditions and the May 13, 1994, rock burst: Coeur d'Alene mining district, Northern Idaho\"@en",
+      "\"Materials\"@en",
+      "\"Numerous factors and incorrect measurements can lead to misinterpretations. Be critical when dealing with hormone levels\"@en",
+      "\"Numerous sailing ships at sea\"@en",
+      "\"Prestige\"@en",
+      "\"Prices Act, 1958\"@en",
+      "\"Reasons\"@en",
+      "\"Shapes\"@en",
+      "\"Sizes and prices of foliage, decorative, Xmas and Easter flowering plants\"@en",
+      "\"Variety\"@en",
+      "\"built structure\"@en",
+      "\"factory\"@en",
+      "\"history\"@en",
+      "\"house\"@en",
+      "\"immunologic factor\"@en",
+      "\"link rot\"@en",
+      "\"most precise value\"@en",
+      "\"papal enclosed\"@en",
+      "\"response to stimulus\"@en",
+      "\"roof\"@en",
+      "\"soil\"@en",
+      "\"subroutine\"@en",
+      "\"wall\"@en"
+    ]
+  },
+  {
+    "Identifier": "House_Building_02_02",
+    "pergunta": "Which predicates directly link entities to building?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q41176> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"building\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/adapt>",
+      "<https://example.org/wikidata-description/adaptIn>",
+      "<https://example.org/wikidata-description/adaptThroughout>",
+      "<https://example.org/wikidata-description/adaptTo>",
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beWith>",
+      "<https://example.org/wikidata-description/come>",
+      "<https://example.org/wikidata-description/comeIn>",
+      "<https://example.org/wikidata-description/comeOf>",
+      "<https://example.org/wikidata-description/land>",
+      "<https://example.org/wikidata-description/stand>",
+      "<https://example.org/wikidata-description/weather>"
+    ]
+  },
+  {
+    "Identifier": "House_Building_02_03",
+    "pergunta": "Is the entity building directly linked to roof?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q41176> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q83180> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q83180>"
+    ]
+  },
+  {
+    "Identifier": "Lake_Pond_01_01",
+    "pergunta": "Which entities are directly linked to lake?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q23397> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"lake\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"Basinski\"@en",
+      "\"Dry\"@en",
+      "\"Earth\"@en",
+      "\"Interconnected\"@en",
+      "\"Naturally\"@en",
+      "\"Surface\"@en",
+      "\"basin\"@en",
+      "\"land\"@en",
+      "\"physical object\"@en",
+      "\"pond\"@en",
+      "\"railway\"@en",
+      "\"water\"@en"
+    ]
+  },
+  {
+    "Identifier": "Lake_Pond_01_02",
+    "pergunta": "Which predicates directly link entities to lake?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q23397> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"lake\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beThan>",
+      "<https://example.org/wikidata-description/distinguishOf>",
+      "<https://example.org/wikidata-description/fix>",
+      "<https://example.org/wikidata-description/localizeIn>",
+      "<https://example.org/wikidata-description/occur>",
+      "<https://example.org/wikidata-description/s>",
+      "<https://example.org/wikidata-description/surroundBy>"
+    ]
+  },
+  {
+    "Identifier": "Lake_Pond_01_03",
+    "pergunta": "Is the entity lake directly linked to Naturally?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q23397> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q12581627> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q12581627>"
+    ]
+  },
+  {
+    "Identifier": "Lake_Pond_02_01",
+    "pergunta": "Which entities are directly linked to pond?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q3253281> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"pond\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"30\"@en",
+      "\"Criteria distinguishing parents of schizophrenic and normal children; an initial study with the interpersonal diagnostic system\"@en",
+      "\"Depth\"@en",
+      "\"Emergent BioSolutions\"@en",
+      "\"Naturally\"@en",
+      "\"Ponds\"@en",
+      "\"artificial intelligence\"@en",
+      "\"criterion\"@en",
+      "\"ecology\"@en",
+      "\"hectare\"@en",
+      "\"lake\"@en",
+      "\"land-based fighter monoplane\"@en",
+      "\"major depressive disorder\"@en",
+      "\"metre\"@en",
+      "\"official\"@en",
+      "\"physical object\"@en",
+      "\"pond\"@en",
+      "\"serotonin\"@en",
+      "\"vegetation\"@en",
+      "\"water\"@en",
+      "\"wetland\"@en"
+    ]
+  },
+  {
+    "Identifier": "Lake_Pond_02_02",
+    "pergunta": "Which predicates directly link entities to pond?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q3253281> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"pond\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beThan>",
+      "<https://example.org/wikidata-description/coverBy>",
+      "<https://example.org/wikidata-description/distinguish>",
+      "<https://example.org/wikidata-description/distinguishOf>",
+      "<https://example.org/wikidata-description/pool>",
+      "<https://example.org/wikidata-description/poolInside>"
+    ]
+  },
+  {
+    "Identifier": "Lake_Pond_02_03",
+    "pergunta": "Is the entity pond directly linked to water?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q3253281> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q283> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q283>"
+    ]
+  },
+  {
+    "Identifier": "Mercury_01_01",
+    "pergunta": "Which entities are directly linked to Mercury (automobile)?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q613883> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Mercury\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"1938\"@en",
+      "\"1939\"@en",
+      "\"2011\"@en",
+      "\"Albertville\"@en",
+      "\"American English\"@en",
+      "\"American Manufacturers Mutual Insurance Company, et al., petitioners v. Delores Scott Sullivan, et al. [Case 97-2000] / South Central Bell Telephone Company, et al., Petitioners v. Alabama, et al. [Case 97-2045] (NAID 138282731)\"@en",
+      "\"August Brand\"@en",
+      "\"Auvergne-Rhône-Alpes\"@en",
+      "\"Edsel\"@en",
+      "\"Ford Motor Company\"@en",
+      "\"France\"@en",
+      "\"Gap\"@en",
+      "\"Lincoln\"@en",
+      "\"Lines\"@en",
+      "\"Motor Company of Botswana\"@en",
+      "\"Savoie\"@en",
+      "\"South Eastern Railway\"@en",
+      "\"Urban\"@en",
+      "\"car\"@en",
+      "\"commune of France\"@en",
+      "\"dead end street\"@en",
+      "\"enterprise\"@en",
+      "\"manufacturer\"@en",
+      "\"model\"@en",
+      "\"region\"@en"
+    ]
+  },
+  {
+    "Identifier": "Mercury_01_02",
+    "pergunta": "Which predicates directly link entities to Mercury (automobile)?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q613883> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Mercury\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beIn>",
+      "<https://example.org/wikidata-description/beOf>",
+      "<https://example.org/wikidata-description/beTo>",
+      "<https://example.org/wikidata-description/bridge>",
+      "<https://example.org/wikidata-description/bridgeBetween>",
+      "<https://example.org/wikidata-description/createBy>",
+      "<https://example.org/wikidata-description/createIn>",
+      "<https://example.org/wikidata-description/produceBetween>",
+      "<https://example.org/wikidata-description/produceBy>"
+    ]
+  },
+  {
+    "Identifier": "Mercury_01_03",
+    "pergunta": "Is the entity Mercury (automobile) directly linked to manufacturer?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q613883> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q13235160> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q13235160>"
+    ]
+  },
+  {
+    "Identifier": "Mercury_02_01",
+    "pergunta": "Which entities are directly linked to Mercury, Savoie?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q1231263> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Mercury\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"1938\"@en",
+      "\"1939\"@en",
+      "\"2011\"@en",
+      "\"Albertville\"@en",
+      "\"American English\"@en",
+      "\"American Manufacturers Mutual Insurance Company, et al., petitioners v. Delores Scott Sullivan, et al. [Case 97-2000] / South Central Bell Telephone Company, et al., Petitioners v. Alabama, et al. [Case 97-2045] (NAID 138282731)\"@en",
+      "\"August Brand\"@en",
+      "\"Auvergne-Rhône-Alpes\"@en",
+      "\"Edsel\"@en",
+      "\"Ford Motor Company\"@en",
+      "\"France\"@en",
+      "\"Gap\"@en",
+      "\"Lincoln\"@en",
+      "\"Lines\"@en",
+      "\"Motor Company of Botswana\"@en",
+      "\"Savoie\"@en",
+      "\"South Eastern Railway\"@en",
+      "\"Urban\"@en",
+      "\"car\"@en",
+      "\"commune of France\"@en",
+      "\"dead end street\"@en",
+      "\"enterprise\"@en",
+      "\"manufacturer\"@en",
+      "\"model\"@en",
+      "\"region\"@en"
+    ]
+  },
+  {
+    "Identifier": "Mercury_02_02",
+    "pergunta": "Which predicates directly link entities to Mercury, Savoie?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q1231263> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Mercury\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beIn>",
+      "<https://example.org/wikidata-description/beOf>",
+      "<https://example.org/wikidata-description/beTo>",
+      "<https://example.org/wikidata-description/bridge>",
+      "<https://example.org/wikidata-description/bridgeBetween>",
+      "<https://example.org/wikidata-description/createBy>",
+      "<https://example.org/wikidata-description/createIn>",
+      "<https://example.org/wikidata-description/produceBetween>",
+      "<https://example.org/wikidata-description/produceBy>"
+    ]
+  },
+  {
+    "Identifier": "Mercury_02_03",
+    "pergunta": "Is the entity Mercury, Savoie directly linked to Albertville?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q1231263> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q159469> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q159469>"
+    ]
+  },
+  {
+    "Identifier": "Mountain_Hill_01_01",
+    "pergunta": "Which entities are directly linked to mountain?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q8502> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"mountain\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"Definitions\"@en",
+      "\"ELEVATED\"@en",
+      "\"Hill\"@en",
+      "\"Steep\"@en",
+      "\"Surface\"@en",
+      "\"asteroid\"@en",
+      "\"bedrock\"@en",
+      "\"portion\"@en",
+      "\"universally unique identifier\"@en"
+    ]
+  },
+  {
+    "Identifier": "Mountain_Hill_01_02",
+    "pergunta": "Which predicates directly link entities to mountain?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q8502> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"mountain\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/accept>",
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beOf>",
+      "<https://example.org/wikidata-description/considerThan>",
+      "<https://example.org/wikidata-description/expose>"
+    ]
+  },
+  {
+    "Identifier": "Mountain_Hill_01_03",
+    "pergunta": "Is the entity mountain directly linked to ELEVATED?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q8502> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q122825156> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q122825156>"
+    ]
+  },
+  {
+    "Identifier": "Mountain_Hill_02_01",
+    "pergunta": "Which entities are directly linked to Hill?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q973239> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Hill\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"2006 Commonwealth Games\"@en",
+      "\"36th\"@en",
+      "\"37th Chess Olympiad\"@en",
+      "\"England\"@en",
+      "\"English\"@en",
+      "\"Louisiana\"@en",
+      "\"Scotland\"@en",
+      "\"Scottish Medical Journal\"@en",
+      "\"United Kingdom\"@en",
+      "\"United States\"@en",
+      "\"Wikimedia Commons\"@en",
+      "\"family name\"@en",
+      "\"mountain\"@en",
+      "\"nom d'usage\"@en"
+    ]
+  },
+  {
+    "Identifier": "Mountain_Hill_02_02",
+    "pergunta": "Which predicates directly link entities to Hill?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q973239> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Hill\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beIn>",
+      "<https://example.org/wikidata-description/beOf>",
+      "<https://example.org/wikidata-description/considerThan>"
+    ]
+  },
+  {
+    "Identifier": "Mountain_Hill_02_03",
+    "pergunta": "Is the entity Hill directly linked to English?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q973239> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q1860> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q1860>"
+    ]
+  },
+  {
+    "Identifier": "Python_01_01",
+    "pergunta": "Which entities are directly linked to Python (programming language)?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q28865> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Python\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"1803\"@en",
+      "\"Code\"@en",
+      "\"Daudin\"@en",
+      "\"Eastern Cape\"@en",
+      "\"Eastern Hemisphere\"@en",
+      "\"François\"@en",
+      "\"Garbage\"@en",
+      "\"High Level\"@en",
+      "\"Is(In7;X)1Ct\"@en",
+      "\"Marie\"@en",
+      "\"Multiple Programming Languages for Improving Computational Thinking in CS1\"@en",
+      "\"Paradigms\"@en",
+      "\"Python\"@en",
+      "\"Simplicity\"@en",
+      "\"The Library\"@en",
+      "\"aglyph\"@en",
+      "\"cavity\"@en",
+      "\"collection\"@en",
+      "\"computer\"@en",
+      "\"family\"@en",
+      "\"genus\"@en",
+      "\"hemisphere of the Earth\"@en",
+      "\"language\"@en",
+      "\"multiple sclerosis\"@en",
+      "\"object-oriented programming\"@en",
+      "\"place of birth\"@en",
+      "\"python\"@en",
+      "\"readability\"@en",
+      "\"snake\"@en",
+      "\"spinal stenosis\"@en",
+      "\"standard library\"@en",
+      "\"stress\"@en",
+      "\"subtropics\"@en",
+      "\"technical standard\"@en",
+      "\"tropics\"@en",
+      "\"typing\"@en"
+    ]
+  },
+  {
+    "Identifier": "Python_01_02",
+    "pergunta": "Which predicates directly link entities to Python (programming language)?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q28865> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Python\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/constrict>",
+      "<https://example.org/wikidata-description/constrictIn>",
+      "<https://example.org/wikidata-description/constrictOf>",
+      "<https://example.org/wikidata-description/constrictTo>",
+      "<https://example.org/wikidata-description/emphasize>",
+      "<https://example.org/wikidata-description/programOn>",
+      "<https://example.org/wikidata-description/programWith>",
+      "<https://example.org/wikidata-description/proposeBy>",
+      "<https://example.org/wikidata-description/proposeFor>",
+      "<https://example.org/wikidata-description/proposeIn>",
+      "<https://example.org/wikidata-description/support>"
+    ]
+  },
+  {
+    "Identifier": "Python_01_03",
+    "pergunta": "Is the entity Python (programming language) directly linked to High Level?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q28865> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q430949> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q430949>"
+    ]
+  },
+  {
+    "Identifier": "Python_02_01",
+    "pergunta": "Which entities are directly linked to Python (genus)?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q271218> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Python\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"1803\"@en",
+      "\"Code\"@en",
+      "\"Daudin\"@en",
+      "\"Eastern Cape\"@en",
+      "\"Eastern Hemisphere\"@en",
+      "\"François\"@en",
+      "\"Garbage\"@en",
+      "\"High Level\"@en",
+      "\"Is(In7;X)1Ct\"@en",
+      "\"Marie\"@en",
+      "\"Multiple Programming Languages for Improving Computational Thinking in CS1\"@en",
+      "\"Paradigms\"@en",
+      "\"Python\"@en",
+      "\"Simplicity\"@en",
+      "\"The Library\"@en",
+      "\"aglyph\"@en",
+      "\"cavity\"@en",
+      "\"collection\"@en",
+      "\"computer\"@en",
+      "\"family\"@en",
+      "\"genus\"@en",
+      "\"hemisphere of the Earth\"@en",
+      "\"language\"@en",
+      "\"multiple sclerosis\"@en",
+      "\"object-oriented programming\"@en",
+      "\"place of birth\"@en",
+      "\"python\"@en",
+      "\"readability\"@en",
+      "\"snake\"@en",
+      "\"spinal stenosis\"@en",
+      "\"standard library\"@en",
+      "\"stress\"@en",
+      "\"subtropics\"@en",
+      "\"technical standard\"@en",
+      "\"tropics\"@en",
+      "\"typing\"@en"
+    ]
+  },
+  {
+    "Identifier": "Python_02_02",
+    "pergunta": "Which predicates directly link entities to Python (genus)?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q271218> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Python\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/constrict>",
+      "<https://example.org/wikidata-description/constrictIn>",
+      "<https://example.org/wikidata-description/constrictOf>",
+      "<https://example.org/wikidata-description/constrictTo>",
+      "<https://example.org/wikidata-description/emphasize>",
+      "<https://example.org/wikidata-description/programOn>",
+      "<https://example.org/wikidata-description/programWith>",
+      "<https://example.org/wikidata-description/proposeBy>",
+      "<https://example.org/wikidata-description/proposeFor>",
+      "<https://example.org/wikidata-description/proposeIn>",
+      "<https://example.org/wikidata-description/support>"
+    ]
+  },
+  {
+    "Identifier": "Python_02_03",
+    "pergunta": "Is the entity Python (genus) directly linked to python?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q271218> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q184018> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q184018>"
+    ]
+  },
+  {
+    "Identifier": "River_Stream_01_01",
+    "pergunta": "Which entities are directly linked to river?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q4022> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"river\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"Caves\"@en",
+      "\"Dry\"@en",
+      "\"Ocean\"@en",
+      "\"flOw\"@en",
+      "\"hill\"@en",
+      "\"lake\"@en",
+      "\"land\"@en",
+      "\"natural number\"@en",
+      "\"physical object\"@en",
+      "\"sports season of a sports club\"@en",
+      "\"spring\"@en",
+      "\"stream\"@en",
+      "\"water\"@en"
+    ]
+  },
+  {
+    "Identifier": "River_Stream_01_02",
+    "pergunta": "Which predicates directly link entities to river?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q4022> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"river\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beOf>",
+      "<https://example.org/wikidata-description/flowOn>",
+      "<https://example.org/wikidata-description/inside>",
+      "<https://example.org/wikidata-description/insideAt>",
+      "<https://example.org/wikidata-description/run>"
+    ]
+  },
+  {
+    "Identifier": "River_Stream_01_03",
+    "pergunta": "Is the entity river directly linked to stream?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q4022> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q47521> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q47521>"
+    ]
+  },
+  {
+    "Identifier": "River_Stream_02_01",
+    "pergunta": "Which entities are directly linked to stream?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q47521> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"stream\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"Banks\"@en",
+      "\"Dry\"@en",
+      "\"JPEG\"@en",
+      "\"Surface\"@en",
+      "\"bed\"@en",
+      "\"channel\"@en",
+      "\"continuum\"@en",
+      "\"periodically\"@en",
+      "\"physical object\"@en",
+      "\"river\"@en",
+      "\"seasonally migrating animals\"@en",
+      "\"water\"@en",
+      "\"watercourse\"@en"
+    ]
+  },
+  {
+    "Identifier": "River_Stream_02_02",
+    "pergunta": "Which predicates directly link entities to stream?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q47521> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"stream\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beOf>",
+      "<https://example.org/wikidata-description/flowOf>",
+      "<https://example.org/wikidata-description/flowWithin>"
+    ]
+  },
+  {
+    "Identifier": "River_Stream_02_03",
+    "pergunta": "Is the entity stream directly linked to Surface?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q47521> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q37497814> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q37497814>"
+    ]
+  },
+  {
+    "Identifier": "Saturn_01_01",
+    "pergunta": "Which entities are directly linked to Saturn (mythology)?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q134388> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Saturn\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"Ancient Rome\"@en",
+      "\"Dissolution\"@en",
+      "\"Earth\"@en",
+      "\"Gastroenterology\"@en",
+      "\"Giant Bicycles\"@en",
+      "\"Libération\"@en",
+      "\"RADIUS\"@en",
+      "\"Roman\"@en",
+      "\"SUN AND THE ROCKS\"@en",
+      "\"Sixth Cambridge Survey of radio sources\"@en",
+      "\"Sixth planet\"@en",
+      "\"Solar\"@en",
+      "\"Sun Microsystems\"@en",
+      "\"The New York Times\"@en",
+      "\"Time\"@en",
+      "\"USS Langley\"@en",
+      "\"abundance\"@en",
+      "\"agriculture\"@en",
+      "\"archaeological site\"@en",
+      "\"asteroid\"@en",
+      "\"average\"@en",
+      "\"character\"@en",
+      "\"creation\"@en",
+      "\"deity\"@en",
+      "\"gas giant\"@en",
+      "\"maximum\"@en",
+      "\"mythology\"@en",
+      "\"periodical\"@en",
+      "\"religion\"@en",
+      "\"renovation\"@en",
+      "\"wealth\"@en"
+    ]
+  },
+  {
+    "Identifier": "Saturn_01_02",
+    "pergunta": "Which predicates directly link entities to Saturn (mythology)?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q134388> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Saturn\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beFrom>",
+      "<https://example.org/wikidata-description/beIn>",
+      "<https://example.org/wikidata-description/describe>",
+      "<https://example.org/wikidata-description/describeOf>"
+    ]
+  },
+  {
+    "Identifier": "Saturn_01_03",
+    "pergunta": "Is the entity Saturn (mythology) directly linked to Roman?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q134388> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q933726> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q933726>"
+    ]
+  },
+  {
+    "Identifier": "Saturn_02_01",
+    "pergunta": "Which entities are directly linked to Saturn (http://www.wikidata.org/entity/Q193)?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q193> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Saturn\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"Ancient Rome\"@en",
+      "\"Dissolution\"@en",
+      "\"Earth\"@en",
+      "\"Gastroenterology\"@en",
+      "\"Giant Bicycles\"@en",
+      "\"Libération\"@en",
+      "\"RADIUS\"@en",
+      "\"Roman\"@en",
+      "\"SUN AND THE ROCKS\"@en",
+      "\"Sixth Cambridge Survey of radio sources\"@en",
+      "\"Sixth planet\"@en",
+      "\"Solar\"@en",
+      "\"Sun Microsystems\"@en",
+      "\"The New York Times\"@en",
+      "\"Time\"@en",
+      "\"USS Langley\"@en",
+      "\"abundance\"@en",
+      "\"agriculture\"@en",
+      "\"archaeological site\"@en",
+      "\"asteroid\"@en",
+      "\"average\"@en",
+      "\"character\"@en",
+      "\"creation\"@en",
+      "\"deity\"@en",
+      "\"gas giant\"@en",
+      "\"maximum\"@en",
+      "\"mythology\"@en",
+      "\"periodical\"@en",
+      "\"religion\"@en",
+      "\"renovation\"@en",
+      "\"wealth\"@en"
+    ]
+  },
+  {
+    "Identifier": "Saturn_02_02",
+    "pergunta": "Which predicates directly link entities to Saturn (http://www.wikidata.org/entity/Q193)?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q193> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Saturn\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beFrom>",
+      "<https://example.org/wikidata-description/beIn>",
+      "<https://example.org/wikidata-description/describe>",
+      "<https://example.org/wikidata-description/describeOf>"
+    ]
+  },
+  {
+    "Identifier": "Saturn_02_03",
+    "pergunta": "Is the entity Saturn (http://www.wikidata.org/entity/Q193) directly linked to Sixth planet?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q193> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q7533215> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q7533215>"
+    ]
+  },
+  {
+    "Identifier": "Seal_01_01",
+    "pergunta": "Which entities are directly linked to Seal?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q218091> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Seal\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"20\"@en",
+      "\"BRIT Awards\"@en",
+      "\"British Raj\"@en",
+      "\"Finfish\"@en",
+      "\"Global Biodiversity Information Facility\"@en",
+      "\"Global Online\"@en",
+      "\"Grammy Awards\"@en",
+      "\"Key\"@en",
+      "\"Life\"@en",
+      "\"MTV Brasil\"@en",
+      "\"Marine\"@en",
+      "\"Online Games-Datenbank\"@en",
+      "\"Record\"@en",
+      "\"Singer\"@en",
+      "\"Singles\"@en",
+      "\"Welsh\"@en",
+      "\"album chart\"@en",
+      "\"award\"@en",
+      "\"beneficiary\"@en",
+      "\"database\"@en",
+      "\"ecology\"@en",
+      "\"film producer\"@en",
+      "\"music\"@en",
+      "\"probability distribution\"@en",
+      "\"songwriter\"@en",
+      "\"species\"@en",
+      "\"taxonomy\"@en",
+      "\"video recording\"@en"
+    ]
+  },
+  {
+    "Identifier": "Seal_01_02",
+    "pergunta": "Which predicates directly link entities to Seal?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q218091> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"Seal\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beAbout>",
+      "<https://example.org/wikidata-description/beOf>",
+      "<https://example.org/wikidata-description/provide>",
+      "<https://example.org/wikidata-description/provideOn>"
+    ]
+  },
+  {
+    "Identifier": "Seal_01_03",
+    "pergunta": "Is the entity Seal directly linked to Singer?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q218091> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q1260201> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q1260201>"
+    ]
+  },
+  {
+    "Identifier": "Seal_02_01",
+    "pergunta": "Which entities are directly linked to SeaLifeBase?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?p ?answerEntity . }\n  UNION\n  { ?answerEntity ?p ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q7439813> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"SeaLifeBase\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))\n  FILTER(?answerEntity != ?subject)\n  ?answerEntity rdfs:label ?answer .\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "\"Finfish\"@en",
+      "\"Global Biodiversity Information Facility\"@en",
+      "\"Global Online\"@en",
+      "\"Key\"@en",
+      "\"Life\"@en",
+      "\"Marine\"@en",
+      "\"Online Games-Datenbank\"@en",
+      "\"database\"@en",
+      "\"ecology\"@en",
+      "\"probability distribution\"@en",
+      "\"species\"@en",
+      "\"taxonomy\"@en"
+    ]
+  },
+  {
+    "Identifier": "Seal_02_02",
+    "pergunta": "Which predicates directly link entities to SeaLifeBase?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?answer\nWHERE {\n  { ?subject ?answer ?neighbor . }\n  UNION\n  { ?neighbor ?answer ?subject . }\n  FILTER(\n    ?subject = <http://www.wikidata.org/entity/Q7439813> ||\n    EXISTS {\n      ?subject rdfs:label ?label .\n      FILTER(REGEX(STR(?label), \"SeaLifeBase\", \"i\"))\n    }\n  )\n  FILTER(isIRI(?neighbor) || isBlank(?neighbor))\n  FILTER(?neighbor != ?subject)\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<https://example.org/wikidata-description/be>",
+      "<https://example.org/wikidata-description/beAbout>",
+      "<https://example.org/wikidata-description/provide>",
+      "<https://example.org/wikidata-description/provideOn>"
+    ]
+  },
+  {
+    "Identifier": "Seal_02_03",
+    "pergunta": "Is the entity SeaLifeBase directly linked to Global Online?",
+    "sparql": "SELECT DISTINCT ?answer\nWHERE {\n  VALUES ?subject { <http://www.wikidata.org/entity/Q7439813> }\n  VALUES ?answer { <http://www.wikidata.org/entity/Q17023689> }\n  { ?subject ?predicate ?answer . }\n  UNION\n  { ?answer ?predicate ?subject . }\n}\nORDER BY ?answer",
+    "expected_answers": [
+      "<http://www.wikidata.org/entity/Q17023689>"
+    ]
+  }
+]
