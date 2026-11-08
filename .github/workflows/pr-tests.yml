@@ -5,6 +5,7 @@ on:
     paths:
       - "**.py"
       - "requirements.txt"
+      - "requirements-review.txt"
       - ".github/workflows/pr-tests.yml"
 
 permissions:
@@ -24,12 +25,14 @@ jobs:
         with:
           python-version: "3.10"
           cache: pip
-          cache-dependency-path: requirements.txt
+          cache-dependency-path: |
+            requirements.txt
+            requirements-review.txt
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt coverage
+          python -m pip install -r requirements-review.txt coverage
 
       - name: Run KGTestBench tests with coverage
         run: |

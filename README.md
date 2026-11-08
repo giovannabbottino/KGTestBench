@@ -74,5 +74,6 @@ The output is [data/disagreements.json](./data/disagreements.json), with source 
 Run the local test suite from the `KGTestBench` directory:
 
 ```powershell
+python -m pip install -r requirements-review.txt
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
