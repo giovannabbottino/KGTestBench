@@ -168,6 +168,22 @@ def calculate_kappa(a: np.ndarray, b: np.ndarray, po: float, pe: float):
     return kappa, "calculated"
 
 
+def scott_pi(a: np.ndarray, b: np.ndarray) -> float:
+    """Chance-adjusted agreement using pooled binary category proportions."""
+    a, b = np.asarray(a), np.asarray(b)
+    if a.ndim != 1 or b.ndim != 1 or a.shape != b.shape:
+        raise ValueError("Provide equally sized one-dimensional paired ratings")
+    if not np.isin(a, [0, 1]).all() or not np.isin(b, [0, 1]).all():
+        raise ValueError("Scott's pi requires complete binary ratings")
+    if not len(a):
+        return float('nan')
+    pooled_positive = (float(a.mean()) + float(b.mean())) / 2
+    expected = pooled_positive**2 + (1 - pooled_positive)**2
+    if np.isclose(expected, 1.0, rtol=0, atol=1e-12):
+        return float('nan')
+    return (float((a == b).mean()) - expected) / (1 - expected)
+
+
 def agreement_metrics(a: np.ndarray, b: np.ndarray) -> dict:
     po, pe, pa, pb = agreement_probabilities(a, b)
     kappa, status = calculate_kappa(a, b, po, pe)
