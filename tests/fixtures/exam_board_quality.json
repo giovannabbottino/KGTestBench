@@ -1,0 +1,130 @@
+{
+  "description": "Synthetic, text-grounded controlled examples; not human-validated benchmark ground truth.",
+  "examples": [
+    {
+      "name": "direction",
+      "expected_selected": "a2",
+      "expected_correction": false,
+      "case": {
+        "case_id": "synthetic-direction",
+        "identifier": "Synthetic",
+        "case_type": "rdf_relation_group",
+        "subset_ids": [
+          "competing_rdf_relations"
+        ],
+        "adjudication": {
+          "status": "pending"
+        },
+        "source_context": {
+          "a1": {
+            "source_text": "Alice supervises Bob."
+          },
+          "a2": {
+            "source_text": "Alice supervises Bob."
+          }
+        },
+        "a1_triples": [
+          {
+            "turtle": "<urn:Bob> <https://example.org/wikidata-description/supervise> <urn:Alice> .",
+            "readable": "Bob supervises Alice"
+          }
+        ],
+        "a2_triples": [
+          {
+            "turtle": "<urn:Alice> <https://example.org/wikidata-description/supervise> <urn:Bob> .",
+            "readable": "Alice supervises Bob"
+          }
+        ]
+      }
+    },
+    {
+      "name": "original_supported",
+      "expected_selected": "a1",
+      "expected_correction": false,
+      "case": {
+        "case_id": "synthetic-original",
+        "identifier": "Synthetic",
+        "case_type": "annotation",
+        "subset_ids": [
+          "unilateral_approvals"
+        ],
+        "adjudication": {
+          "status": "pending"
+        },
+        "original_triple": "<urn:Rowan> kg:liveIn <urn:Porto> .",
+        "evidence": {
+          "a1": {
+            "source_text": "Rowan lives in Porto.",
+            "readable_triple": "Rowan lives in Porto",
+            "ratings": {
+              "entidade_correta": true,
+              "predicado_correto": true,
+              "direcao_relacao_correta": true,
+              "fidelidade_semantica": true
+            }
+          },
+          "a2": {
+            "source_text": "Rowan lives in Porto.",
+            "readable_triple": "Rowan lives in Porto",
+            "ratings": {
+              "entidade_correta": true,
+              "predicado_correto": false,
+              "direcao_relacao_correta": true,
+              "fidelidade_semantica": false
+            },
+            "comment": "The lives-in relation is not stated."
+          }
+        }
+      }
+    },
+    {
+      "name": "multiple_with_replacement",
+      "expected_selected": "a2",
+      "expected_correction": true,
+      "case": {
+        "case_id": "synthetic-multiple",
+        "identifier": "Synthetic",
+        "case_type": "annotation",
+        "subset_ids": [
+          "shared_rejection_diagnosis_divergence",
+          "unilateral_unresolved_entities"
+        ],
+        "adjudication": {
+          "status": "pending"
+        },
+        "original_triple": "<urn:Rowan> kg:liveIn <urn:Lisbon> .",
+        "explicit_unresolved_marker": {
+          "a1": true,
+          "a2": false
+        },
+        "evidence": {
+          "a1": {
+            "source_text": "Rowan lives in Porto, not Lisbon.",
+            "readable_triple": "Rowan lives in Lisbon",
+            "ratings": {
+              "entidade_correta": false,
+              "predicado_correto": false,
+              "direcao_relacao_correta": true,
+              "fidelidade_semantica": false
+            },
+            "comment": "The predicate and city are wrong; replacement city unresolved.",
+            "suggested_entities": "not identified"
+          },
+          "a2": {
+            "source_text": "Rowan lives in Porto, not Lisbon.",
+            "readable_triple": "Rowan lives in Lisbon",
+            "ratings": {
+              "entidade_correta": false,
+              "predicado_correto": true,
+              "direcao_relacao_correta": true,
+              "fidelidade_semantica": false
+            },
+            "comment": "The lives-in predicate and direction are correct; replace only Lisbon with Porto.",
+            "suggested_entities": "Porto <urn:Porto>",
+            "suggested_rdf": "<urn:Rowan> kg:liveIn <urn:Porto> ."
+          }
+        }
+      }
+    }
+  ]
+}

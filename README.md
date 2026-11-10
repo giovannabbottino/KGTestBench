@@ -13,14 +13,16 @@ flowchart LR
     questions["ExamQuestions<br/>Generate SPARQL questions and reference answers"]
     human["Human Review<br/>Raters a1 and a2 assess triples and propose RDF corrections"]
     review["ExamReview<br/>Analyze agreement, compare final RDFs, and inspect adjudication cases"]
+    board["ExamBoard<br/>Adjudicate disagreements with Ollama llama3.1:8b"]
 
     source -->|exam_sources.json| prep
     prep -->|exam_prep.json| questions
     questions -->|Generated evaluation material| human
     human -->|a1-rdf.xlsx and a2-rdf.xlsx| review
+    review -->|disagreements.json| board
 ```
 
-The arrows show the workflow sequence. Human reviewers use the source text and RDF graphs to record their assessments; ExamReview analyzes those workbooks. The separate export script generates the adjudication JSON for human decisions.
+The arrows show the workflow sequence. Human reviewers assess the source text and RDF graphs; ExamReview analyzes their workbooks and exports disagreements. ExamBoard uses Ollama to adjudicate those cases and saves the model decisions separately.
 
 ## Components
 
@@ -68,6 +70,28 @@ python ExamReview/export_disagreements.py
 ```
 
 The output is [data/disagreements.json](./data/disagreements.json), with source evidence and adjudication fields. Existing files are protected from accidental overwrite. The [ExamReview guide](./docs/ExamReview.md) explains the code organization, metrics, current results, and next steps.
+
+## LLM adjudication with ExamBoard
+
+[ExamBoard](./docs/ExamBoard.md) reads [disagreements.json](./data/disagreements.json) and sends pending disagreements to Ollama `llama3.1:8b` one at a time. One argument-free script selects a prompt for each type and saves the choice between a1 and a2 under `data/adjudication/`. A [Dockerfile](./ExamBoard/docker/Dockerfile) and [Compose configuration](./ExamBoard/docker/compose.yaml) provide a standalone Ollama server and model download.
+
+```powershell
+python ExamBoard/adjudicate.py
+```
+
+ExamBoard sends each case with its prompt to Ollama and saves the JSON response. A
+rejected original and an explicitly approved RDF replacement are recorded as
+different outcomes. Controlled synthetic examples are available in the
+[ExamBoard guide](./docs/ExamBoard.md#tests).
+
+After adjudication completes, combine the shared final human RDF triples with
+the LLM-selected triples. Outputs are saved in the selected run's `rdf/` folder:
+
+```powershell
+python -m ExamBoard.generate_rdf
+```
+
+See [ExamBoard](./docs/ExamBoard.md) for input validation and conflict handling.
 
 ## Tests
 

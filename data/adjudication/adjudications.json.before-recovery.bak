@@ -1,0 +1,70 @@
+{
+  "input_sha256": "412cc00ca412c7cbb7732cf0cc7f716594ad68c4b3bf45b424665ab31d6fec6c",
+  "model": "llama3.1:8b",
+  "prompt_sha256": {
+    "unilateral_approvals": "e1f6647367b78c2f54b8185e636a451b19a289bb56dbd4502f835160bf553f44",
+    "shared_rejection_diagnosis_divergence": "46753967907b482bf6694c8d30bcae49564966cc421f41c72a42902ff8982a4e",
+    "competing_rdf_relations": "880c1554b308d443b49ee248d09dd7cf6add321c729b0ad6629bc369713637f3",
+    "unilateral_unresolved_entities": "8670af9b4425529fd217f59fccfcb799c93e07adc066434fb6567a69ecd330f9",
+    "multiple_disagreements": "20ba0cacf875b6f2feda7ef63440809e3f29a3fccc6c51013aef2de3d2368f71"
+  },
+  "total": 247,
+  "results": [
+    {
+      "case_id": "Python-shared_rejection_diagnosis_divergence-001",
+      "identifier": "Python",
+      "source_case_id": "00f49a22ba2e6fd2ed2a0195",
+      "disagreement_type": "shared_rejection_diagnosis_divergence",
+      "status": "adjudicated",
+      "case_disagreement_types": [
+        "shared_rejection_diagnosis_divergence"
+      ],
+      "decision": "accept_a1",
+      "origin": "llm",
+      "reviewer": "ollama:llama3.1:8b",
+      "notes": "Rater a1's diagnosis is better supported because they correctly identified the error as 'predicado_correto' (predicate correct) and suggested a more accurate predicate 'kg:have'. Their correction candidate is also well-supported by the source text, which emphasizes code readability and simplicity.",
+      "evidence_quotes": [
+        "Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing."
+      ],
+      "limitations": "There is some uncertainty in determining the correct predicate, as both raters have different opinions. However, rater a1's suggestion of 'kg:have' seems more accurate based on the source text.",
+      "reason_by_type": {
+        "shared_rejection_diagnosis_divergence": "Rater a1 correctly identified the error as 'predicado_correto' and suggested a more accurate predicate 'kg:have'. Their correction candidate is also well-supported by the source text."
+      },
+      "approve_correction": false,
+      "approved_ratings": {
+        "entidade_correta": false,
+        "predicado_correto": false,
+        "direcao_relacao_correta": true,
+        "fidelidade_semantica": false
+      },
+      "approved_triples": [],
+      "rdf_outcome": "original_rejected",
+      "selected_alternative": {
+        "excel_row": 148,
+        "ratings": {
+          "label_corresponde_wikidata": false,
+          "entidade_correta": false,
+          "predicado_correto": false,
+          "direcao_relacao_correta": true,
+          "fidelidade_semantica": false
+        },
+        "substantive_ratings_complete": true,
+        "fully_correct": false,
+        "rejected_criteria": [
+          "entidade_correta",
+          "predicado_correto",
+          "fidelidade_semantica"
+        ],
+        "source_text": "Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by Fran��ois Marie Daudin in 1803 for non-venomous flecked snakes.",
+        "readable_triple": "Python -emphasize-> collection",
+        "comment": "O texto indica que Python possui garbage collection, não que enfatize 'collection' em geral; predicado adequado é 'have'.",
+        "suggested_entities": "objeto: wd:Q2668072",
+        "suggested_predicates": "kg:have",
+        "suggested_direction": null,
+        "suggested_rdf": "wd:Q28865 kg:have wd:Q2668072 ."
+      },
+      "selected_unresolved_marker": false,
+      "marker_absence_means": "unknown"
+    }
+  ]
+}
