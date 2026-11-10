@@ -20,7 +20,7 @@ flowchart LR
     human -->|a1-rdf.xlsx and a2-rdf.xlsx| review
 ```
 
-The arrows show the workflow sequence. Human reviewers use the source text and RDF graphs to record their assessments; ExamReview analyzes those workbooks. The separate export script generates the adjudication JSON for human decisions.
+The arrows show the workflow sequence. Human reviewers use the source text and RDF graphs to record their assessments; ExamReview analyzes those workbooks. The separate export script generates a CSV of original triples and disagreement evidence for human review.
 
 ## Components
 
@@ -59,15 +59,14 @@ Copy-Item .env.example .env
 
 ## Human review and inter-rater reliability
 
-[ExamReview.ipynb](./ExamReview/ExamReview.ipynb) is the unified, data-centered review: input audit, criterion and whole-triple agreement, shared-error diagnosis, final RDF comparison, and adjudication cases. It answers eight questions with tables, charts, and computed interpretations using [a1-rdf.xlsx](./data/inter-rater-reliability/a1-rdf.xlsx), [a2-rdf.xlsx](./data/inter-rater-reliability/a2-rdf.xlsx), and [disagreements.json](./data/disagreements.json). See [docs/ExamReview.md](./docs/ExamReview.md) for setup and execution.
+[Agreements.ipynb](./ExamReview/Agreements.ipynb) explains where the two raters agree, distinguishing joint approvals, joint rejections, shared error diagnoses, and final RDF overlap. It explains observed agreement, Cohen's kappa, and Scott's pi. [Disagreements.ipynb](./ExamReview/Disagreements.ipynb) shows rating disagreements, differing diagnoses, competing corrections, missing suggestions, and final RDF differences. Both contain charts and computed answers, using [a1-rdf.xlsx](./data/inter-rater-reliability/a1-rdf.xlsx), [a2-rdf.xlsx](./data/inter-rater-reliability/a2-rdf.xlsx), and the saved [disagreements.csv](./data/disagreements.csv) where needed. See [docs/ExamReview.md](./docs/ExamReview.md) for setup and interpretation.
 
-Export unique JSON adjudication cases for unilateral approvals, differing diagnoses, competing RDF relations, and unilateral unresolved-entity markers:
 
 ```powershell
 python ExamReview/export_disagreements.py
 ```
 
-The output is [data/disagreements.json](./data/disagreements.json), with source evidence and adjudication fields. Existing files are protected from accidental overwrite. The [ExamReview guide](./docs/ExamReview.md) explains the code organization, metrics, current results, and next steps.
+The output is [data/disagreements.csv](./data/disagreements.csv), with readable source decisions and correction suggestions. Existing files are protected from accidental overwrite. The [ExamReview guide](./docs/ExamReview.md) explains the code organization, metrics, current results, and next steps.
 
 ## Tests
 
