@@ -13,16 +13,14 @@ flowchart LR
     questions["ExamQuestions<br/>Generate SPARQL questions and reference answers"]
     human["Human Review<br/>Raters a1 and a2 assess triples and propose RDF corrections"]
     review["ExamReview<br/>Analyze agreement, compare final RDFs, and inspect adjudication cases"]
-    board["ExamBoard<br/>Adjudicate disagreements with Ollama llama3.1:8b"]
 
     source -->|exam_sources.json| prep
     prep -->|exam_prep.json| questions
     questions -->|Generated evaluation material| human
     human -->|a1-rdf.xlsx and a2-rdf.xlsx| review
-    review -->|disagreements.json| board
 ```
 
-The arrows show the workflow sequence. Human reviewers assess the source text and RDF graphs; ExamReview analyzes their workbooks and exports disagreements. ExamBoard uses Ollama to adjudicate those cases and saves the model decisions separately.
+The arrows show the workflow sequence. Human reviewers use the source text and RDF graphs to record their assessments; ExamReview analyzes those workbooks. The separate export script generates a CSV of original triples and disagreement evidence for human review.
 
 ## Components
 
@@ -61,37 +59,14 @@ Copy-Item .env.example .env
 
 ## Human review and inter-rater reliability
 
-[ExamReview.ipynb](./ExamReview/ExamReview.ipynb) is the unified, data-centered review: input audit, criterion and whole-triple agreement, shared-error diagnosis, final RDF comparison, and adjudication cases. It answers eight questions with tables, charts, and computed interpretations using [a1-rdf.xlsx](./data/inter-rater-reliability/a1-rdf.xlsx), [a2-rdf.xlsx](./data/inter-rater-reliability/a2-rdf.xlsx), and [disagreements.json](./data/disagreements.json). See [docs/ExamReview.md](./docs/ExamReview.md) for setup and execution.
+[Agreements.ipynb](./ExamReview/Agreements.ipynb) explains where the two raters agree, distinguishing joint approvals, joint rejections, shared error diagnoses, and final RDF overlap. It explains observed agreement, Cohen's kappa, and Scott's pi. [Disagreements.ipynb](./ExamReview/Disagreements.ipynb) shows rating disagreements, differing diagnoses, competing corrections, missing suggestions, and final RDF differences. Both contain charts and computed answers, using [a1-rdf.xlsx](./data/inter-rater-reliability/a1-rdf.xlsx), [a2-rdf.xlsx](./data/inter-rater-reliability/a2-rdf.xlsx), and the saved [disagreements.csv](./data/disagreements.csv) where needed. See [docs/ExamReview.md](./docs/ExamReview.md) for setup and interpretation.
 
-Export unique JSON adjudication cases for unilateral approvals, differing diagnoses, competing RDF relations, and unilateral unresolved-entity markers:
 
 ```powershell
 python ExamReview/export_disagreements.py
 ```
 
-The output is [data/disagreements.json](./data/disagreements.json), with source evidence and adjudication fields. Existing files are protected from accidental overwrite. The [ExamReview guide](./docs/ExamReview.md) explains the code organization, metrics, current results, and next steps.
-
-## LLM adjudication with ExamBoard
-
-[ExamBoard](./docs/ExamBoard.md) reads [disagreements.json](./data/disagreements.json) and sends pending disagreements to Ollama `llama3.1:8b` one at a time. One argument-free script selects a prompt for each type and saves the choice between a1 and a2 under `data/adjudication/`. A [Dockerfile](./ExamBoard/docker/Dockerfile) and [Compose configuration](./ExamBoard/docker/compose.yaml) provide a standalone Ollama server and model download.
-
-```powershell
-python ExamBoard/adjudicate.py
-```
-
-ExamBoard sends each case with its prompt to Ollama and saves the JSON response. A
-rejected original and an explicitly approved RDF replacement are recorded as
-different outcomes. Controlled synthetic examples are available in the
-[ExamBoard guide](./docs/ExamBoard.md#tests).
-
-After adjudication completes, combine the shared final human RDF triples with
-the LLM-selected triples. Outputs are saved in the selected run's `rdf/` folder:
-
-```powershell
-python -m ExamBoard.generate_rdf
-```
-
-See [ExamBoard](./docs/ExamBoard.md) for input validation and conflict handling.
+The output is [data/disagreements.csv](./data/disagreements.csv), with readable source decisions and correction suggestions. Existing files are protected from accidental overwrite. The [ExamReview guide](./docs/ExamReview.md) explains the code organization, metrics, current results, and next steps.
 
 ## Tests
 
