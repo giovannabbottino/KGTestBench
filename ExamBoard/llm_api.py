@@ -1,9 +1,10 @@
-"""Send structured requests to Ollama and read JSON responses."""
+"""Send structured requests to the local Qwen model through Ollama."""
 import json
 import urllib.request
+from urllib.error import HTTPError, URLError
 
 API_URL = "http://127.0.0.1:11434"
-MODEL = "llama3.1:8b"
+MODEL = "qwen2.5:7b-instruct"
 TIMEOUT = 660
 OPTIONS = {"temperature": 0, "seed": 42, "num_ctx": 8192, "num_predict": 1024}
 
@@ -37,8 +38,25 @@ def request_json(route, payload=None, timeout=TIMEOUT):
     request = urllib.request.Request(
         API_URL + route, data=data,
         headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        return json.load(response)
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            return json.load(response)
+    except HTTPError as error:
+        detail = error.read().decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"Ollama returned HTTP {error.code} for {route}: {detail}") from error
+    except URLError as error:
+        raise RuntimeError(f"Could not connect to Ollama at {API_URL}: {error.reason}") from error
+
+
+def ensure_model():
+    """Fail early with setup instructions when the configured model is absent."""
+    payload = request_json("/api/tags", timeout=10)
+    installed = {item.get("name") for item in payload.get("models", [])}
+    if MODEL not in installed:
+        raise RuntimeError(
+            f"Model {MODEL!r} is not installed in Ollama. Run "
+            "docker compose -f ExamBoard/docker/compose.yaml run --rm model-init"
+        )
 
 
 def complete(payload):

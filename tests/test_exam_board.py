@@ -42,6 +42,53 @@ class BoardTests(unittest.TestCase):
         self.assertEqual([kind for _, kind in tasks], [board.MULTIPLE, "unilateral_approvals"])
         self.assertEqual([item["source_case_id"] for item, _ in tasks], ["example", "single"])
 
+    def test_csv_input_is_normalized_to_pending_cases(self):
+        content = ("identifier,original_text,original_triple,disagreement_type_1,a1_decision_1,"
+                   "a2_decision_1,decision_1\n"
+                   "Amazon,Source text,wd:Q1 kg:p wd:Q2,Entity,TRUE,technology company,\n")
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "disagreements.csv"
+            path.write_text(content, encoding="utf-8-sig")
+            with patch.object(board, "INPUT_FILE", path):
+                payload, digest = board.read_input()
+        self.assertEqual(payload["schema_version"], 2)
+        self.assertEqual(len(payload["cases"]), 1)
+        self.assertEqual(payload["cases"][0]["case_type"], "csv_annotation")
+        self.assertEqual(payload["cases"][0]["subset_ids"], ["unilateral_unresolved_entities"])
+        self.assertEqual(board.source_text(payload["cases"][0]), "Source text")
+        self.assertEqual(len(digest), 64)
+
+    def test_identifier_filter_keeps_only_requested_cases(self):
+        payload = {"schema_version": 2, "sources": {}, "cases": [
+            {"identifier": "Seal", "case_id": "seal"},
+            {"identifier": "Amazon", "case_id": "amazon"},
+        ]}
+        filtered = board.filter_payload(payload, "seal")
+        self.assertEqual([case["case_id"] for case in filtered["cases"]], ["seal"])
+        with self.assertRaises(ValueError):
+            board.filter_payload(payload, "Missing")
+
+    def test_filtered_run_preserves_other_identifier_files(self):
+        with TemporaryDirectory() as directory:
+            with patch.object(board, "OUTPUT_DIR", Path(directory)):
+                (board.OUTPUT_DIR / "Seal-unilateral_approvals-001.json").write_text("{}")
+                (board.OUTPUT_DIR / "Amazon-unilateral_approvals-001.json").write_text("{}")
+                board.new_output("seal")
+                self.assertFalse((board.OUTPUT_DIR / "Seal-unilateral_approvals-001.json").exists())
+                self.assertTrue((board.OUTPUT_DIR / "Amazon-unilateral_approvals-001.json").exists())
+
+    def test_csv_case_only_approves_original_when_selected_decisions_are_true(self):
+        content = ("identifier,original_text,original_triple,disagreement_type_1,a1_decision_1,"
+                   "a2_decision_1,decision_1\n"
+                   "Amazon,Source text,wd:Q1 kg:p wd:Q2,Predicate,TRUE,FALSE,\n")
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "disagreements.csv"
+            path.write_text(content, encoding="utf-8-sig")
+            with patch.object(board, "INPUT_FILE", path):
+                case = board.read_input()[0]["cases"][0]
+        self.assertEqual(board.selected_values(case, "a1")["approved_triples"], ["wd:Q1 kg:p wd:Q2 ."])
+        self.assertEqual(board.selected_values(case, "a2")["approved_triples"], [])
+
     def test_readable_ids_are_unique_and_stable(self):
         first = case()
         second = {**case(), "case_id": "second"}
@@ -139,8 +186,9 @@ class BoardTests(unittest.TestCase):
             result = board.process_case(case(), board.MULTIPLE, "Prompt.", path)
             saved = json.loads(path.read_text(encoding="utf-8"))
             self.assertEqual(result["status"], "adjudicated")
-            self.assertEqual(saved["response"], raw)
+            self.assertEqual(saved["decision"], result["decision"])
             self.assertEqual(result["evidence_quotes"], ["Forest borders Uccle."])
+            self.assertEqual(set(saved), set(board.PERSISTED_RESULT_FIELDS))
 
     def test_pipeline_routes_multiple_types_once_and_overwrites_results(self):
         with TemporaryDirectory() as directory:
@@ -168,7 +216,7 @@ class BoardTests(unittest.TestCase):
                 packet = json.loads(request["messages"][1]["content"])
                 self.assertEqual(request["messages"][0]["content"], prompts[packet["disagreement_type"]])
             for path in (root / "results").glob("Forest-*.json"):
-                self.assertEqual(json.loads(path.read_text(encoding="utf-8"))["result"]["decision"], "accept_a2")
+                self.assertEqual(json.loads(path.read_text(encoding="utf-8"))["decision"], "accept_a2")
 
 
 if __name__ == "__main__":

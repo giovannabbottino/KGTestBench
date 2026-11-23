@@ -45,16 +45,23 @@ class GenerationTests(unittest.TestCase):
         self.assertEqual(result["A"], set(original))
         self.assertEqual(result["B"], set())
 
+    def test_load_agreement_filters_identifier(self):
+        shared = rdf.make_graph(rdf.parse_triples([ORIGINAL]))
+        left = {"Seal": shared, "Amazon": shared}
+        right = {"Seal": shared, "Amazon": shared}
+        with patch.object(rdf, "load_final_graphs", side_effect=[(left, None), (right, None)]):
+            result = rdf.load_agreement("seal")
+        self.assertEqual(set(result), {"Seal"})
+
     def test_selected_correction_replaces_rejected_alternative(self):
         case = graph_case()
-        graphs, audit = rdf.combine({"Example": set()}, {case["case_id"]: case}, [record(case, "a2")])
+        graphs = rdf.combine({"Example": set()}, {case["case_id"]: case}, [record(case, "a2")])
         self.assertEqual(graphs["Example"], rdf.parse_triples([CORRECTED]))
-        self.assertNotIn("conflicts", audit)
 
     def test_rejected_original_and_prose_suggestion_are_not_added(self):
         case = annotation()
         case["evidence"]["a2"]["suggested_entities"] = "some proposed entity"
-        graphs, _ = rdf.combine({"Example": set()}, {case["case_id"]: case}, [record(case, "a2")])
+        graphs = rdf.combine({"Example": set()}, {case["case_id"]: case}, [record(case, "a2")])
         self.assertEqual(graphs["Example"], set())
 
     def test_combined_decision_is_used_for_case_with_multiple_types(self):
@@ -66,17 +73,15 @@ class GenerationTests(unittest.TestCase):
         old_report = {**report, "results": [record(case, "a1")]}
         with self.assertRaises(ValueError):
             rdf.validate_report(old_report, {"cases": [case]}, "hash")
-        graphs, audit = rdf.combine({"Example": set()}, {case["case_id"]: case}, rows)
+        graphs = rdf.combine({"Example": set()}, {case["case_id"]: case}, rows)
         self.assertEqual(graphs["Example"], rdf.parse_triples([ORIGINAL]))
-        self.assertNotIn("conflicts", audit)
 
     def test_cross_case_rejection_cannot_be_reintroduced(self):
         original, corrected = annotation(), graph_case()
         cases = {item["case_id"]: item for item in (original, corrected)}
         rows = [record(original, "a1"), record(corrected, "a2")]
-        graphs, audit = rdf.combine({"Example": set()}, cases, rows)
+        graphs = rdf.combine({"Example": set()}, cases, rows)
         self.assertEqual(graphs["Example"], rdf.parse_triples([CORRECTED]))
-        self.assertTrue(audit["excluded_despite_other_support"])
 
     def test_mutated_approved_triples_are_rejected(self):
         case = annotation()
@@ -90,7 +95,7 @@ class GenerationTests(unittest.TestCase):
         case["evidence"]["a2"]["suggested_rdf"] = CORRECTED
         row = record(case, "a2")
         row.update(adjudicate.selected_values(case, "a2", True), approve_correction=True)
-        graphs, _ = rdf.combine({"Example": set()}, {case["case_id"]: case}, [row])
+        graphs = rdf.combine({"Example": set()}, {case["case_id"]: case}, [row])
         self.assertEqual(graphs["Example"], rdf.parse_triples([CORRECTED]))
         row["approve_correction"] = False
         with self.assertRaises(ValueError):
@@ -112,7 +117,7 @@ class GenerationTests(unittest.TestCase):
         case["evidence"]["a2"]["suggested_rdf"] = ORIGINAL
         row = record(case, "a2")
         row.update(adjudicate.selected_values(case, "a2", True), approve_correction=True)
-        graphs, _ = rdf.combine({"Example": set()}, {case["case_id"]: case}, [row])
+        graphs = rdf.combine({"Example": set()}, {case["case_id"]: case}, [row])
         self.assertEqual(graphs["Example"], rdf.parse_triples([ORIGINAL]))
 
     def test_turtle_prefixes_language_and_invalid_documents(self):
@@ -127,14 +132,13 @@ class GenerationTests(unittest.TestCase):
         graphs = {"A": shared, "B": shared | rdf.parse_triples([CORRECTED])}
         with TemporaryDirectory() as directory:
             output = Path(directory) / "rdf"
-            rdf.save_graphs(output, graphs, {})
-            merged = Graph().parse(output / "exam_rdf.ttl", format="turtle")
+            rdf.save_graphs(output, graphs)
             documents = json.loads((output / "exam_rdf.json").read_text(encoding="utf-8"))
-            self.assertEqual(len(merged), 2)
+            self.assertFalse((output / "exam_rdf.ttl").exists())
             self.assertEqual([row["identifier"] for row in documents], ["A", "B"])
             self.assertEqual(len(Graph().parse(data=documents[0]["rdf"], format="turtle")), 1)
-            rdf.save_graphs(output, {"A": shared}, {})
-            self.assertEqual(len(Graph().parse(output / "exam_rdf.ttl", format="turtle")), 1)
+            rdf.save_graphs(output, {"A": shared})
+            self.assertFalse((output / "exam_rdf.ttl").exists())
 
     def test_missing_results_do_not_produce_a_consensus_only_final_graph(self):
         with TemporaryDirectory() as directory, patch.object(rdf, "RESULTS_DIR", Path(directory)), patch.object(rdf, "LLM_RESULTS", None):
@@ -151,7 +155,9 @@ class GenerationTests(unittest.TestCase):
             before = path.read_bytes()
             with patch.object(rdf, "LLM_RESULTS", path), patch.object(rdf, "load_export", return_value=(copy.deepcopy(payload), "hash")), patch.object(rdf, "load_agreement", return_value={"Example": set()}):
                 output = rdf.run()
-            self.assertEqual(len(Graph().parse(output / "exam_rdf.ttl", format="turtle")), 1)
+            documents = json.loads((output / "exam_rdf.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(Graph().parse(data=documents[0]["rdf"], format="turtle")), 1)
+            self.assertFalse((output / "exam_rdf.ttl").exists())
             self.assertEqual(path.read_bytes(), before)
 
 
