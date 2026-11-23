@@ -1,0 +1,15 @@
+{
+  "case_id": "Mountain-Hill-unilateral_unresolved_entities-001",
+  "identifier": "Mountain-Hill",
+  "source_case_id": "csv-0122",
+  "disagreement_type": "unilateral_unresolved_entities",
+  "status": "adjudicated",
+  "case_disagreement_types": [
+    "unilateral_unresolved_entities"
+  ],
+  "decision": "accept_a2",
+  "approve_correction": false,
+  "approved_ratings": null,
+  "approved_triples": [],
+  "rdf_outcome": "original_rejected"
+}

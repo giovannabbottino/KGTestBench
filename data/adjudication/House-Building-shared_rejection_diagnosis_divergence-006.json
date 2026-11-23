@@ -1,0 +1,15 @@
+{
+  "case_id": "House-Building-shared_rejection_diagnosis_divergence-006",
+  "identifier": "House-Building",
+  "source_case_id": "csv-0052",
+  "disagreement_type": "shared_rejection_diagnosis_divergence",
+  "status": "adjudicated",
+  "case_disagreement_types": [
+    "shared_rejection_diagnosis_divergence"
+  ],
+  "decision": "accept_a2",
+  "approve_correction": false,
+  "approved_ratings": null,
+  "approved_triples": [],
+  "rdf_outcome": "original_rejected"
+}

@@ -1,0 +1,15 @@
+{
+  "case_id": "House-Building-unilateral_unresolved_entities-002",
+  "identifier": "House-Building",
+  "source_case_id": "csv-0046",
+  "disagreement_type": "unilateral_unresolved_entities",
+  "status": "adjudicated",
+  "case_disagreement_types": [
+    "unilateral_unresolved_entities"
+  ],
+  "decision": "accept_a2",
+  "approve_correction": false,
+  "approved_ratings": null,
+  "approved_triples": [],
+  "rdf_outcome": "original_rejected"
+}

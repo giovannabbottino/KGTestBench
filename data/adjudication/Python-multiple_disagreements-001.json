@@ -1,0 +1,18 @@
+{
+  "case_id": "Python-multiple_disagreements-001",
+  "identifier": "Python",
+  "source_case_id": "csv-0137",
+  "disagreement_type": "multiple_disagreements",
+  "status": "adjudicated",
+  "case_disagreement_types": [
+    "unilateral_unresolved_entities",
+    "shared_rejection_diagnosis_divergence"
+  ],
+  "decision": "accept_a2",
+  "approve_correction": false,
+  "approved_ratings": null,
+  "approved_triples": [
+    "wd:Q271218 kg:proposeFor wd:Q3437312 ."
+  ],
+  "rdf_outcome": "original_approved"
+}

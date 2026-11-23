@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "ExamBoard: adjudicate",
+			"type": "shell",
+			"command": "D:/kg-construction-llm-evaluation/KGTestBench/.venv/Scripts/python.exe",
+			"args": [
+				"-u",
+				"-m",
+				"ExamBoard"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

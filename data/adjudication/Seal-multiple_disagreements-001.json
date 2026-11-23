@@ -1,0 +1,18 @@
+{
+  "case_id": "Seal-multiple_disagreements-001",
+  "identifier": "Seal",
+  "source_case_id": "csv-0203",
+  "disagreement_type": "multiple_disagreements",
+  "status": "adjudicated",
+  "case_disagreement_types": [
+    "unilateral_unresolved_entities",
+    "shared_rejection_diagnosis_divergence"
+  ],
+  "decision": "accept_a1",
+  "approve_correction": false,
+  "approved_ratings": null,
+  "approved_triples": [
+    "wd:Q218091 kg:be wd:Q3282637 ."
+  ],
+  "rdf_outcome": "original_approved"
+}

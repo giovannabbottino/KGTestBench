@@ -14,3 +14,4 @@ env/
 .env
 
 .nltk_data/
+*.tex

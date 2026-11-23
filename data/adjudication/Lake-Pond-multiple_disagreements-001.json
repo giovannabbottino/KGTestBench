@@ -1,0 +1,16 @@
+{
+  "case_id": "Lake-Pond-multiple_disagreements-001",
+  "identifier": "Lake-Pond",
+  "source_case_id": "csv-0072",
+  "disagreement_type": "multiple_disagreements",
+  "status": "adjudicated",
+  "case_disagreement_types": [
+    "unilateral_unresolved_entities",
+    "shared_rejection_diagnosis_divergence"
+  ],
+  "decision": "accept_a2",
+  "approve_correction": false,
+  "approved_ratings": null,
+  "approved_triples": [],
+  "rdf_outcome": "original_rejected"
+}

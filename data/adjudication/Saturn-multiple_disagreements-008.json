@@ -1,0 +1,16 @@
+{
+  "case_id": "Saturn-multiple_disagreements-008",
+  "identifier": "Saturn",
+  "source_case_id": "csv-0192",
+  "disagreement_type": "multiple_disagreements",
+  "status": "adjudicated",
+  "case_disagreement_types": [
+    "unilateral_unresolved_entities",
+    "shared_rejection_diagnosis_divergence"
+  ],
+  "decision": "accept_a1",
+  "approve_correction": false,
+  "approved_ratings": null,
+  "approved_triples": [],
+  "rdf_outcome": "original_rejected"
+}

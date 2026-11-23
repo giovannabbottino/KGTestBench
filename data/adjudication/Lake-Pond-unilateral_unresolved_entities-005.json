@@ -1,0 +1,17 @@
+{
+  "case_id": "Lake-Pond-unilateral_unresolved_entities-005",
+  "identifier": "Lake-Pond",
+  "source_case_id": "csv-0083",
+  "disagreement_type": "unilateral_unresolved_entities",
+  "status": "adjudicated",
+  "case_disagreement_types": [
+    "unilateral_unresolved_entities"
+  ],
+  "decision": "accept_a2",
+  "approve_correction": false,
+  "approved_ratings": null,
+  "approved_triples": [
+    "wd:Q3253281 kg:be wd:Q42817 ."
+  ],
+  "rdf_outcome": "original_approved"
+}
