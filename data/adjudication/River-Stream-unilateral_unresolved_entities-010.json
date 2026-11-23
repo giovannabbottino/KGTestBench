@@ -1,0 +1,17 @@
+{
+  "case_id": "River-Stream-unilateral_unresolved_entities-010",
+  "identifier": "River-Stream",
+  "source_case_id": "csv-0168",
+  "disagreement_type": "unilateral_unresolved_entities",
+  "status": "adjudicated",
+  "case_disagreement_types": [
+    "unilateral_unresolved_entities"
+  ],
+  "decision": "accept_a2",
+  "approve_correction": false,
+  "approved_ratings": null,
+  "approved_triples": [
+    "wd:Q47521 kg:be wd:Q223557 ."
+  ],
+  "rdf_outcome": "original_approved"
+}

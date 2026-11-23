@@ -1,0 +1,17 @@
+{
+  "case_id": "Seal-unilateral_unresolved_entities-007",
+  "identifier": "Seal",
+  "source_case_id": "csv-0212",
+  "disagreement_type": "unilateral_unresolved_entities",
+  "status": "adjudicated",
+  "case_disagreement_types": [
+    "unilateral_unresolved_entities"
+  ],
+  "decision": "accept_a2",
+  "approve_correction": false,
+  "approved_ratings": null,
+  "approved_triples": [
+    "wd:Q7439813 kg:provide wd:Q123187803 ."
+  ],
+  "rdf_outcome": "original_approved"
+}
