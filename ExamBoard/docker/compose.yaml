@@ -20,7 +20,17 @@ services:
       dockerfile: Dockerfile
     environment:
       OLLAMA_HOST: http://ollama:11434
-    command: ["pull", "llama3.1:8b"]
+      MODEL: qwen2.5:7b-instruct
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >-
+        for attempt in 1 2 3 4 5; do
+        echo "Downloading $${MODEL} (attempt $${attempt}/5)";
+        ollama pull "$${MODEL}" && exit 0;
+        echo "Download failed; retrying in 15 seconds";
+        sleep 15;
+        done;
+        exit 1
     depends_on:
       ollama:
         condition: service_healthy
