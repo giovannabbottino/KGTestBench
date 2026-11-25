@@ -1,0 +1,3633 @@
+identifier,text,rdf,question,sparql,sparql_type,result
+Amazon_01_01,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wd:Q11790733 rdfs:label ""North""@en .
+
+wd:Q161726 rdfs:label ""multinational corporation""@en .
+
+wd:Q16865769 rdfs:label ""Corner""@en .
+
+wd:Q3884 rdfs:label ""Amazon""@en ;
+    kg:be wd:Q6881511 ;
+    kg:engage wd:Q15982450,
+        wd:Q1665657,
+        wd:Q173799,
+        wd:Q37038,
+        wd:Q8074 ;
+    kg:engageIn wd:Q484847 .
+
+wd:Q40040 rdfs:label ""Amazonas""@en ;
+    kg:beOf wd:Q155 ;
+    kg:have 1570745.7 ;
+    kg:locateIn wd:Q82794 .
+
+wd:Q502341 rdfs:label ""North""@en .
+
+wd:Q155 rdfs:label ""Brazil""@en .
+
+wd:Q15982450 rdfs:label ""music streaming""@en .
+
+wd:Q1665657 rdfs:label ""Intelligence""@en .
+
+wd:Q173799 rdfs:label ""entertainment""@en .
+
+wd:Q37038 rdfs:label ""advertising""@en .
+
+wd:Q484847 rdfs:label ""e-commerce""@en .
+
+wd:Q6881511 rdfs:label ""enterprise""@en .
+
+wd:Q8074 rdfs:label ""cloud""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Which entities are directly linked to Amazon?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q3884> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Amazon"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Brazil\""@en"", ""\""Intelligence\""@en"", ""\""advertising\""@en"", ""\""cloud\""@en"", ""\""e-commerce\""@en"", ""\""enterprise\""@en"", ""\""entertainment\""@en"", ""\""music streaming\""@en"", ""\""region\""@en""]"
+Amazon_01_02,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wd:Q11790733 rdfs:label ""North""@en .
+
+wd:Q161726 rdfs:label ""multinational corporation""@en .
+
+wd:Q16865769 rdfs:label ""Corner""@en .
+
+wd:Q3884 rdfs:label ""Amazon""@en ;
+    kg:be wd:Q6881511 ;
+    kg:engage wd:Q15982450,
+        wd:Q1665657,
+        wd:Q173799,
+        wd:Q37038,
+        wd:Q8074 ;
+    kg:engageIn wd:Q484847 .
+
+wd:Q40040 rdfs:label ""Amazonas""@en ;
+    kg:beOf wd:Q155 ;
+    kg:have 1570745.7 ;
+    kg:locateIn wd:Q82794 .
+
+wd:Q502341 rdfs:label ""North""@en .
+
+wd:Q155 rdfs:label ""Brazil""@en .
+
+wd:Q15982450 rdfs:label ""music streaming""@en .
+
+wd:Q1665657 rdfs:label ""Intelligence""@en .
+
+wd:Q173799 rdfs:label ""entertainment""@en .
+
+wd:Q37038 rdfs:label ""advertising""@en .
+
+wd:Q484847 rdfs:label ""e-commerce""@en .
+
+wd:Q6881511 rdfs:label ""enterprise""@en .
+
+wd:Q8074 rdfs:label ""cloud""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Which predicates directly link entities to Amazon?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q3884> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Amazon"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/engage>"", ""<https://example.org/wikidata-description/engageIn>"", ""<https://example.org/wikidata-description/locateIn>""]"
+Amazon_01_03,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wd:Q11790733 rdfs:label ""North""@en .
+
+wd:Q161726 rdfs:label ""multinational corporation""@en .
+
+wd:Q16865769 rdfs:label ""Corner""@en .
+
+wd:Q3884 rdfs:label ""Amazon""@en ;
+    kg:be wd:Q6881511 ;
+    kg:engage wd:Q15982450,
+        wd:Q1665657,
+        wd:Q173799,
+        wd:Q37038,
+        wd:Q8074 ;
+    kg:engageIn wd:Q484847 .
+
+wd:Q40040 rdfs:label ""Amazonas""@en ;
+    kg:beOf wd:Q155 ;
+    kg:have 1570745.7 ;
+    kg:locateIn wd:Q82794 .
+
+wd:Q502341 rdfs:label ""North""@en .
+
+wd:Q155 rdfs:label ""Brazil""@en .
+
+wd:Q15982450 rdfs:label ""music streaming""@en .
+
+wd:Q1665657 rdfs:label ""Intelligence""@en .
+
+wd:Q173799 rdfs:label ""entertainment""@en .
+
+wd:Q37038 rdfs:label ""advertising""@en .
+
+wd:Q484847 rdfs:label ""e-commerce""@en .
+
+wd:Q6881511 rdfs:label ""enterprise""@en .
+
+wd:Q8074 rdfs:label ""cloud""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Is the entity Amazon directly linked to e-commerce?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q3884> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q484847> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q484847>""]"
+Amazon_02_01,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wd:Q11790733 rdfs:label ""North""@en .
+
+wd:Q161726 rdfs:label ""multinational corporation""@en .
+
+wd:Q16865769 rdfs:label ""Corner""@en .
+
+wd:Q3884 rdfs:label ""Amazon""@en ;
+    kg:be wd:Q6881511 ;
+    kg:engage wd:Q15982450,
+        wd:Q1665657,
+        wd:Q173799,
+        wd:Q37038,
+        wd:Q8074 ;
+    kg:engageIn wd:Q484847 .
+
+wd:Q40040 rdfs:label ""Amazonas""@en ;
+    kg:beOf wd:Q155 ;
+    kg:have 1570745.7 ;
+    kg:locateIn wd:Q82794 .
+
+wd:Q502341 rdfs:label ""North""@en .
+
+wd:Q155 rdfs:label ""Brazil""@en .
+
+wd:Q15982450 rdfs:label ""music streaming""@en .
+
+wd:Q1665657 rdfs:label ""Intelligence""@en .
+
+wd:Q173799 rdfs:label ""entertainment""@en .
+
+wd:Q37038 rdfs:label ""advertising""@en .
+
+wd:Q484847 rdfs:label ""e-commerce""@en .
+
+wd:Q6881511 rdfs:label ""enterprise""@en .
+
+wd:Q8074 rdfs:label ""cloud""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Which entities are directly linked to Amazonas?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q40040> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Amazonas"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Brazil\""@en"", ""\""region\""@en""]"
+Amazon_02_02,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wd:Q11790733 rdfs:label ""North""@en .
+
+wd:Q161726 rdfs:label ""multinational corporation""@en .
+
+wd:Q16865769 rdfs:label ""Corner""@en .
+
+wd:Q3884 rdfs:label ""Amazon""@en ;
+    kg:be wd:Q6881511 ;
+    kg:engage wd:Q15982450,
+        wd:Q1665657,
+        wd:Q173799,
+        wd:Q37038,
+        wd:Q8074 ;
+    kg:engageIn wd:Q484847 .
+
+wd:Q40040 rdfs:label ""Amazonas""@en ;
+    kg:beOf wd:Q155 ;
+    kg:have 1570745.7 ;
+    kg:locateIn wd:Q82794 .
+
+wd:Q502341 rdfs:label ""North""@en .
+
+wd:Q155 rdfs:label ""Brazil""@en .
+
+wd:Q15982450 rdfs:label ""music streaming""@en .
+
+wd:Q1665657 rdfs:label ""Intelligence""@en .
+
+wd:Q173799 rdfs:label ""entertainment""@en .
+
+wd:Q37038 rdfs:label ""advertising""@en .
+
+wd:Q484847 rdfs:label ""e-commerce""@en .
+
+wd:Q6881511 rdfs:label ""enterprise""@en .
+
+wd:Q8074 rdfs:label ""cloud""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Which predicates directly link entities to Amazonas?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q40040> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Amazonas"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/locateIn>""]"
+Amazon_02_03,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wd:Q11790733 rdfs:label ""North""@en .
+
+wd:Q161726 rdfs:label ""multinational corporation""@en .
+
+wd:Q16865769 rdfs:label ""Corner""@en .
+
+wd:Q3884 rdfs:label ""Amazon""@en ;
+    kg:be wd:Q6881511 ;
+    kg:engage wd:Q15982450,
+        wd:Q1665657,
+        wd:Q173799,
+        wd:Q37038,
+        wd:Q8074 ;
+    kg:engageIn wd:Q484847 .
+
+wd:Q40040 rdfs:label ""Amazonas""@en ;
+    kg:beOf wd:Q155 ;
+    kg:have 1570745.7 ;
+    kg:locateIn wd:Q82794 .
+
+wd:Q502341 rdfs:label ""North""@en .
+
+wd:Q155 rdfs:label ""Brazil""@en .
+
+wd:Q15982450 rdfs:label ""music streaming""@en .
+
+wd:Q1665657 rdfs:label ""Intelligence""@en .
+
+wd:Q173799 rdfs:label ""entertainment""@en .
+
+wd:Q37038 rdfs:label ""advertising""@en .
+
+wd:Q484847 rdfs:label ""e-commerce""@en .
+
+wd:Q6881511 rdfs:label ""enterprise""@en .
+
+wd:Q8074 rdfs:label ""cloud""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Is the entity Amazonas directly linked to Brazil?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q40040> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q155> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q155>""]"
+Forest_Woodland_01_01,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q102496 rdfs:label ""parish""@en .
+
+wd:Q12886 rdfs:label ""Anderlecht""@en .
+
+wd:Q203312 rdfs:label ""Uccle""@en .
+
+wd:Q208713 rdfs:label ""Ixelles""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q237674 rdfs:label ""Saint-Gilles""@en .
+
+wd:Q2615722 rdfs:label ""Woodland""@en ;
+    kg:be wd:Q5084 ;
+    kg:beIn wd:Q739432 ;
+    kg:lie wd:Q684 ;
+    kg:lieOf wd:Q724915 .
+
+wd:Q31 rdfs:label ""Belgium""@en .
+
+wd:Q67393660 rdfs:label ""Devon""@en .
+
+wd:Q688377 rdfs:label ""Drogenbos""@en .
+
+wd:Q72946 rdfs:label ""Forest""@en ;
+    kg:beOf wd:Q82794 .
+
+wd:Q5084 rdfs:label ""hamlet""@en .
+
+wd:Q684 rdfs:label ""east""@en .
+
+wd:Q724915 rdfs:label ""Ashburton""@en .
+
+wd:Q739432 rdfs:label ""Teignbridge""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Which entities are directly linked to Forest?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q72946> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Forest"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""region\""@en""]"
+Forest_Woodland_01_02,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q102496 rdfs:label ""parish""@en .
+
+wd:Q12886 rdfs:label ""Anderlecht""@en .
+
+wd:Q203312 rdfs:label ""Uccle""@en .
+
+wd:Q208713 rdfs:label ""Ixelles""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q237674 rdfs:label ""Saint-Gilles""@en .
+
+wd:Q2615722 rdfs:label ""Woodland""@en ;
+    kg:be wd:Q5084 ;
+    kg:beIn wd:Q739432 ;
+    kg:lie wd:Q684 ;
+    kg:lieOf wd:Q724915 .
+
+wd:Q31 rdfs:label ""Belgium""@en .
+
+wd:Q67393660 rdfs:label ""Devon""@en .
+
+wd:Q688377 rdfs:label ""Drogenbos""@en .
+
+wd:Q72946 rdfs:label ""Forest""@en ;
+    kg:beOf wd:Q82794 .
+
+wd:Q5084 rdfs:label ""hamlet""@en .
+
+wd:Q684 rdfs:label ""east""@en .
+
+wd:Q724915 rdfs:label ""Ashburton""@en .
+
+wd:Q739432 rdfs:label ""Teignbridge""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Which predicates directly link entities to Forest?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q72946> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Forest"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/beOf>""]"
+Forest_Woodland_01_03,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q102496 rdfs:label ""parish""@en .
+
+wd:Q12886 rdfs:label ""Anderlecht""@en .
+
+wd:Q203312 rdfs:label ""Uccle""@en .
+
+wd:Q208713 rdfs:label ""Ixelles""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q237674 rdfs:label ""Saint-Gilles""@en .
+
+wd:Q2615722 rdfs:label ""Woodland""@en ;
+    kg:be wd:Q5084 ;
+    kg:beIn wd:Q739432 ;
+    kg:lie wd:Q684 ;
+    kg:lieOf wd:Q724915 .
+
+wd:Q31 rdfs:label ""Belgium""@en .
+
+wd:Q67393660 rdfs:label ""Devon""@en .
+
+wd:Q688377 rdfs:label ""Drogenbos""@en .
+
+wd:Q72946 rdfs:label ""Forest""@en ;
+    kg:beOf wd:Q82794 .
+
+wd:Q5084 rdfs:label ""hamlet""@en .
+
+wd:Q684 rdfs:label ""east""@en .
+
+wd:Q724915 rdfs:label ""Ashburton""@en .
+
+wd:Q739432 rdfs:label ""Teignbridge""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Is the entity Forest directly linked to region?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q72946> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q82794> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q82794>""]"
+Forest_Woodland_02_01,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q102496 rdfs:label ""parish""@en .
+
+wd:Q12886 rdfs:label ""Anderlecht""@en .
+
+wd:Q203312 rdfs:label ""Uccle""@en .
+
+wd:Q208713 rdfs:label ""Ixelles""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q237674 rdfs:label ""Saint-Gilles""@en .
+
+wd:Q2615722 rdfs:label ""Woodland""@en ;
+    kg:be wd:Q5084 ;
+    kg:beIn wd:Q739432 ;
+    kg:lie wd:Q684 ;
+    kg:lieOf wd:Q724915 .
+
+wd:Q31 rdfs:label ""Belgium""@en .
+
+wd:Q67393660 rdfs:label ""Devon""@en .
+
+wd:Q688377 rdfs:label ""Drogenbos""@en .
+
+wd:Q72946 rdfs:label ""Forest""@en ;
+    kg:beOf wd:Q82794 .
+
+wd:Q5084 rdfs:label ""hamlet""@en .
+
+wd:Q684 rdfs:label ""east""@en .
+
+wd:Q724915 rdfs:label ""Ashburton""@en .
+
+wd:Q739432 rdfs:label ""Teignbridge""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Which entities are directly linked to Woodland?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q2615722> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Woodland"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Ashburton\""@en"", ""\""Teignbridge\""@en"", ""\""east\""@en"", ""\""hamlet\""@en""]"
+Forest_Woodland_02_02,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q102496 rdfs:label ""parish""@en .
+
+wd:Q12886 rdfs:label ""Anderlecht""@en .
+
+wd:Q203312 rdfs:label ""Uccle""@en .
+
+wd:Q208713 rdfs:label ""Ixelles""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q237674 rdfs:label ""Saint-Gilles""@en .
+
+wd:Q2615722 rdfs:label ""Woodland""@en ;
+    kg:be wd:Q5084 ;
+    kg:beIn wd:Q739432 ;
+    kg:lie wd:Q684 ;
+    kg:lieOf wd:Q724915 .
+
+wd:Q31 rdfs:label ""Belgium""@en .
+
+wd:Q67393660 rdfs:label ""Devon""@en .
+
+wd:Q688377 rdfs:label ""Drogenbos""@en .
+
+wd:Q72946 rdfs:label ""Forest""@en ;
+    kg:beOf wd:Q82794 .
+
+wd:Q5084 rdfs:label ""hamlet""@en .
+
+wd:Q684 rdfs:label ""east""@en .
+
+wd:Q724915 rdfs:label ""Ashburton""@en .
+
+wd:Q739432 rdfs:label ""Teignbridge""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Which predicates directly link entities to Woodland?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q2615722> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Woodland"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/lie>"", ""<https://example.org/wikidata-description/lieOf>""]"
+Forest_Woodland_02_03,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q102496 rdfs:label ""parish""@en .
+
+wd:Q12886 rdfs:label ""Anderlecht""@en .
+
+wd:Q203312 rdfs:label ""Uccle""@en .
+
+wd:Q208713 rdfs:label ""Ixelles""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q237674 rdfs:label ""Saint-Gilles""@en .
+
+wd:Q2615722 rdfs:label ""Woodland""@en ;
+    kg:be wd:Q5084 ;
+    kg:beIn wd:Q739432 ;
+    kg:lie wd:Q684 ;
+    kg:lieOf wd:Q724915 .
+
+wd:Q31 rdfs:label ""Belgium""@en .
+
+wd:Q67393660 rdfs:label ""Devon""@en .
+
+wd:Q688377 rdfs:label ""Drogenbos""@en .
+
+wd:Q72946 rdfs:label ""Forest""@en ;
+    kg:beOf wd:Q82794 .
+
+wd:Q5084 rdfs:label ""hamlet""@en .
+
+wd:Q684 rdfs:label ""east""@en .
+
+wd:Q724915 rdfs:label ""Ashburton""@en .
+
+wd:Q739432 rdfs:label ""Teignbridge""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Is the entity Woodland directly linked to hamlet?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q2615722> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q5084> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q5084>""]"
+House_Building_01_01,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1158452 rdfs:label ""Wood""@en .
+
+wd:Q126186951 rdfs:label ""Shapes""@en .
+
+wd:Q131179478 rdfs:label ""systems""@en .
+
+wd:Q139875957 rdfs:label ""Conditions""@en .
+
+wd:Q182612 rdfs:label ""plumbing""@en .
+
+wd:Q214609 rdfs:label ""material""@en .
+
+wd:Q22657 rdfs:label ""concrete""@en .
+
+wd:Q3947 rdfs:label ""house""@en ;
+    kg:be wd:Q41176 ;
+    kg:outfit wd:Q318452 ;
+    kg:rangeFrom wd:Q37093879 ;
+    kg:rangeIn wd:Q5156624 ;
+    kg:rangeTo wd:Q811979 .
+
+wd:Q42948 rdfs:label ""wall""@en .
+
+wd:Q4311765 rdfs:label ""heating""@en .
+
+wd:Q471728 rdfs:label ""Variety""@en .
+
+wd:Q6786584 rdfs:label ""Materials""@en .
+
+wd:Q83405 rdfs:label ""factory""@en .
+
+wd:Q309 rdfs:label ""history""@en .
+
+wd:Q37093879 rdfs:label ""Hut""@en .
+
+wd:Q41176 rdfs:label ""building""@en ;
+    kg:adaptThroughout wd:Q309 ;
+    kg:be wd:Q811979 ;
+    kg:beWith wd:Q83180 ;
+    kg:land wd:Q37467962,
+        wd:Q97751506 .
+
+wd:Q83180 rdfs:label ""roof""@en .
+
+wd:Q811979 rdfs:label ""built structure""@en .
+
+",Which entities are directly linked to house?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q3947> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""house"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Hut\""@en"", ""\""building\""@en"", ""\""built structure\""@en""]"
+House_Building_01_02,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1158452 rdfs:label ""Wood""@en .
+
+wd:Q126186951 rdfs:label ""Shapes""@en .
+
+wd:Q131179478 rdfs:label ""systems""@en .
+
+wd:Q139875957 rdfs:label ""Conditions""@en .
+
+wd:Q182612 rdfs:label ""plumbing""@en .
+
+wd:Q214609 rdfs:label ""material""@en .
+
+wd:Q22657 rdfs:label ""concrete""@en .
+
+wd:Q3947 rdfs:label ""house""@en ;
+    kg:be wd:Q41176 ;
+    kg:outfit wd:Q318452 ;
+    kg:rangeFrom wd:Q37093879 ;
+    kg:rangeIn wd:Q5156624 ;
+    kg:rangeTo wd:Q811979 .
+
+wd:Q42948 rdfs:label ""wall""@en .
+
+wd:Q4311765 rdfs:label ""heating""@en .
+
+wd:Q471728 rdfs:label ""Variety""@en .
+
+wd:Q6786584 rdfs:label ""Materials""@en .
+
+wd:Q83405 rdfs:label ""factory""@en .
+
+wd:Q309 rdfs:label ""history""@en .
+
+wd:Q37093879 rdfs:label ""Hut""@en .
+
+wd:Q41176 rdfs:label ""building""@en ;
+    kg:adaptThroughout wd:Q309 ;
+    kg:be wd:Q811979 ;
+    kg:beWith wd:Q83180 ;
+    kg:land wd:Q37467962,
+        wd:Q97751506 .
+
+wd:Q83180 rdfs:label ""roof""@en .
+
+wd:Q811979 rdfs:label ""built structure""@en .
+
+",Which predicates directly link entities to house?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q3947> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""house"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/outfit>"", ""<https://example.org/wikidata-description/rangeFrom>"", ""<https://example.org/wikidata-description/rangeIn>"", ""<https://example.org/wikidata-description/rangeTo>""]"
+House_Building_01_03,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1158452 rdfs:label ""Wood""@en .
+
+wd:Q126186951 rdfs:label ""Shapes""@en .
+
+wd:Q131179478 rdfs:label ""systems""@en .
+
+wd:Q139875957 rdfs:label ""Conditions""@en .
+
+wd:Q182612 rdfs:label ""plumbing""@en .
+
+wd:Q214609 rdfs:label ""material""@en .
+
+wd:Q22657 rdfs:label ""concrete""@en .
+
+wd:Q3947 rdfs:label ""house""@en ;
+    kg:be wd:Q41176 ;
+    kg:outfit wd:Q318452 ;
+    kg:rangeFrom wd:Q37093879 ;
+    kg:rangeIn wd:Q5156624 ;
+    kg:rangeTo wd:Q811979 .
+
+wd:Q42948 rdfs:label ""wall""@en .
+
+wd:Q4311765 rdfs:label ""heating""@en .
+
+wd:Q471728 rdfs:label ""Variety""@en .
+
+wd:Q6786584 rdfs:label ""Materials""@en .
+
+wd:Q83405 rdfs:label ""factory""@en .
+
+wd:Q309 rdfs:label ""history""@en .
+
+wd:Q37093879 rdfs:label ""Hut""@en .
+
+wd:Q41176 rdfs:label ""building""@en ;
+    kg:adaptThroughout wd:Q309 ;
+    kg:be wd:Q811979 ;
+    kg:beWith wd:Q83180 ;
+    kg:land wd:Q37467962,
+        wd:Q97751506 .
+
+wd:Q83180 rdfs:label ""roof""@en .
+
+wd:Q811979 rdfs:label ""built structure""@en .
+
+",Is the entity house directly linked to building?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q3947> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q41176> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q41176>""]"
+House_Building_02_01,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1158452 rdfs:label ""Wood""@en .
+
+wd:Q126186951 rdfs:label ""Shapes""@en .
+
+wd:Q131179478 rdfs:label ""systems""@en .
+
+wd:Q139875957 rdfs:label ""Conditions""@en .
+
+wd:Q182612 rdfs:label ""plumbing""@en .
+
+wd:Q214609 rdfs:label ""material""@en .
+
+wd:Q22657 rdfs:label ""concrete""@en .
+
+wd:Q3947 rdfs:label ""house""@en ;
+    kg:be wd:Q41176 ;
+    kg:outfit wd:Q318452 ;
+    kg:rangeFrom wd:Q37093879 ;
+    kg:rangeIn wd:Q5156624 ;
+    kg:rangeTo wd:Q811979 .
+
+wd:Q42948 rdfs:label ""wall""@en .
+
+wd:Q4311765 rdfs:label ""heating""@en .
+
+wd:Q471728 rdfs:label ""Variety""@en .
+
+wd:Q6786584 rdfs:label ""Materials""@en .
+
+wd:Q83405 rdfs:label ""factory""@en .
+
+wd:Q309 rdfs:label ""history""@en .
+
+wd:Q37093879 rdfs:label ""Hut""@en .
+
+wd:Q41176 rdfs:label ""building""@en ;
+    kg:adaptThroughout wd:Q309 ;
+    kg:be wd:Q811979 ;
+    kg:beWith wd:Q83180 ;
+    kg:land wd:Q37467962,
+        wd:Q97751506 .
+
+wd:Q83180 rdfs:label ""roof""@en .
+
+wd:Q811979 rdfs:label ""built structure""@en .
+
+",Which entities are directly linked to building?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q41176> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""building"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""built structure\""@en"", ""\""history\""@en"", ""\""house\""@en"", ""\""roof\""@en""]"
+House_Building_02_02,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1158452 rdfs:label ""Wood""@en .
+
+wd:Q126186951 rdfs:label ""Shapes""@en .
+
+wd:Q131179478 rdfs:label ""systems""@en .
+
+wd:Q139875957 rdfs:label ""Conditions""@en .
+
+wd:Q182612 rdfs:label ""plumbing""@en .
+
+wd:Q214609 rdfs:label ""material""@en .
+
+wd:Q22657 rdfs:label ""concrete""@en .
+
+wd:Q3947 rdfs:label ""house""@en ;
+    kg:be wd:Q41176 ;
+    kg:outfit wd:Q318452 ;
+    kg:rangeFrom wd:Q37093879 ;
+    kg:rangeIn wd:Q5156624 ;
+    kg:rangeTo wd:Q811979 .
+
+wd:Q42948 rdfs:label ""wall""@en .
+
+wd:Q4311765 rdfs:label ""heating""@en .
+
+wd:Q471728 rdfs:label ""Variety""@en .
+
+wd:Q6786584 rdfs:label ""Materials""@en .
+
+wd:Q83405 rdfs:label ""factory""@en .
+
+wd:Q309 rdfs:label ""history""@en .
+
+wd:Q37093879 rdfs:label ""Hut""@en .
+
+wd:Q41176 rdfs:label ""building""@en ;
+    kg:adaptThroughout wd:Q309 ;
+    kg:be wd:Q811979 ;
+    kg:beWith wd:Q83180 ;
+    kg:land wd:Q37467962,
+        wd:Q97751506 .
+
+wd:Q83180 rdfs:label ""roof""@en .
+
+wd:Q811979 rdfs:label ""built structure""@en .
+
+",Which predicates directly link entities to building?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q41176> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""building"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/adaptThroughout>"", ""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beWith>"", ""<https://example.org/wikidata-description/land>""]"
+House_Building_02_03,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1158452 rdfs:label ""Wood""@en .
+
+wd:Q126186951 rdfs:label ""Shapes""@en .
+
+wd:Q131179478 rdfs:label ""systems""@en .
+
+wd:Q139875957 rdfs:label ""Conditions""@en .
+
+wd:Q182612 rdfs:label ""plumbing""@en .
+
+wd:Q214609 rdfs:label ""material""@en .
+
+wd:Q22657 rdfs:label ""concrete""@en .
+
+wd:Q3947 rdfs:label ""house""@en ;
+    kg:be wd:Q41176 ;
+    kg:outfit wd:Q318452 ;
+    kg:rangeFrom wd:Q37093879 ;
+    kg:rangeIn wd:Q5156624 ;
+    kg:rangeTo wd:Q811979 .
+
+wd:Q42948 rdfs:label ""wall""@en .
+
+wd:Q4311765 rdfs:label ""heating""@en .
+
+wd:Q471728 rdfs:label ""Variety""@en .
+
+wd:Q6786584 rdfs:label ""Materials""@en .
+
+wd:Q83405 rdfs:label ""factory""@en .
+
+wd:Q309 rdfs:label ""history""@en .
+
+wd:Q37093879 rdfs:label ""Hut""@en .
+
+wd:Q41176 rdfs:label ""building""@en ;
+    kg:adaptThroughout wd:Q309 ;
+    kg:be wd:Q811979 ;
+    kg:beWith wd:Q83180 ;
+    kg:land wd:Q37467962,
+        wd:Q97751506 .
+
+wd:Q83180 rdfs:label ""roof""@en .
+
+wd:Q811979 rdfs:label ""built structure""@en .
+
+",Is the entity building directly linked to roof?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q41176> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q83180> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q83180>""]"
+Lake_Pond_01_01,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q170321 rdfs:label ""wetland""@en .
+
+wd:Q2 rdfs:label ""Earth""@en .
+
+wd:Q23397 rdfs:label ""lake""@en ;
+    kg:be wd:Q12581627 ;
+    kg:localizeIn wd:Q813672 ;
+    kg:surroundBy wd:Q1470363 .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q3253281 rdfs:label ""pond""@en ;
+    kg:be wd:Q11573,
+        wd:Q223557,
+        wd:Q42817 ;
+    kg:coverBy wd:Q187997 ;
+    kg:distinguish wd:Q7150 ;
+    kg:distinguishOf wd:Q37499848 ;
+    kg:have wd:Q19580008 ;
+    kg:pool wd:Q12581627 .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q187997 rdfs:label ""vegetation""@en .
+
+wd:Q19580008 rdfs:label ""Depth""@en .
+
+wd:Q223557 rdfs:label ""physical object""@en .
+
+wd:Q37499848 rdfs:label ""Ponds""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q813672 rdfs:label ""basin""@en .
+
+",Which entities are directly linked to lake?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q23397> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""lake"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Dry\""@en"", ""\""basin\""@en""]"
+Lake_Pond_01_02,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q170321 rdfs:label ""wetland""@en .
+
+wd:Q2 rdfs:label ""Earth""@en .
+
+wd:Q23397 rdfs:label ""lake""@en ;
+    kg:be wd:Q12581627 ;
+    kg:localizeIn wd:Q813672 ;
+    kg:surroundBy wd:Q1470363 .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q3253281 rdfs:label ""pond""@en ;
+    kg:be wd:Q11573,
+        wd:Q223557,
+        wd:Q42817 ;
+    kg:coverBy wd:Q187997 ;
+    kg:distinguish wd:Q7150 ;
+    kg:distinguishOf wd:Q37499848 ;
+    kg:have wd:Q19580008 ;
+    kg:pool wd:Q12581627 .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q187997 rdfs:label ""vegetation""@en .
+
+wd:Q19580008 rdfs:label ""Depth""@en .
+
+wd:Q223557 rdfs:label ""physical object""@en .
+
+wd:Q37499848 rdfs:label ""Ponds""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q813672 rdfs:label ""basin""@en .
+
+",Which predicates directly link entities to lake?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q23397> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""lake"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/localizeIn>"", ""<https://example.org/wikidata-description/surroundBy>""]"
+Lake_Pond_01_03,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q170321 rdfs:label ""wetland""@en .
+
+wd:Q2 rdfs:label ""Earth""@en .
+
+wd:Q23397 rdfs:label ""lake""@en ;
+    kg:be wd:Q12581627 ;
+    kg:localizeIn wd:Q813672 ;
+    kg:surroundBy wd:Q1470363 .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q3253281 rdfs:label ""pond""@en ;
+    kg:be wd:Q11573,
+        wd:Q223557,
+        wd:Q42817 ;
+    kg:coverBy wd:Q187997 ;
+    kg:distinguish wd:Q7150 ;
+    kg:distinguishOf wd:Q37499848 ;
+    kg:have wd:Q19580008 ;
+    kg:pool wd:Q12581627 .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q187997 rdfs:label ""vegetation""@en .
+
+wd:Q19580008 rdfs:label ""Depth""@en .
+
+wd:Q223557 rdfs:label ""physical object""@en .
+
+wd:Q37499848 rdfs:label ""Ponds""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q813672 rdfs:label ""basin""@en .
+
+",Is the entity lake directly linked to basin?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q23397> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q813672> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q813672>""]"
+Lake_Pond_02_01,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q170321 rdfs:label ""wetland""@en .
+
+wd:Q2 rdfs:label ""Earth""@en .
+
+wd:Q23397 rdfs:label ""lake""@en ;
+    kg:be wd:Q12581627 ;
+    kg:localizeIn wd:Q813672 ;
+    kg:surroundBy wd:Q1470363 .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q3253281 rdfs:label ""pond""@en ;
+    kg:be wd:Q11573,
+        wd:Q223557,
+        wd:Q42817 ;
+    kg:coverBy wd:Q187997 ;
+    kg:distinguish wd:Q7150 ;
+    kg:distinguishOf wd:Q37499848 ;
+    kg:have wd:Q19580008 ;
+    kg:pool wd:Q12581627 .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q187997 rdfs:label ""vegetation""@en .
+
+wd:Q19580008 rdfs:label ""Depth""@en .
+
+wd:Q223557 rdfs:label ""physical object""@en .
+
+wd:Q37499848 rdfs:label ""Ponds""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q813672 rdfs:label ""basin""@en .
+
+",Which entities are directly linked to pond?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q3253281> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""pond"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Depth\""@en"", ""\""Ponds\""@en"", ""\""ecology\""@en"", ""\""physical object\""@en"", ""\""pond\""@en"", ""\""vegetation\""@en""]"
+Lake_Pond_02_02,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q170321 rdfs:label ""wetland""@en .
+
+wd:Q2 rdfs:label ""Earth""@en .
+
+wd:Q23397 rdfs:label ""lake""@en ;
+    kg:be wd:Q12581627 ;
+    kg:localizeIn wd:Q813672 ;
+    kg:surroundBy wd:Q1470363 .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q3253281 rdfs:label ""pond""@en ;
+    kg:be wd:Q11573,
+        wd:Q223557,
+        wd:Q42817 ;
+    kg:coverBy wd:Q187997 ;
+    kg:distinguish wd:Q7150 ;
+    kg:distinguishOf wd:Q37499848 ;
+    kg:have wd:Q19580008 ;
+    kg:pool wd:Q12581627 .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q187997 rdfs:label ""vegetation""@en .
+
+wd:Q19580008 rdfs:label ""Depth""@en .
+
+wd:Q223557 rdfs:label ""physical object""@en .
+
+wd:Q37499848 rdfs:label ""Ponds""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q813672 rdfs:label ""basin""@en .
+
+",Which predicates directly link entities to pond?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q3253281> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""pond"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/coverBy>"", ""<https://example.org/wikidata-description/distinguish>"", ""<https://example.org/wikidata-description/distinguishOf>"", ""<https://example.org/wikidata-description/have>"", ""<https://example.org/wikidata-description/pool>""]"
+Lake_Pond_02_03,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q170321 rdfs:label ""wetland""@en .
+
+wd:Q2 rdfs:label ""Earth""@en .
+
+wd:Q23397 rdfs:label ""lake""@en ;
+    kg:be wd:Q12581627 ;
+    kg:localizeIn wd:Q813672 ;
+    kg:surroundBy wd:Q1470363 .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q3253281 rdfs:label ""pond""@en ;
+    kg:be wd:Q11573,
+        wd:Q223557,
+        wd:Q42817 ;
+    kg:coverBy wd:Q187997 ;
+    kg:distinguish wd:Q7150 ;
+    kg:distinguishOf wd:Q37499848 ;
+    kg:have wd:Q19580008 ;
+    kg:pool wd:Q12581627 .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q187997 rdfs:label ""vegetation""@en .
+
+wd:Q19580008 rdfs:label ""Depth""@en .
+
+wd:Q223557 rdfs:label ""physical object""@en .
+
+wd:Q37499848 rdfs:label ""Ponds""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q813672 rdfs:label ""basin""@en .
+
+",Is the entity pond directly linked to Depth?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q3253281> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q19580008> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q19580008>""]"
+Mercury_01_01,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1231263 rdfs:label ""Mercury""@en ;
+    kg:be wd:Q484170 ;
+    kg:beIn wd:Q82794 ;
+    kg:beOf wd:Q11878943 ;
+    kg:beTo wd:Q159469 .
+
+wd:Q12745 rdfs:label ""Savoie""@en .
+
+wd:Q13235160 rdfs:label ""manufacturer""@en .
+
+wd:Q142 rdfs:label ""France""@en .
+
+wd:Q18639 rdfs:label ""1939""@en .
+
+wd:Q28260 rdfs:label ""Lincoln""@en .
+
+wd:Q44294 rdfs:label ""Ford Motor Company""@en .
+
+wd:Q613883 rdfs:label ""Mercury""@en ;
+    kg:beOf wd:Q1420 ;
+    kg:bridge wd:Q175081 ;
+    kg:bridgeBetween wd:Q4610556 ;
+    kg:createBy wd:Q61838285 ;
+    kg:createIn wd:Q18645 ;
+    kg:produceBetween wd:Q1994 ;
+    kg:produceBy wd:Q6881511 .
+
+wd:Q1420 rdfs:label ""car""@en .
+
+wd:Q159469 rdfs:label ""Albertville""@en .
+
+wd:Q18645 rdfs:label ""1938""@en .
+
+wd:Q1994 rdfs:label ""2011""@en .
+
+wd:Q484170 rdfs:label ""commune of France""@en .
+
+wd:Q61838285 rdfs:label ""Edsel""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Which entities are directly linked to Mercury (automobile)?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q613883> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Mercury"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""1938\""@en"", ""\""2011\""@en"", ""\""Albertville\""@en"", ""\""Edsel\""@en"", ""\""car\""@en"", ""\""commune of France\""@en"", ""\""region\""@en""]"
+Mercury_01_02,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1231263 rdfs:label ""Mercury""@en ;
+    kg:be wd:Q484170 ;
+    kg:beIn wd:Q82794 ;
+    kg:beOf wd:Q11878943 ;
+    kg:beTo wd:Q159469 .
+
+wd:Q12745 rdfs:label ""Savoie""@en .
+
+wd:Q13235160 rdfs:label ""manufacturer""@en .
+
+wd:Q142 rdfs:label ""France""@en .
+
+wd:Q18639 rdfs:label ""1939""@en .
+
+wd:Q28260 rdfs:label ""Lincoln""@en .
+
+wd:Q44294 rdfs:label ""Ford Motor Company""@en .
+
+wd:Q613883 rdfs:label ""Mercury""@en ;
+    kg:beOf wd:Q1420 ;
+    kg:bridge wd:Q175081 ;
+    kg:bridgeBetween wd:Q4610556 ;
+    kg:createBy wd:Q61838285 ;
+    kg:createIn wd:Q18645 ;
+    kg:produceBetween wd:Q1994 ;
+    kg:produceBy wd:Q6881511 .
+
+wd:Q1420 rdfs:label ""car""@en .
+
+wd:Q159469 rdfs:label ""Albertville""@en .
+
+wd:Q18645 rdfs:label ""1938""@en .
+
+wd:Q1994 rdfs:label ""2011""@en .
+
+wd:Q484170 rdfs:label ""commune of France""@en .
+
+wd:Q61838285 rdfs:label ""Edsel""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Which predicates directly link entities to Mercury (automobile)?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q613883> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Mercury"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/beTo>"", ""<https://example.org/wikidata-description/bridge>"", ""<https://example.org/wikidata-description/bridgeBetween>"", ""<https://example.org/wikidata-description/createBy>"", ""<https://example.org/wikidata-description/createIn>"", ""<https://example.org/wikidata-description/produceBetween>"", ""<https://example.org/wikidata-description/produceBy>""]"
+Mercury_01_03,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1231263 rdfs:label ""Mercury""@en ;
+    kg:be wd:Q484170 ;
+    kg:beIn wd:Q82794 ;
+    kg:beOf wd:Q11878943 ;
+    kg:beTo wd:Q159469 .
+
+wd:Q12745 rdfs:label ""Savoie""@en .
+
+wd:Q13235160 rdfs:label ""manufacturer""@en .
+
+wd:Q142 rdfs:label ""France""@en .
+
+wd:Q18639 rdfs:label ""1939""@en .
+
+wd:Q28260 rdfs:label ""Lincoln""@en .
+
+wd:Q44294 rdfs:label ""Ford Motor Company""@en .
+
+wd:Q613883 rdfs:label ""Mercury""@en ;
+    kg:beOf wd:Q1420 ;
+    kg:bridge wd:Q175081 ;
+    kg:bridgeBetween wd:Q4610556 ;
+    kg:createBy wd:Q61838285 ;
+    kg:createIn wd:Q18645 ;
+    kg:produceBetween wd:Q1994 ;
+    kg:produceBy wd:Q6881511 .
+
+wd:Q1420 rdfs:label ""car""@en .
+
+wd:Q159469 rdfs:label ""Albertville""@en .
+
+wd:Q18645 rdfs:label ""1938""@en .
+
+wd:Q1994 rdfs:label ""2011""@en .
+
+wd:Q484170 rdfs:label ""commune of France""@en .
+
+wd:Q61838285 rdfs:label ""Edsel""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+",Is the entity Mercury (automobile) directly linked to 2011?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q613883> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q1994> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q1994>""]"
+Mercury_02_01,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1231263 rdfs:label ""Mercury""@en ;
+    kg:be wd:Q484170 ;
+    kg:beIn wd:Q82794 ;
+    kg:beOf wd:Q11878943 ;
+    kg:beTo wd:Q159469 .
+
+wd:Q12745 rdfs:label ""Savoie""@en .
+
+wd:Q13235160 rdfs:label ""manufacturer""@en .
+
+wd:Q142 rdfs:label ""France""@en .
+
+wd:Q18639 rdfs:label ""1939""@en .
+
+wd:Q28260 rdfs:label ""Lincoln""@en .
+
+wd:Q44294 rdfs:label ""Ford Motor Company""@en .
+
+wd:Q613883 rdfs:label ""Mercury""@en ;
+    kg:beOf wd:Q1420 ;
+    kg:bridge wd:Q175081 ;
+    kg:bridgeBetween wd:Q4610556 ;
+    kg:createBy wd:Q61838285 ;
+    kg:createIn wd:Q18645 ;
+    kg:produceBetween wd:Q1994 ;
+    kg:produceBy wd:Q6881511 .
+
+wd:Q1420 rdfs:label ""car""@en .
+
+wd:Q159469 rdfs:label ""Albertville""@en .
+
+wd:Q18645 rdfs:label ""1938""@en .
+
+wd:Q1994 rdfs:label ""2011""@en .
+
+wd:Q484170 rdfs:label ""commune of France""@en .
+
+wd:Q61838285 rdfs:label ""Edsel""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+","Which entities are directly linked to Mercury, Savoie?","PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q1231263> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Mercury"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""1938\""@en"", ""\""2011\""@en"", ""\""Albertville\""@en"", ""\""Edsel\""@en"", ""\""car\""@en"", ""\""commune of France\""@en"", ""\""region\""@en""]"
+Mercury_02_02,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1231263 rdfs:label ""Mercury""@en ;
+    kg:be wd:Q484170 ;
+    kg:beIn wd:Q82794 ;
+    kg:beOf wd:Q11878943 ;
+    kg:beTo wd:Q159469 .
+
+wd:Q12745 rdfs:label ""Savoie""@en .
+
+wd:Q13235160 rdfs:label ""manufacturer""@en .
+
+wd:Q142 rdfs:label ""France""@en .
+
+wd:Q18639 rdfs:label ""1939""@en .
+
+wd:Q28260 rdfs:label ""Lincoln""@en .
+
+wd:Q44294 rdfs:label ""Ford Motor Company""@en .
+
+wd:Q613883 rdfs:label ""Mercury""@en ;
+    kg:beOf wd:Q1420 ;
+    kg:bridge wd:Q175081 ;
+    kg:bridgeBetween wd:Q4610556 ;
+    kg:createBy wd:Q61838285 ;
+    kg:createIn wd:Q18645 ;
+    kg:produceBetween wd:Q1994 ;
+    kg:produceBy wd:Q6881511 .
+
+wd:Q1420 rdfs:label ""car""@en .
+
+wd:Q159469 rdfs:label ""Albertville""@en .
+
+wd:Q18645 rdfs:label ""1938""@en .
+
+wd:Q1994 rdfs:label ""2011""@en .
+
+wd:Q484170 rdfs:label ""commune of France""@en .
+
+wd:Q61838285 rdfs:label ""Edsel""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+","Which predicates directly link entities to Mercury, Savoie?","PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q1231263> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Mercury"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/beTo>"", ""<https://example.org/wikidata-description/bridge>"", ""<https://example.org/wikidata-description/bridgeBetween>"", ""<https://example.org/wikidata-description/createBy>"", ""<https://example.org/wikidata-description/createIn>"", ""<https://example.org/wikidata-description/produceBetween>"", ""<https://example.org/wikidata-description/produceBy>""]"
+Mercury_02_03,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1231263 rdfs:label ""Mercury""@en ;
+    kg:be wd:Q484170 ;
+    kg:beIn wd:Q82794 ;
+    kg:beOf wd:Q11878943 ;
+    kg:beTo wd:Q159469 .
+
+wd:Q12745 rdfs:label ""Savoie""@en .
+
+wd:Q13235160 rdfs:label ""manufacturer""@en .
+
+wd:Q142 rdfs:label ""France""@en .
+
+wd:Q18639 rdfs:label ""1939""@en .
+
+wd:Q28260 rdfs:label ""Lincoln""@en .
+
+wd:Q44294 rdfs:label ""Ford Motor Company""@en .
+
+wd:Q613883 rdfs:label ""Mercury""@en ;
+    kg:beOf wd:Q1420 ;
+    kg:bridge wd:Q175081 ;
+    kg:bridgeBetween wd:Q4610556 ;
+    kg:createBy wd:Q61838285 ;
+    kg:createIn wd:Q18645 ;
+    kg:produceBetween wd:Q1994 ;
+    kg:produceBy wd:Q6881511 .
+
+wd:Q1420 rdfs:label ""car""@en .
+
+wd:Q159469 rdfs:label ""Albertville""@en .
+
+wd:Q18645 rdfs:label ""1938""@en .
+
+wd:Q1994 rdfs:label ""2011""@en .
+
+wd:Q484170 rdfs:label ""commune of France""@en .
+
+wd:Q61838285 rdfs:label ""Edsel""@en .
+
+wd:Q82794 rdfs:label ""region""@en .
+
+","Is the entity Mercury, Savoie directly linked to Albertville?","SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q1231263> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q159469> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q159469>""]"
+Mountain_Hill_01_01,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q101352 rdfs:label ""family name""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q2105114 rdfs:label ""portion""@en .
+
+wd:Q22 rdfs:label ""Scotland""@en .
+
+wd:Q8502 rdfs:label ""mountain""@en ;
+    kg:beOf wd:Q37497814 ;
+    kg:considerThan wd:Q973239 ;
+    kg:expose wd:Q570309 ;
+    kg:have wd:Q9344831 .
+
+wd:Q12470363 rdfs:label ""36th""@en .
+
+wd:Q1860 rdfs:label ""English""@en .
+
+wd:Q30 rdfs:label ""United States""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q570309 rdfs:label ""bedrock""@en .
+
+wd:Q9344831 rdfs:label ""Steep""@en .
+
+wd:Q973239 rdfs:label ""Hill""@en ;
+    kg:be wd:Q12470363 ;
+    kg:beIn wd:Q30 ;
+    kg:beOf wd:Q1860 .
+
+",Which entities are directly linked to mountain?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q8502> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""mountain"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Hill\""@en"", ""\""Steep\""@en"", ""\""Surface\""@en"", ""\""bedrock\""@en""]"
+Mountain_Hill_01_02,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q101352 rdfs:label ""family name""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q2105114 rdfs:label ""portion""@en .
+
+wd:Q22 rdfs:label ""Scotland""@en .
+
+wd:Q8502 rdfs:label ""mountain""@en ;
+    kg:beOf wd:Q37497814 ;
+    kg:considerThan wd:Q973239 ;
+    kg:expose wd:Q570309 ;
+    kg:have wd:Q9344831 .
+
+wd:Q12470363 rdfs:label ""36th""@en .
+
+wd:Q1860 rdfs:label ""English""@en .
+
+wd:Q30 rdfs:label ""United States""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q570309 rdfs:label ""bedrock""@en .
+
+wd:Q9344831 rdfs:label ""Steep""@en .
+
+wd:Q973239 rdfs:label ""Hill""@en ;
+    kg:be wd:Q12470363 ;
+    kg:beIn wd:Q30 ;
+    kg:beOf wd:Q1860 .
+
+",Which predicates directly link entities to mountain?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q8502> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""mountain"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/considerThan>"", ""<https://example.org/wikidata-description/expose>"", ""<https://example.org/wikidata-description/have>""]"
+Mountain_Hill_01_03,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q101352 rdfs:label ""family name""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q2105114 rdfs:label ""portion""@en .
+
+wd:Q22 rdfs:label ""Scotland""@en .
+
+wd:Q8502 rdfs:label ""mountain""@en ;
+    kg:beOf wd:Q37497814 ;
+    kg:considerThan wd:Q973239 ;
+    kg:expose wd:Q570309 ;
+    kg:have wd:Q9344831 .
+
+wd:Q12470363 rdfs:label ""36th""@en .
+
+wd:Q1860 rdfs:label ""English""@en .
+
+wd:Q30 rdfs:label ""United States""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q570309 rdfs:label ""bedrock""@en .
+
+wd:Q9344831 rdfs:label ""Steep""@en .
+
+wd:Q973239 rdfs:label ""Hill""@en ;
+    kg:be wd:Q12470363 ;
+    kg:beIn wd:Q30 ;
+    kg:beOf wd:Q1860 .
+
+",Is the entity mountain directly linked to Surface?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q8502> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q37497814> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q37497814>""]"
+Mountain_Hill_02_01,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q101352 rdfs:label ""family name""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q2105114 rdfs:label ""portion""@en .
+
+wd:Q22 rdfs:label ""Scotland""@en .
+
+wd:Q8502 rdfs:label ""mountain""@en ;
+    kg:beOf wd:Q37497814 ;
+    kg:considerThan wd:Q973239 ;
+    kg:expose wd:Q570309 ;
+    kg:have wd:Q9344831 .
+
+wd:Q12470363 rdfs:label ""36th""@en .
+
+wd:Q1860 rdfs:label ""English""@en .
+
+wd:Q30 rdfs:label ""United States""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q570309 rdfs:label ""bedrock""@en .
+
+wd:Q9344831 rdfs:label ""Steep""@en .
+
+wd:Q973239 rdfs:label ""Hill""@en ;
+    kg:be wd:Q12470363 ;
+    kg:beIn wd:Q30 ;
+    kg:beOf wd:Q1860 .
+
+",Which entities are directly linked to Hill?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q973239> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Hill"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""36th\""@en"", ""\""English\""@en"", ""\""United States\""@en"", ""\""mountain\""@en""]"
+Mountain_Hill_02_02,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q101352 rdfs:label ""family name""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q2105114 rdfs:label ""portion""@en .
+
+wd:Q22 rdfs:label ""Scotland""@en .
+
+wd:Q8502 rdfs:label ""mountain""@en ;
+    kg:beOf wd:Q37497814 ;
+    kg:considerThan wd:Q973239 ;
+    kg:expose wd:Q570309 ;
+    kg:have wd:Q9344831 .
+
+wd:Q12470363 rdfs:label ""36th""@en .
+
+wd:Q1860 rdfs:label ""English""@en .
+
+wd:Q30 rdfs:label ""United States""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q570309 rdfs:label ""bedrock""@en .
+
+wd:Q9344831 rdfs:label ""Steep""@en .
+
+wd:Q973239 rdfs:label ""Hill""@en ;
+    kg:be wd:Q12470363 ;
+    kg:beIn wd:Q30 ;
+    kg:beOf wd:Q1860 .
+
+",Which predicates directly link entities to Hill?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q973239> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Hill"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/considerThan>""]"
+Mountain_Hill_02_03,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q101352 rdfs:label ""family name""@en .
+
+wd:Q21 rdfs:label ""England""@en .
+
+wd:Q2105114 rdfs:label ""portion""@en .
+
+wd:Q22 rdfs:label ""Scotland""@en .
+
+wd:Q8502 rdfs:label ""mountain""@en ;
+    kg:beOf wd:Q37497814 ;
+    kg:considerThan wd:Q973239 ;
+    kg:expose wd:Q570309 ;
+    kg:have wd:Q9344831 .
+
+wd:Q12470363 rdfs:label ""36th""@en .
+
+wd:Q1860 rdfs:label ""English""@en .
+
+wd:Q30 rdfs:label ""United States""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q570309 rdfs:label ""bedrock""@en .
+
+wd:Q9344831 rdfs:label ""Steep""@en .
+
+wd:Q973239 rdfs:label ""Hill""@en ;
+    kg:be wd:Q12470363 ;
+    kg:beIn wd:Q30 ;
+    kg:beOf wd:Q1860 .
+
+",Is the entity Hill directly linked to English?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q973239> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q1860> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q1860>""]"
+Python_01_01,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1199356 rdfs:label ""standard library""@en .
+
+wd:Q12787351 rdfs:label ""Daudin""@en .
+
+wd:Q17034531 rdfs:label ""Simplicity""@en .
+
+wd:Q1820650 rdfs:label ""readability""@en .
+
+wd:Q2668072 rdfs:label ""collection""@en .
+
+wd:Q271218 rdfs:label ""Python""@en ;
+    kg:be wd:Q34740 ;
+    kg:beNativeTo wd:Q16305538,
+        wd:Q186198,
+        wd:Q399984,
+        wd:Q42530 ;
+    kg:constrict wd:Q2102 ;
+    kg:constrictIn wd:Q184018 ;
+    kg:proposeBy wd:Q632104 ;
+    kg:proposeFor wd:Q3437312 ;
+    kg:proposeIn wd:Q19241405 .
+
+wd:Q28865 rdfs:label ""Python""@en ;
+    kg:be wd:Q430949 ;
+    kg:emphasize wd:Q485673 ;
+    kg:programOn wd:Q79872 ;
+    kg:support wd:Q50806774 .
+
+wd:Q3215756 rdfs:label ""typing""@en .
+
+wd:Q34770 rdfs:label ""language""@en .
+
+wd:Q35409 rdfs:label ""family""@en .
+
+wd:Q37141227 rdfs:label ""Code""@en .
+
+wd:Q16305538 rdfs:label ""subtropics""@en .
+
+wd:Q186198 rdfs:label ""Eastern Hemisphere""@en .
+
+wd:Q19241405 rdfs:label ""1803""@en .
+
+wd:Q2102 rdfs:label ""snake""@en .
+
+wd:Q34740 rdfs:label ""genus""@en .
+
+wd:Q399984 rdfs:label ""hemisphere of the Earth""@en .
+
+wd:Q42530 rdfs:label ""tropics""@en .
+
+wd:Q430949 rdfs:label ""High Level""@en .
+
+wd:Q50806774 rdfs:label ""Paradigms""@en .
+
+wd:Q632104 rdfs:label ""Marie""@en .
+
+wd:Q79872 rdfs:label ""object-oriented programming""@en .
+
+",Which entities are directly linked to Python (programming language)?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q28865> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Python"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""1803\""@en"", ""\""Eastern Hemisphere\""@en"", ""\""High Level\""@en"", ""\""Marie\""@en"", ""\""Paradigms\""@en"", ""\""genus\""@en"", ""\""hemisphere of the Earth\""@en"", ""\""object-oriented programming\""@en"", ""\""snake\""@en"", ""\""subtropics\""@en"", ""\""tropics\""@en""]"
+Python_01_02,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1199356 rdfs:label ""standard library""@en .
+
+wd:Q12787351 rdfs:label ""Daudin""@en .
+
+wd:Q17034531 rdfs:label ""Simplicity""@en .
+
+wd:Q1820650 rdfs:label ""readability""@en .
+
+wd:Q2668072 rdfs:label ""collection""@en .
+
+wd:Q271218 rdfs:label ""Python""@en ;
+    kg:be wd:Q34740 ;
+    kg:beNativeTo wd:Q16305538,
+        wd:Q186198,
+        wd:Q399984,
+        wd:Q42530 ;
+    kg:constrict wd:Q2102 ;
+    kg:constrictIn wd:Q184018 ;
+    kg:proposeBy wd:Q632104 ;
+    kg:proposeFor wd:Q3437312 ;
+    kg:proposeIn wd:Q19241405 .
+
+wd:Q28865 rdfs:label ""Python""@en ;
+    kg:be wd:Q430949 ;
+    kg:emphasize wd:Q485673 ;
+    kg:programOn wd:Q79872 ;
+    kg:support wd:Q50806774 .
+
+wd:Q3215756 rdfs:label ""typing""@en .
+
+wd:Q34770 rdfs:label ""language""@en .
+
+wd:Q35409 rdfs:label ""family""@en .
+
+wd:Q37141227 rdfs:label ""Code""@en .
+
+wd:Q16305538 rdfs:label ""subtropics""@en .
+
+wd:Q186198 rdfs:label ""Eastern Hemisphere""@en .
+
+wd:Q19241405 rdfs:label ""1803""@en .
+
+wd:Q2102 rdfs:label ""snake""@en .
+
+wd:Q34740 rdfs:label ""genus""@en .
+
+wd:Q399984 rdfs:label ""hemisphere of the Earth""@en .
+
+wd:Q42530 rdfs:label ""tropics""@en .
+
+wd:Q430949 rdfs:label ""High Level""@en .
+
+wd:Q50806774 rdfs:label ""Paradigms""@en .
+
+wd:Q632104 rdfs:label ""Marie""@en .
+
+wd:Q79872 rdfs:label ""object-oriented programming""@en .
+
+",Which predicates directly link entities to Python (programming language)?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q28865> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Python"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beNativeTo>"", ""<https://example.org/wikidata-description/constrict>"", ""<https://example.org/wikidata-description/constrictIn>"", ""<https://example.org/wikidata-description/emphasize>"", ""<https://example.org/wikidata-description/programOn>"", ""<https://example.org/wikidata-description/proposeBy>"", ""<https://example.org/wikidata-description/proposeFor>"", ""<https://example.org/wikidata-description/proposeIn>"", ""<https://example.org/wikidata-description/support>""]"
+Python_01_03,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1199356 rdfs:label ""standard library""@en .
+
+wd:Q12787351 rdfs:label ""Daudin""@en .
+
+wd:Q17034531 rdfs:label ""Simplicity""@en .
+
+wd:Q1820650 rdfs:label ""readability""@en .
+
+wd:Q2668072 rdfs:label ""collection""@en .
+
+wd:Q271218 rdfs:label ""Python""@en ;
+    kg:be wd:Q34740 ;
+    kg:beNativeTo wd:Q16305538,
+        wd:Q186198,
+        wd:Q399984,
+        wd:Q42530 ;
+    kg:constrict wd:Q2102 ;
+    kg:constrictIn wd:Q184018 ;
+    kg:proposeBy wd:Q632104 ;
+    kg:proposeFor wd:Q3437312 ;
+    kg:proposeIn wd:Q19241405 .
+
+wd:Q28865 rdfs:label ""Python""@en ;
+    kg:be wd:Q430949 ;
+    kg:emphasize wd:Q485673 ;
+    kg:programOn wd:Q79872 ;
+    kg:support wd:Q50806774 .
+
+wd:Q3215756 rdfs:label ""typing""@en .
+
+wd:Q34770 rdfs:label ""language""@en .
+
+wd:Q35409 rdfs:label ""family""@en .
+
+wd:Q37141227 rdfs:label ""Code""@en .
+
+wd:Q16305538 rdfs:label ""subtropics""@en .
+
+wd:Q186198 rdfs:label ""Eastern Hemisphere""@en .
+
+wd:Q19241405 rdfs:label ""1803""@en .
+
+wd:Q2102 rdfs:label ""snake""@en .
+
+wd:Q34740 rdfs:label ""genus""@en .
+
+wd:Q399984 rdfs:label ""hemisphere of the Earth""@en .
+
+wd:Q42530 rdfs:label ""tropics""@en .
+
+wd:Q430949 rdfs:label ""High Level""@en .
+
+wd:Q50806774 rdfs:label ""Paradigms""@en .
+
+wd:Q632104 rdfs:label ""Marie""@en .
+
+wd:Q79872 rdfs:label ""object-oriented programming""@en .
+
+",Is the entity Python (programming language) directly linked to High Level?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q28865> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q430949> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q430949>""]"
+Python_02_01,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1199356 rdfs:label ""standard library""@en .
+
+wd:Q12787351 rdfs:label ""Daudin""@en .
+
+wd:Q17034531 rdfs:label ""Simplicity""@en .
+
+wd:Q1820650 rdfs:label ""readability""@en .
+
+wd:Q2668072 rdfs:label ""collection""@en .
+
+wd:Q271218 rdfs:label ""Python""@en ;
+    kg:be wd:Q34740 ;
+    kg:beNativeTo wd:Q16305538,
+        wd:Q186198,
+        wd:Q399984,
+        wd:Q42530 ;
+    kg:constrict wd:Q2102 ;
+    kg:constrictIn wd:Q184018 ;
+    kg:proposeBy wd:Q632104 ;
+    kg:proposeFor wd:Q3437312 ;
+    kg:proposeIn wd:Q19241405 .
+
+wd:Q28865 rdfs:label ""Python""@en ;
+    kg:be wd:Q430949 ;
+    kg:emphasize wd:Q485673 ;
+    kg:programOn wd:Q79872 ;
+    kg:support wd:Q50806774 .
+
+wd:Q3215756 rdfs:label ""typing""@en .
+
+wd:Q34770 rdfs:label ""language""@en .
+
+wd:Q35409 rdfs:label ""family""@en .
+
+wd:Q37141227 rdfs:label ""Code""@en .
+
+wd:Q16305538 rdfs:label ""subtropics""@en .
+
+wd:Q186198 rdfs:label ""Eastern Hemisphere""@en .
+
+wd:Q19241405 rdfs:label ""1803""@en .
+
+wd:Q2102 rdfs:label ""snake""@en .
+
+wd:Q34740 rdfs:label ""genus""@en .
+
+wd:Q399984 rdfs:label ""hemisphere of the Earth""@en .
+
+wd:Q42530 rdfs:label ""tropics""@en .
+
+wd:Q430949 rdfs:label ""High Level""@en .
+
+wd:Q50806774 rdfs:label ""Paradigms""@en .
+
+wd:Q632104 rdfs:label ""Marie""@en .
+
+wd:Q79872 rdfs:label ""object-oriented programming""@en .
+
+",Which entities are directly linked to Python (genus)?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q271218> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Python"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""1803\""@en"", ""\""Eastern Hemisphere\""@en"", ""\""High Level\""@en"", ""\""Marie\""@en"", ""\""Paradigms\""@en"", ""\""genus\""@en"", ""\""hemisphere of the Earth\""@en"", ""\""object-oriented programming\""@en"", ""\""snake\""@en"", ""\""subtropics\""@en"", ""\""tropics\""@en""]"
+Python_02_02,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1199356 rdfs:label ""standard library""@en .
+
+wd:Q12787351 rdfs:label ""Daudin""@en .
+
+wd:Q17034531 rdfs:label ""Simplicity""@en .
+
+wd:Q1820650 rdfs:label ""readability""@en .
+
+wd:Q2668072 rdfs:label ""collection""@en .
+
+wd:Q271218 rdfs:label ""Python""@en ;
+    kg:be wd:Q34740 ;
+    kg:beNativeTo wd:Q16305538,
+        wd:Q186198,
+        wd:Q399984,
+        wd:Q42530 ;
+    kg:constrict wd:Q2102 ;
+    kg:constrictIn wd:Q184018 ;
+    kg:proposeBy wd:Q632104 ;
+    kg:proposeFor wd:Q3437312 ;
+    kg:proposeIn wd:Q19241405 .
+
+wd:Q28865 rdfs:label ""Python""@en ;
+    kg:be wd:Q430949 ;
+    kg:emphasize wd:Q485673 ;
+    kg:programOn wd:Q79872 ;
+    kg:support wd:Q50806774 .
+
+wd:Q3215756 rdfs:label ""typing""@en .
+
+wd:Q34770 rdfs:label ""language""@en .
+
+wd:Q35409 rdfs:label ""family""@en .
+
+wd:Q37141227 rdfs:label ""Code""@en .
+
+wd:Q16305538 rdfs:label ""subtropics""@en .
+
+wd:Q186198 rdfs:label ""Eastern Hemisphere""@en .
+
+wd:Q19241405 rdfs:label ""1803""@en .
+
+wd:Q2102 rdfs:label ""snake""@en .
+
+wd:Q34740 rdfs:label ""genus""@en .
+
+wd:Q399984 rdfs:label ""hemisphere of the Earth""@en .
+
+wd:Q42530 rdfs:label ""tropics""@en .
+
+wd:Q430949 rdfs:label ""High Level""@en .
+
+wd:Q50806774 rdfs:label ""Paradigms""@en .
+
+wd:Q632104 rdfs:label ""Marie""@en .
+
+wd:Q79872 rdfs:label ""object-oriented programming""@en .
+
+",Which predicates directly link entities to Python (genus)?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q271218> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Python"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beNativeTo>"", ""<https://example.org/wikidata-description/constrict>"", ""<https://example.org/wikidata-description/constrictIn>"", ""<https://example.org/wikidata-description/emphasize>"", ""<https://example.org/wikidata-description/programOn>"", ""<https://example.org/wikidata-description/proposeBy>"", ""<https://example.org/wikidata-description/proposeFor>"", ""<https://example.org/wikidata-description/proposeIn>"", ""<https://example.org/wikidata-description/support>""]"
+Python_02_03,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1199356 rdfs:label ""standard library""@en .
+
+wd:Q12787351 rdfs:label ""Daudin""@en .
+
+wd:Q17034531 rdfs:label ""Simplicity""@en .
+
+wd:Q1820650 rdfs:label ""readability""@en .
+
+wd:Q2668072 rdfs:label ""collection""@en .
+
+wd:Q271218 rdfs:label ""Python""@en ;
+    kg:be wd:Q34740 ;
+    kg:beNativeTo wd:Q16305538,
+        wd:Q186198,
+        wd:Q399984,
+        wd:Q42530 ;
+    kg:constrict wd:Q2102 ;
+    kg:constrictIn wd:Q184018 ;
+    kg:proposeBy wd:Q632104 ;
+    kg:proposeFor wd:Q3437312 ;
+    kg:proposeIn wd:Q19241405 .
+
+wd:Q28865 rdfs:label ""Python""@en ;
+    kg:be wd:Q430949 ;
+    kg:emphasize wd:Q485673 ;
+    kg:programOn wd:Q79872 ;
+    kg:support wd:Q50806774 .
+
+wd:Q3215756 rdfs:label ""typing""@en .
+
+wd:Q34770 rdfs:label ""language""@en .
+
+wd:Q35409 rdfs:label ""family""@en .
+
+wd:Q37141227 rdfs:label ""Code""@en .
+
+wd:Q16305538 rdfs:label ""subtropics""@en .
+
+wd:Q186198 rdfs:label ""Eastern Hemisphere""@en .
+
+wd:Q19241405 rdfs:label ""1803""@en .
+
+wd:Q2102 rdfs:label ""snake""@en .
+
+wd:Q34740 rdfs:label ""genus""@en .
+
+wd:Q399984 rdfs:label ""hemisphere of the Earth""@en .
+
+wd:Q42530 rdfs:label ""tropics""@en .
+
+wd:Q430949 rdfs:label ""High Level""@en .
+
+wd:Q50806774 rdfs:label ""Paradigms""@en .
+
+wd:Q632104 rdfs:label ""Marie""@en .
+
+wd:Q79872 rdfs:label ""object-oriented programming""@en .
+
+",Is the entity Python (genus) directly linked to genus?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q271218> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q34740> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q34740>""]"
+River_Stream_01_01,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q200886 rdfs:label ""Caves""@en .
+
+wd:Q4022 rdfs:label ""river""@en ;
+    kg:be wd:Q47521 ;
+    kg:beOf wd:Q283 ;
+    kg:flowOn wd:Q11081619 ;
+    kg:flowTowards wd:Q23397,
+        wd:Q71267306 ;
+    kg:inside wd:Q223557 ;
+    kg:run wd:Q1470363 .
+
+wd:Q42177 rdfs:label ""bed""@en .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q1210950 rdfs:label ""channel""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q23397 rdfs:label ""lake""@en .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q355304 rdfs:label ""watercourse""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q47521 rdfs:label ""stream""@en ;
+    kg:be wd:Q1704572,
+        wd:Q223557,
+        wd:Q355304 ;
+    kg:beOf wd:Q37497814 ;
+    kg:flowOf wd:Q1210950 ;
+    kg:flowWithin wd:Q806825 .
+
+wd:Q71267306 rdfs:label ""Ocean""@en .
+
+wd:Q806825 rdfs:label ""Banks""@en .
+
+",Which entities are directly linked to river?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q4022> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""river"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Dry\""@en"", ""\""Ocean\""@en"", ""\""lake\""@en"", ""\""land\""@en"", ""\""stream\""@en"", ""\""water\""@en""]"
+River_Stream_01_02,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q200886 rdfs:label ""Caves""@en .
+
+wd:Q4022 rdfs:label ""river""@en ;
+    kg:be wd:Q47521 ;
+    kg:beOf wd:Q283 ;
+    kg:flowOn wd:Q11081619 ;
+    kg:flowTowards wd:Q23397,
+        wd:Q71267306 ;
+    kg:inside wd:Q223557 ;
+    kg:run wd:Q1470363 .
+
+wd:Q42177 rdfs:label ""bed""@en .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q1210950 rdfs:label ""channel""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q23397 rdfs:label ""lake""@en .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q355304 rdfs:label ""watercourse""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q47521 rdfs:label ""stream""@en ;
+    kg:be wd:Q1704572,
+        wd:Q223557,
+        wd:Q355304 ;
+    kg:beOf wd:Q37497814 ;
+    kg:flowOf wd:Q1210950 ;
+    kg:flowWithin wd:Q806825 .
+
+wd:Q71267306 rdfs:label ""Ocean""@en .
+
+wd:Q806825 rdfs:label ""Banks""@en .
+
+",Which predicates directly link entities to river?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q4022> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""river"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/flowOn>"", ""<https://example.org/wikidata-description/flowTowards>"", ""<https://example.org/wikidata-description/inside>"", ""<https://example.org/wikidata-description/run>""]"
+River_Stream_01_03,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q200886 rdfs:label ""Caves""@en .
+
+wd:Q4022 rdfs:label ""river""@en ;
+    kg:be wd:Q47521 ;
+    kg:beOf wd:Q283 ;
+    kg:flowOn wd:Q11081619 ;
+    kg:flowTowards wd:Q23397,
+        wd:Q71267306 ;
+    kg:inside wd:Q223557 ;
+    kg:run wd:Q1470363 .
+
+wd:Q42177 rdfs:label ""bed""@en .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q1210950 rdfs:label ""channel""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q23397 rdfs:label ""lake""@en .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q355304 rdfs:label ""watercourse""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q47521 rdfs:label ""stream""@en ;
+    kg:be wd:Q1704572,
+        wd:Q223557,
+        wd:Q355304 ;
+    kg:beOf wd:Q37497814 ;
+    kg:flowOf wd:Q1210950 ;
+    kg:flowWithin wd:Q806825 .
+
+wd:Q71267306 rdfs:label ""Ocean""@en .
+
+wd:Q806825 rdfs:label ""Banks""@en .
+
+",Is the entity river directly linked to stream?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q4022> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q47521> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q47521>""]"
+River_Stream_02_01,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q200886 rdfs:label ""Caves""@en .
+
+wd:Q4022 rdfs:label ""river""@en ;
+    kg:be wd:Q47521 ;
+    kg:beOf wd:Q283 ;
+    kg:flowOn wd:Q11081619 ;
+    kg:flowTowards wd:Q23397,
+        wd:Q71267306 ;
+    kg:inside wd:Q223557 ;
+    kg:run wd:Q1470363 .
+
+wd:Q42177 rdfs:label ""bed""@en .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q1210950 rdfs:label ""channel""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q23397 rdfs:label ""lake""@en .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q355304 rdfs:label ""watercourse""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q47521 rdfs:label ""stream""@en ;
+    kg:be wd:Q1704572,
+        wd:Q223557,
+        wd:Q355304 ;
+    kg:beOf wd:Q37497814 ;
+    kg:flowOf wd:Q1210950 ;
+    kg:flowWithin wd:Q806825 .
+
+wd:Q71267306 rdfs:label ""Ocean""@en .
+
+wd:Q806825 rdfs:label ""Banks""@en .
+
+",Which entities are directly linked to stream?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q47521> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""stream"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Banks\""@en"", ""\""Surface\""@en"", ""\""channel\""@en"", ""\""river\""@en"", ""\""watercourse\""@en""]"
+River_Stream_02_02,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q200886 rdfs:label ""Caves""@en .
+
+wd:Q4022 rdfs:label ""river""@en ;
+    kg:be wd:Q47521 ;
+    kg:beOf wd:Q283 ;
+    kg:flowOn wd:Q11081619 ;
+    kg:flowTowards wd:Q23397,
+        wd:Q71267306 ;
+    kg:inside wd:Q223557 ;
+    kg:run wd:Q1470363 .
+
+wd:Q42177 rdfs:label ""bed""@en .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q1210950 rdfs:label ""channel""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q23397 rdfs:label ""lake""@en .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q355304 rdfs:label ""watercourse""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q47521 rdfs:label ""stream""@en ;
+    kg:be wd:Q1704572,
+        wd:Q223557,
+        wd:Q355304 ;
+    kg:beOf wd:Q37497814 ;
+    kg:flowOf wd:Q1210950 ;
+    kg:flowWithin wd:Q806825 .
+
+wd:Q71267306 rdfs:label ""Ocean""@en .
+
+wd:Q806825 rdfs:label ""Banks""@en .
+
+",Which predicates directly link entities to stream?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q47521> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""stream"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/flowOf>"", ""<https://example.org/wikidata-description/flowWithin>""]"
+River_Stream_02_03,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q200886 rdfs:label ""Caves""@en .
+
+wd:Q4022 rdfs:label ""river""@en ;
+    kg:be wd:Q47521 ;
+    kg:beOf wd:Q283 ;
+    kg:flowOn wd:Q11081619 ;
+    kg:flowTowards wd:Q23397,
+        wd:Q71267306 ;
+    kg:inside wd:Q223557 ;
+    kg:run wd:Q1470363 .
+
+wd:Q42177 rdfs:label ""bed""@en .
+
+wd:Q11081619 rdfs:label ""land""@en .
+
+wd:Q1210950 rdfs:label ""channel""@en .
+
+wd:Q1470363 rdfs:label ""Dry""@en .
+
+wd:Q23397 rdfs:label ""lake""@en .
+
+wd:Q283 rdfs:label ""water""@en .
+
+wd:Q355304 rdfs:label ""watercourse""@en .
+
+wd:Q37497814 rdfs:label ""Surface""@en .
+
+wd:Q47521 rdfs:label ""stream""@en ;
+    kg:be wd:Q1704572,
+        wd:Q223557,
+        wd:Q355304 ;
+    kg:beOf wd:Q37497814 ;
+    kg:flowOf wd:Q1210950 ;
+    kg:flowWithin wd:Q806825 .
+
+wd:Q71267306 rdfs:label ""Ocean""@en .
+
+wd:Q806825 rdfs:label ""Banks""@en .
+
+",Is the entity stream directly linked to Surface?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q47521> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q37497814> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q37497814>""]"
+Saturn_01_01,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11398090 rdfs:label ""creation""@en .
+
+wd:Q11451 rdfs:label ""agriculture""@en .
+
+wd:Q121750 rdfs:label ""gas giant""@en .
+
+wd:Q134388 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q95074 ;
+    kg:beIn wd:Q933726 ;
+    kg:describe wd:Q1002697 .
+
+wd:Q1747689 rdfs:label ""Ancient Rome""@en .
+
+wd:Q178885 rdfs:label ""deity""@en .
+
+wd:Q193 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q202785,
+        wd:Q7533215 ;
+    kg:beIn wd:Q29441547 .
+
+wd:Q200535 rdfs:label ""wealth""@en .
+
+wd:Q2144402 rdfs:label ""renovation""@en .
+
+wd:Q336019 rdfs:label ""abundance""@en .
+
+wd:Q43297 rdfs:label ""Time""@en .
+
+wd:Q56277842 rdfs:label ""Dissolution""@en .
+
+wd:Q9134 rdfs:label ""mythology""@en .
+
+wd:Q9174 rdfs:label ""religion""@en .
+
+wd:Q29441547 rdfs:label ""Solar""@en .
+
+wd:Q7533215 rdfs:label ""Sixth planet""@en .
+
+wd:Q933726 rdfs:label ""Roman""@en .
+
+wd:Q95074 rdfs:label ""character""@en .
+
+",Which entities are directly linked to Saturn (mythology)?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q134388> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Saturn"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Roman\""@en"", ""\""Sixth planet\""@en"", ""\""Solar\""@en"", ""\""character\""@en""]"
+Saturn_01_02,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11398090 rdfs:label ""creation""@en .
+
+wd:Q11451 rdfs:label ""agriculture""@en .
+
+wd:Q121750 rdfs:label ""gas giant""@en .
+
+wd:Q134388 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q95074 ;
+    kg:beIn wd:Q933726 ;
+    kg:describe wd:Q1002697 .
+
+wd:Q1747689 rdfs:label ""Ancient Rome""@en .
+
+wd:Q178885 rdfs:label ""deity""@en .
+
+wd:Q193 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q202785,
+        wd:Q7533215 ;
+    kg:beIn wd:Q29441547 .
+
+wd:Q200535 rdfs:label ""wealth""@en .
+
+wd:Q2144402 rdfs:label ""renovation""@en .
+
+wd:Q336019 rdfs:label ""abundance""@en .
+
+wd:Q43297 rdfs:label ""Time""@en .
+
+wd:Q56277842 rdfs:label ""Dissolution""@en .
+
+wd:Q9134 rdfs:label ""mythology""@en .
+
+wd:Q9174 rdfs:label ""religion""@en .
+
+wd:Q29441547 rdfs:label ""Solar""@en .
+
+wd:Q7533215 rdfs:label ""Sixth planet""@en .
+
+wd:Q933726 rdfs:label ""Roman""@en .
+
+wd:Q95074 rdfs:label ""character""@en .
+
+",Which predicates directly link entities to Saturn (mythology)?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q134388> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Saturn"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/describe>""]"
+Saturn_01_03,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11398090 rdfs:label ""creation""@en .
+
+wd:Q11451 rdfs:label ""agriculture""@en .
+
+wd:Q121750 rdfs:label ""gas giant""@en .
+
+wd:Q134388 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q95074 ;
+    kg:beIn wd:Q933726 ;
+    kg:describe wd:Q1002697 .
+
+wd:Q1747689 rdfs:label ""Ancient Rome""@en .
+
+wd:Q178885 rdfs:label ""deity""@en .
+
+wd:Q193 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q202785,
+        wd:Q7533215 ;
+    kg:beIn wd:Q29441547 .
+
+wd:Q200535 rdfs:label ""wealth""@en .
+
+wd:Q2144402 rdfs:label ""renovation""@en .
+
+wd:Q336019 rdfs:label ""abundance""@en .
+
+wd:Q43297 rdfs:label ""Time""@en .
+
+wd:Q56277842 rdfs:label ""Dissolution""@en .
+
+wd:Q9134 rdfs:label ""mythology""@en .
+
+wd:Q9174 rdfs:label ""religion""@en .
+
+wd:Q29441547 rdfs:label ""Solar""@en .
+
+wd:Q7533215 rdfs:label ""Sixth planet""@en .
+
+wd:Q933726 rdfs:label ""Roman""@en .
+
+wd:Q95074 rdfs:label ""character""@en .
+
+",Is the entity Saturn (mythology) directly linked to Roman?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q134388> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q933726> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q933726>""]"
+Saturn_02_01,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11398090 rdfs:label ""creation""@en .
+
+wd:Q11451 rdfs:label ""agriculture""@en .
+
+wd:Q121750 rdfs:label ""gas giant""@en .
+
+wd:Q134388 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q95074 ;
+    kg:beIn wd:Q933726 ;
+    kg:describe wd:Q1002697 .
+
+wd:Q1747689 rdfs:label ""Ancient Rome""@en .
+
+wd:Q178885 rdfs:label ""deity""@en .
+
+wd:Q193 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q202785,
+        wd:Q7533215 ;
+    kg:beIn wd:Q29441547 .
+
+wd:Q200535 rdfs:label ""wealth""@en .
+
+wd:Q2144402 rdfs:label ""renovation""@en .
+
+wd:Q336019 rdfs:label ""abundance""@en .
+
+wd:Q43297 rdfs:label ""Time""@en .
+
+wd:Q56277842 rdfs:label ""Dissolution""@en .
+
+wd:Q9134 rdfs:label ""mythology""@en .
+
+wd:Q9174 rdfs:label ""religion""@en .
+
+wd:Q29441547 rdfs:label ""Solar""@en .
+
+wd:Q7533215 rdfs:label ""Sixth planet""@en .
+
+wd:Q933726 rdfs:label ""Roman""@en .
+
+wd:Q95074 rdfs:label ""character""@en .
+
+",Which entities are directly linked to Saturn (http://www.wikidata.org/entity/Q193)?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q193> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Saturn"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Roman\""@en"", ""\""Sixth planet\""@en"", ""\""Solar\""@en"", ""\""character\""@en""]"
+Saturn_02_02,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11398090 rdfs:label ""creation""@en .
+
+wd:Q11451 rdfs:label ""agriculture""@en .
+
+wd:Q121750 rdfs:label ""gas giant""@en .
+
+wd:Q134388 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q95074 ;
+    kg:beIn wd:Q933726 ;
+    kg:describe wd:Q1002697 .
+
+wd:Q1747689 rdfs:label ""Ancient Rome""@en .
+
+wd:Q178885 rdfs:label ""deity""@en .
+
+wd:Q193 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q202785,
+        wd:Q7533215 ;
+    kg:beIn wd:Q29441547 .
+
+wd:Q200535 rdfs:label ""wealth""@en .
+
+wd:Q2144402 rdfs:label ""renovation""@en .
+
+wd:Q336019 rdfs:label ""abundance""@en .
+
+wd:Q43297 rdfs:label ""Time""@en .
+
+wd:Q56277842 rdfs:label ""Dissolution""@en .
+
+wd:Q9134 rdfs:label ""mythology""@en .
+
+wd:Q9174 rdfs:label ""religion""@en .
+
+wd:Q29441547 rdfs:label ""Solar""@en .
+
+wd:Q7533215 rdfs:label ""Sixth planet""@en .
+
+wd:Q933726 rdfs:label ""Roman""@en .
+
+wd:Q95074 rdfs:label ""character""@en .
+
+",Which predicates directly link entities to Saturn (http://www.wikidata.org/entity/Q193)?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q193> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Saturn"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/describe>""]"
+Saturn_02_03,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q11398090 rdfs:label ""creation""@en .
+
+wd:Q11451 rdfs:label ""agriculture""@en .
+
+wd:Q121750 rdfs:label ""gas giant""@en .
+
+wd:Q134388 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q95074 ;
+    kg:beIn wd:Q933726 ;
+    kg:describe wd:Q1002697 .
+
+wd:Q1747689 rdfs:label ""Ancient Rome""@en .
+
+wd:Q178885 rdfs:label ""deity""@en .
+
+wd:Q193 rdfs:label ""Saturn""@en ;
+    kg:be wd:Q202785,
+        wd:Q7533215 ;
+    kg:beIn wd:Q29441547 .
+
+wd:Q200535 rdfs:label ""wealth""@en .
+
+wd:Q2144402 rdfs:label ""renovation""@en .
+
+wd:Q336019 rdfs:label ""abundance""@en .
+
+wd:Q43297 rdfs:label ""Time""@en .
+
+wd:Q56277842 rdfs:label ""Dissolution""@en .
+
+wd:Q9134 rdfs:label ""mythology""@en .
+
+wd:Q9174 rdfs:label ""religion""@en .
+
+wd:Q29441547 rdfs:label ""Solar""@en .
+
+wd:Q7533215 rdfs:label ""Sixth planet""@en .
+
+wd:Q933726 rdfs:label ""Roman""@en .
+
+wd:Q95074 rdfs:label ""character""@en .
+
+",Is the entity Saturn (http://www.wikidata.org/entity/Q193) directly linked to Sixth planet?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q193> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q7533215> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q7533215>""]"
+Seal_01_01,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1260201 rdfs:label ""Singer""@en .
+
+wd:Q17023689 rdfs:label ""Global Online""@en .
+
+wd:Q218091 rdfs:label ""Seal""@en ;
+    kg:be wd:Q2596417,
+        wd:Q273899,
+        wd:Q3282637,
+        wd:Q40292,
+        wd:Q753110 ;
+    kg:beOf wd:Q618779 .
+
+wd:Q223313 rdfs:label ""BRIT Awards""@en .
+
+wd:Q41254 rdfs:label ""Grammy Awards""@en .
+
+wd:Q4568822 rdfs:label ""Marine""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q7432 rdfs:label ""species""@en .
+
+wd:Q7439813 rdfs:label ""SeaLifeBase""@en ;
+    kg:be wd:Q8513 ;
+    kg:beAbout wd:Q463198 ;
+    kg:provide wd:Q123187803 ;
+    kg:provideOn wd:Q8269924 .
+
+wd:Q463198 rdfs:label ""Life""@en .
+
+wd:Q618779 rdfs:label ""award""@en .
+
+wd:Q753110 rdfs:label ""songwriter""@en .
+
+wd:Q8269924 rdfs:label ""taxonomy""@en .
+
+wd:Q8513 rdfs:label ""database""@en .
+
+",Which entities are directly linked to Seal?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q218091> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Seal"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Life\""@en"", ""\""award\""@en"", ""\""database\""@en"", ""\""songwriter\""@en"", ""\""taxonomy\""@en""]"
+Seal_01_02,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1260201 rdfs:label ""Singer""@en .
+
+wd:Q17023689 rdfs:label ""Global Online""@en .
+
+wd:Q218091 rdfs:label ""Seal""@en ;
+    kg:be wd:Q2596417,
+        wd:Q273899,
+        wd:Q3282637,
+        wd:Q40292,
+        wd:Q753110 ;
+    kg:beOf wd:Q618779 .
+
+wd:Q223313 rdfs:label ""BRIT Awards""@en .
+
+wd:Q41254 rdfs:label ""Grammy Awards""@en .
+
+wd:Q4568822 rdfs:label ""Marine""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q7432 rdfs:label ""species""@en .
+
+wd:Q7439813 rdfs:label ""SeaLifeBase""@en ;
+    kg:be wd:Q8513 ;
+    kg:beAbout wd:Q463198 ;
+    kg:provide wd:Q123187803 ;
+    kg:provideOn wd:Q8269924 .
+
+wd:Q463198 rdfs:label ""Life""@en .
+
+wd:Q618779 rdfs:label ""award""@en .
+
+wd:Q753110 rdfs:label ""songwriter""@en .
+
+wd:Q8269924 rdfs:label ""taxonomy""@en .
+
+wd:Q8513 rdfs:label ""database""@en .
+
+",Which predicates directly link entities to Seal?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q218091> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""Seal"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beAbout>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/provide>"", ""<https://example.org/wikidata-description/provideOn>""]"
+Seal_01_03,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1260201 rdfs:label ""Singer""@en .
+
+wd:Q17023689 rdfs:label ""Global Online""@en .
+
+wd:Q218091 rdfs:label ""Seal""@en ;
+    kg:be wd:Q2596417,
+        wd:Q273899,
+        wd:Q3282637,
+        wd:Q40292,
+        wd:Q753110 ;
+    kg:beOf wd:Q618779 .
+
+wd:Q223313 rdfs:label ""BRIT Awards""@en .
+
+wd:Q41254 rdfs:label ""Grammy Awards""@en .
+
+wd:Q4568822 rdfs:label ""Marine""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q7432 rdfs:label ""species""@en .
+
+wd:Q7439813 rdfs:label ""SeaLifeBase""@en ;
+    kg:be wd:Q8513 ;
+    kg:beAbout wd:Q463198 ;
+    kg:provide wd:Q123187803 ;
+    kg:provideOn wd:Q8269924 .
+
+wd:Q463198 rdfs:label ""Life""@en .
+
+wd:Q618779 rdfs:label ""award""@en .
+
+wd:Q753110 rdfs:label ""songwriter""@en .
+
+wd:Q8269924 rdfs:label ""taxonomy""@en .
+
+wd:Q8513 rdfs:label ""database""@en .
+
+",Is the entity Seal directly linked to songwriter?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q218091> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q753110> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q753110>""]"
+Seal_02_01,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1260201 rdfs:label ""Singer""@en .
+
+wd:Q17023689 rdfs:label ""Global Online""@en .
+
+wd:Q218091 rdfs:label ""Seal""@en ;
+    kg:be wd:Q2596417,
+        wd:Q273899,
+        wd:Q3282637,
+        wd:Q40292,
+        wd:Q753110 ;
+    kg:beOf wd:Q618779 .
+
+wd:Q223313 rdfs:label ""BRIT Awards""@en .
+
+wd:Q41254 rdfs:label ""Grammy Awards""@en .
+
+wd:Q4568822 rdfs:label ""Marine""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q7432 rdfs:label ""species""@en .
+
+wd:Q7439813 rdfs:label ""SeaLifeBase""@en ;
+    kg:be wd:Q8513 ;
+    kg:beAbout wd:Q463198 ;
+    kg:provide wd:Q123187803 ;
+    kg:provideOn wd:Q8269924 .
+
+wd:Q463198 rdfs:label ""Life""@en .
+
+wd:Q618779 rdfs:label ""award""@en .
+
+wd:Q753110 rdfs:label ""songwriter""@en .
+
+wd:Q8269924 rdfs:label ""taxonomy""@en .
+
+wd:Q8513 rdfs:label ""database""@en .
+
+",Which entities are directly linked to SeaLifeBase?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?p ?answerEntity . }
+  UNION
+  { ?answerEntity ?p ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q7439813> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""SeaLifeBase"", ""i""))
+    }
+  )
+  FILTER(isIRI(?answerEntity) || isBlank(?answerEntity))
+  FILTER(?answerEntity != ?subject)
+  ?answerEntity rdfs:label ?answer .
+}
+ORDER BY ?answer",entities,"[""\""Life\""@en"", ""\""database\""@en"", ""\""taxonomy\""@en""]"
+Seal_02_02,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1260201 rdfs:label ""Singer""@en .
+
+wd:Q17023689 rdfs:label ""Global Online""@en .
+
+wd:Q218091 rdfs:label ""Seal""@en ;
+    kg:be wd:Q2596417,
+        wd:Q273899,
+        wd:Q3282637,
+        wd:Q40292,
+        wd:Q753110 ;
+    kg:beOf wd:Q618779 .
+
+wd:Q223313 rdfs:label ""BRIT Awards""@en .
+
+wd:Q41254 rdfs:label ""Grammy Awards""@en .
+
+wd:Q4568822 rdfs:label ""Marine""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q7432 rdfs:label ""species""@en .
+
+wd:Q7439813 rdfs:label ""SeaLifeBase""@en ;
+    kg:be wd:Q8513 ;
+    kg:beAbout wd:Q463198 ;
+    kg:provide wd:Q123187803 ;
+    kg:provideOn wd:Q8269924 .
+
+wd:Q463198 rdfs:label ""Life""@en .
+
+wd:Q618779 rdfs:label ""award""@en .
+
+wd:Q753110 rdfs:label ""songwriter""@en .
+
+wd:Q8269924 rdfs:label ""taxonomy""@en .
+
+wd:Q8513 rdfs:label ""database""@en .
+
+",Which predicates directly link entities to SeaLifeBase?,"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?answer
+WHERE {
+  { ?subject ?answer ?neighbor . }
+  UNION
+  { ?neighbor ?answer ?subject . }
+  FILTER(
+    ?subject = <http://www.wikidata.org/entity/Q7439813> ||
+    EXISTS {
+      ?subject rdfs:label ?label .
+      FILTER(REGEX(STR(?label), ""SeaLifeBase"", ""i""))
+    }
+  )
+  FILTER(isIRI(?neighbor) || isBlank(?neighbor))
+  FILTER(?neighbor != ?subject)
+}
+ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beAbout>"", ""<https://example.org/wikidata-description/provide>"", ""<https://example.org/wikidata-description/provideOn>""]"
+Seal_02_03,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q1260201 rdfs:label ""Singer""@en .
+
+wd:Q17023689 rdfs:label ""Global Online""@en .
+
+wd:Q218091 rdfs:label ""Seal""@en ;
+    kg:be wd:Q2596417,
+        wd:Q273899,
+        wd:Q3282637,
+        wd:Q40292,
+        wd:Q753110 ;
+    kg:beOf wd:Q618779 .
+
+wd:Q223313 rdfs:label ""BRIT Awards""@en .
+
+wd:Q41254 rdfs:label ""Grammy Awards""@en .
+
+wd:Q4568822 rdfs:label ""Marine""@en .
+
+wd:Q7150 rdfs:label ""ecology""@en .
+
+wd:Q7432 rdfs:label ""species""@en .
+
+wd:Q7439813 rdfs:label ""SeaLifeBase""@en ;
+    kg:be wd:Q8513 ;
+    kg:beAbout wd:Q463198 ;
+    kg:provide wd:Q123187803 ;
+    kg:provideOn wd:Q8269924 .
+
+wd:Q463198 rdfs:label ""Life""@en .
+
+wd:Q618779 rdfs:label ""award""@en .
+
+wd:Q753110 rdfs:label ""songwriter""@en .
+
+wd:Q8269924 rdfs:label ""taxonomy""@en .
+
+wd:Q8513 rdfs:label ""database""@en .
+
+",Is the entity SeaLifeBase directly linked to database?,"SELECT DISTINCT ?answer
+WHERE {
+  VALUES ?subject { <http://www.wikidata.org/entity/Q7439813> }
+  VALUES ?answer { <http://www.wikidata.org/entity/Q8513> }
+  { ?subject ?predicate ?answer . }
+  UNION
+  { ?answer ?predicate ?subject . }
+}
+ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q8513>""]"

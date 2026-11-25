@@ -34,6 +34,8 @@ The arrows show the workflow sequence. Human reviewers use the source text and R
 - [ExamPrep.py](./ExamPrep.py) prepares individual and combined RDF graphs from source JSON. See [docs/ExamPrep.md](./docs/ExamPrep.md) for usage and output.
 - [ExamQuestions.py](./ExamQuestions.py) generates questions, SPARQL queries and reference answers in [data/exam_questions.json](./data/exam_questions.json) from [data/exam_prep.json](./data/exam_prep.json), reading candidate metadata separately from [data/exam_sources.json](./data/exam_sources.json). Generation runs locally with RDFLib. See [docs/ExamQuestions.md](./docs/ExamQuestions.md) for query semantics, Unicode and accent normalization, usage and output.
 
+[GoldVerdict.py](./GoldVerdict.py) generates [data/gold_verdict.csv](./data/gold_verdict.csv) from the final adjudicated RDF graphs, with one row per SPARQL query: identifier, original group text, RDF string, English question, SPARQL, query type and computed result. The original text combines the candidate descriptions in source order to match the group graph. Run `python GoldVerdict.py`. See [docs/GoldVerdict.md](./docs/GoldVerdict.md) for the schema and CLI options.
+
 ## Requirements
 
 - Python 3.10 or newer
