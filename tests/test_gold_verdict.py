@@ -31,15 +31,20 @@ class GoldVerdictTests(unittest.TestCase):
             source.write_text(json.dumps([{"identifier": "Example", "rdf": RDF}]), encoding="utf-8")
             before = source.read_bytes()
             metadata = Path(directory) / "sources.json"
-            metadata.write_text(json.dumps(sources_for("Example")), encoding="utf-8")
+            description = 'Original text, with "quotes".\nS\u00e3o Paulo and Neighbor.'
+            metadata.write_text(json.dumps(sources_for("Example", description=description)), encoding="utf-8")
+            metadata_before = metadata.read_bytes()
             self.assertEqual(main(["--input", str(source), "--output", str(output),
                                    "--sources", str(metadata)]), 0)
             with output.open(encoding="utf-8", newline="") as handle:
                 reader = csv.DictReader(handle)
                 self.assertEqual(reader.fieldnames, list(FIELDS))
+                self.assertEqual(reader.fieldnames, ["identifier", "text", "rdf",
+                                                    "question", "sparql", "sparql_type", "result"])
                 rows = list(reader)
             self.assertEqual(len(rows), 3)
             self.assertEqual(source.read_bytes(), before)
+            self.assertEqual(metadata.read_bytes(), metadata_before)
             self.assertEqual(rows[0]["identifier"], "Example_01_01")
             self.assertEqual([row["question"] for row in rows], [
                 "Which entities are directly linked to São Paulo, city?",
@@ -49,6 +54,7 @@ class GoldVerdictTests(unittest.TestCase):
             self.assertEqual([row["sparql_type"] for row in rows],
                              ["entities", "predicates", "id"])
             for row in rows:
+                self.assertEqual(row["text"], description)
                 self.assertEqual(row["rdf"], RDF)
                 result = Graph().parse(data=row["rdf"], format="turtle").query(row["sparql"])
                 self.assertEqual(result.type, "SELECT")
@@ -56,6 +62,18 @@ class GoldVerdictTests(unittest.TestCase):
             self.assertEqual(json.loads(rows[0]["result"]), ['"Neighbor"@en'])
             self.assertEqual(json.loads(rows[1]["result"]), ["<https://example.org/link>"])
             self.assertEqual(json.loads(rows[2]["result"]), ["<https://example.org/b>"])
+
+    def test_original_text_covers_both_candidates_in_source_order(self):
+        rdf = RDF.replace("ex:b", "<http://www.wikidata.org/entity/Q2>")
+        sources = sources_for("Example_Group", description='First source, "quoted".\n')
+        sources[0]["candidates"].append({"wikidata_id": "Q2", "description": "Second source."})
+        sources[0]["description"] = "Stale combined description must not replace candidate text."
+        before = json.dumps(sources)
+        rows = generate_verdicts([{"identifier": "Example_Group", "rdf": rdf}], sources)
+        self.assertEqual(len(rows), 6)
+        self.assertEqual({row["text"] for row in rows}, {'First source, "quoted".\n Second source.'})
+        self.assertEqual(rows[3]["identifier"], "Example_Group_02_01")
+        self.assertEqual(json.dumps(sources), before)
 
     def test_graphs_are_isolated_and_input_order_is_irrelevant(self):
         records = [{"identifier": "B", "rdf": RDF.replace('"Neighbor"', '"Other"')},

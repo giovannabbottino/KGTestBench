@@ -16,7 +16,7 @@ from ExamQuestions import identifier_prefix, index_sources, questions_for_record
 from utils.file import read_json_records
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
-FIELDS = ("identifier", "rdf", "question", "sparql", "sparql_type", "result")
+FIELDS = ("identifier", "text", "rdf", "question", "sparql", "sparql_type", "result")
 # Template suffixes assigned by ExamQuestions.entity_questions.
 QUERY_TYPES = {"01": "entities", "02": "predicates", "03": "id"}
 
@@ -24,6 +24,8 @@ QUERY_TYPES = {"01": "entities", "02": "predicates", "03": "id"}
 def generate_verdicts(records: list[dict[str, Any]], sources: list[dict[str, Any]]) -> list[dict[str, str]]:
     """Reuse ExamQuestions templates, executing them against each final graph.
 
+    Original text joins all candidate descriptions in source order to match
+    the combined group graph, preserving each description verbatim.
     The identifier identifies a question (source_entity_template). Results are
     JSON arrays of RDF terms in N3 notation, retaining languages and datatypes.
     """
@@ -34,13 +36,16 @@ def generate_verdicts(records: list[dict[str, Any]], sources: list[dict[str, Any
         source = indexed.get(identifier_prefix(record["identifier"]).casefold())
         if source is None:
             raise ValueError(f"missing source record: {record['identifier']}")
-        for question in questions_for_record(record, source):
+        questions = questions_for_record(record, source)
+        original_text = " ".join(candidate["description"] for candidate in source["candidates"])
+        for question in questions:
             if not question["expected_answers"]:
                 raise ValueError(
                     f"{question['Identifier']}: query returned no answers in final RDF"
                 )
             rows.append({
                 "identifier": question["Identifier"],
+                "text": original_text,
                 "rdf": record["rdf"],
                 "question": question["pergunta"],
                 "sparql": question["sparql"],

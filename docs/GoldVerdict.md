@@ -38,11 +38,14 @@ Current dataset: **10 golden graphs, 2 texts per graph, 3 queries per text = 60 
 | Column | Content |
 | --- | --- |
 | `identifier` | Source, text index and query index, e.g. `Amazon_01_03`. |
+| `text` | All candidate descriptions for the source group, joined in stored order with one space between descriptions. |
 | `rdf` | Golden Turtle string. |
 | `question` | Question in English. |
 | `sparql` | Executable query. |
 | `sparql_type` | `entities`, `predicates` or `id`. |
 | `result` | Non-empty JSON array of unique, sorted RDF terms in N3 notation. |
+
+The seven-column CSV includes the complete group text because its RDF combines the group's candidates. Each description is preserved verbatim, including Unicode, quotes, and newlines; only the separator space is added. The same group text is repeated for all its queries. The identifier still identifies the focal candidate. Text comes from the candidate descriptions in the source JSON, not the review workbooks or a possibly stale top-level combined description.
 
 The CSV uses UTF-8 and standard quoting for multiline fields. Empty answers or invalid inputs stop generation and preserve the existing CSV; empty-answer errors identify the query.
 

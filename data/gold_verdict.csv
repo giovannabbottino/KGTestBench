@@ -1,5 +1,5 @@
-identifier,rdf,question,sparql,sparql_type,result
-Amazon_01_01,"@prefix kg: <https://example.org/wikidata-description/> .
+identifier,text,rdf,question,sparql,sparql_type,result
+Amazon_01_01,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -63,7 +63,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Brazil\""@en"", ""\""Intelligence\""@en"", ""\""advertising\""@en"", ""\""cloud\""@en"", ""\""e-commerce\""@en"", ""\""enterprise\""@en"", ""\""entertainment\""@en"", ""\""music streaming\""@en"", ""\""region\""@en""]"
-Amazon_01_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Amazon_01_02,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -126,7 +126,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/engage>"", ""<https://example.org/wikidata-description/engageIn>"", ""<https://example.org/wikidata-description/locateIn>""]"
-Amazon_01_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Amazon_01_03,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -180,7 +180,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q484847>""]"
-Amazon_02_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Amazon_02_01,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -244,7 +244,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Brazil\""@en"", ""\""region\""@en""]"
-Amazon_02_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Amazon_02_02,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -307,7 +307,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/locateIn>""]"
-Amazon_02_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Amazon_02_03,"Amazon.com, Inc. is an American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence. Amazonas is a state of Brazil, located in the North Region in the north-western corner of the country. It is the largest Brazilian state by area and the ninth-largest country subdivision in the world with an area of 1,570,745.7 square kilometers.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -361,7 +361,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q155>""]"
-Forest_Woodland_01_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Forest_Woodland_01_01,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -421,7 +421,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""region\""@en""]"
-Forest_Woodland_01_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Forest_Woodland_01_02,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -480,7 +480,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/beOf>""]"
-Forest_Woodland_01_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Forest_Woodland_01_03,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -530,7 +530,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q82794>""]"
-Forest_Woodland_02_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Forest_Woodland_02_01,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -590,7 +590,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Ashburton\""@en"", ""\""Teignbridge\""@en"", ""\""east\""@en"", ""\""hamlet\""@en""]"
-Forest_Woodland_02_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Forest_Woodland_02_02,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -649,7 +649,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/lie>"", ""<https://example.org/wikidata-description/lieOf>""]"
-Forest_Woodland_02_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Forest_Woodland_02_03,"Forest or Vorst, is one of the 19 municipalities of the Brussels-Capital Region, Belgium. Located in the southern part of the region, it is bordered by Anderlecht, Ixelles, Uccle, and Saint-Gilles, as well as the Flemish municipality of Drogenbos. Woodland is a small hamlet and civil parish in Teignbridge, Devon, England. The parish lies just east of the town of Ashburton; the hamlet is about 2.25 miles from the town.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -699,7 +699,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q5084>""]"
-House_Building_01_01,"@prefix kg: <https://example.org/wikidata-description/> .
+House_Building_01_01,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -768,7 +768,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Hut\""@en"", ""\""building\""@en"", ""\""built structure\""@en""]"
-House_Building_01_02,"@prefix kg: <https://example.org/wikidata-description/> .
+House_Building_01_02,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -836,7 +836,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/outfit>"", ""<https://example.org/wikidata-description/rangeFrom>"", ""<https://example.org/wikidata-description/rangeIn>"", ""<https://example.org/wikidata-description/rangeTo>""]"
-House_Building_01_03,"@prefix kg: <https://example.org/wikidata-description/> .
+House_Building_01_03,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -895,7 +895,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q41176>""]"
-House_Building_02_01,"@prefix kg: <https://example.org/wikidata-description/> .
+House_Building_02_01,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -964,7 +964,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""built structure\""@en"", ""\""history\""@en"", ""\""house\""@en"", ""\""roof\""@en""]"
-House_Building_02_02,"@prefix kg: <https://example.org/wikidata-description/> .
+House_Building_02_02,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1032,7 +1032,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/adaptThroughout>"", ""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beWith>"", ""<https://example.org/wikidata-description/land>""]"
-House_Building_02_03,"@prefix kg: <https://example.org/wikidata-description/> .
+House_Building_02_03,"A house is a residential building. It may range in complexity from a rudimentary hut to a complex structure of wood, masonry, concrete or other material, outfitted with plumbing, electrical, and heating, ventilation, and air conditioning systems. A building or edifice is an enclosed structure with a roof, walls and often windows, usually standing permanently in one place, such as a house or factory. Buildings come in a variety of sizes, shapes, and functions, and have been adapted throughout history in response to numerous factors, from available building materials to weather conditions, land prices, ground conditions, specific uses, prestige, and aesthetic reasons.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1091,7 +1091,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q83180>""]"
-Lake_Pond_01_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Lake_Pond_01_01,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1153,7 +1153,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Dry\""@en"", ""\""basin\""@en""]"
-Lake_Pond_01_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Lake_Pond_01_02,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1214,7 +1214,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/localizeIn>"", ""<https://example.org/wikidata-description/surroundBy>""]"
-Lake_Pond_01_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Lake_Pond_01_03,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1266,7 +1266,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q813672>""]"
-Lake_Pond_02_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Lake_Pond_02_01,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1328,7 +1328,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Depth\""@en"", ""\""Ponds\""@en"", ""\""ecology\""@en"", ""\""physical object\""@en"", ""\""pond\""@en"", ""\""vegetation\""@en""]"
-Lake_Pond_02_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Lake_Pond_02_02,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1389,7 +1389,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/coverBy>"", ""<https://example.org/wikidata-description/distinguish>"", ""<https://example.org/wikidata-description/distinguishOf>"", ""<https://example.org/wikidata-description/have>"", ""<https://example.org/wikidata-description/pool>""]"
-Lake_Pond_02_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Lake_Pond_02_03,"A lake is often a naturally occurring, relatively large and fixed body of water on or near the Earth's surface. It is localized in a basin or interconnected basins surrounded by dry land. A pond is a small, still, land-based body of water formed by pooling inside a depression, either naturally or artificially. A pond is smaller than a lake and there are no official criteria distinguishing the two, although defining a pond to be less than 5 hectares in area, less than 5 metres in depth and with less than 30% of its area covered by emergent vegetation helps in distinguishing the ecology of ponds from those of lakes and wetlands.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1441,7 +1441,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q19580008>""]"
-Mercury_01_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Mercury_01_01,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1505,7 +1505,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""1938\""@en"", ""\""2011\""@en"", ""\""Albertville\""@en"", ""\""Edsel\""@en"", ""\""car\""@en"", ""\""commune of France\""@en"", ""\""region\""@en""]"
-Mercury_01_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Mercury_01_02,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1568,7 +1568,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/beTo>"", ""<https://example.org/wikidata-description/bridge>"", ""<https://example.org/wikidata-description/bridgeBetween>"", ""<https://example.org/wikidata-description/createBy>"", ""<https://example.org/wikidata-description/createIn>"", ""<https://example.org/wikidata-description/produceBetween>"", ""<https://example.org/wikidata-description/produceBy>""]"
-Mercury_01_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Mercury_01_03,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1622,7 +1622,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q1994>""]"
-Mercury_02_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Mercury_02_01,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1686,7 +1686,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""1938\""@en"", ""\""2011\""@en"", ""\""Albertville\""@en"", ""\""Edsel\""@en"", ""\""car\""@en"", ""\""commune of France\""@en"", ""\""region\""@en""]"
-Mercury_02_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Mercury_02_02,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1749,7 +1749,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/beTo>"", ""<https://example.org/wikidata-description/bridge>"", ""<https://example.org/wikidata-description/bridgeBetween>"", ""<https://example.org/wikidata-description/createBy>"", ""<https://example.org/wikidata-description/createIn>"", ""<https://example.org/wikidata-description/produceBetween>"", ""<https://example.org/wikidata-description/produceBy>""]"
-Mercury_02_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Mercury_02_03,"Mercury was a brand of medium-priced automobiles that was produced by American manufacturer Ford Motor Company between the 1939 and 2011 motor years. Created by Edsel Ford in 1938, Mercury was established to bridge the gap between the Ford and Lincoln model lines within the Ford Motor Company. Mercury is a commune close to Albertville in the Savoie département in the Auvergne-Rhône-Alpes region in south-eastern France. It is part of the urban area of Albertville.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1803,7 +1803,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q159469>""]"
-Mountain_Hill_01_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Mountain_Hill_01_01,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1857,7 +1857,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Hill\""@en"", ""\""Steep\""@en"", ""\""Surface\""@en"", ""\""bedrock\""@en""]"
-Mountain_Hill_01_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Mountain_Hill_01_02,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1910,7 +1910,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/considerThan>"", ""<https://example.org/wikidata-description/expose>"", ""<https://example.org/wikidata-description/have>""]"
-Mountain_Hill_01_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Mountain_Hill_01_03,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -1954,7 +1954,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q37497814>""]"
-Mountain_Hill_02_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Mountain_Hill_02_01,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2008,7 +2008,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""36th\""@en"", ""\""English\""@en"", ""\""United States\""@en"", ""\""mountain\""@en""]"
-Mountain_Hill_02_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Mountain_Hill_02_02,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2061,7 +2061,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/considerThan>""]"
-Mountain_Hill_02_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Mountain_Hill_02_03,"A mountain is an elevated portion of the surface of a planet, generally with steep sides that show significant exposed bedrock. Although there are no universally accepted definitions, a mountain is usually considered higher than a hill. Hill is a surname of English and Scottish origin, meaning. It is the 36th most common surname in England, the 18th common surname in Scotland, and the 37th most common surname in the United States.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2105,7 +2105,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q1860>""]"
-Python_01_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Python_01_01,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2186,7 +2186,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""1803\""@en"", ""\""Eastern Hemisphere\""@en"", ""\""High Level\""@en"", ""\""Marie\""@en"", ""\""Paradigms\""@en"", ""\""genus\""@en"", ""\""hemisphere of the Earth\""@en"", ""\""object-oriented programming\""@en"", ""\""snake\""@en"", ""\""subtropics\""@en"", ""\""tropics\""@en""]"
-Python_01_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Python_01_02,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2266,7 +2266,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beNativeTo>"", ""<https://example.org/wikidata-description/constrict>"", ""<https://example.org/wikidata-description/constrictIn>"", ""<https://example.org/wikidata-description/emphasize>"", ""<https://example.org/wikidata-description/programOn>"", ""<https://example.org/wikidata-description/proposeBy>"", ""<https://example.org/wikidata-description/proposeFor>"", ""<https://example.org/wikidata-description/proposeIn>"", ""<https://example.org/wikidata-description/support>""]"
-Python_01_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Python_01_03,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2337,7 +2337,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q430949>""]"
-Python_02_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Python_02_01,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2418,7 +2418,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""1803\""@en"", ""\""Eastern Hemisphere\""@en"", ""\""High Level\""@en"", ""\""Marie\""@en"", ""\""Paradigms\""@en"", ""\""genus\""@en"", ""\""hemisphere of the Earth\""@en"", ""\""object-oriented programming\""@en"", ""\""snake\""@en"", ""\""subtropics\""@en"", ""\""tropics\""@en""]"
-Python_02_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Python_02_02,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2498,7 +2498,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beNativeTo>"", ""<https://example.org/wikidata-description/constrict>"", ""<https://example.org/wikidata-description/constrictIn>"", ""<https://example.org/wikidata-description/emphasize>"", ""<https://example.org/wikidata-description/programOn>"", ""<https://example.org/wikidata-description/proposeBy>"", ""<https://example.org/wikidata-description/proposeFor>"", ""<https://example.org/wikidata-description/proposeIn>"", ""<https://example.org/wikidata-description/support>""]"
-Python_02_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Python_02_03,"Python is a high-level, general-purpose programming language that emphasizes code readability, simplicity, and ease-of-writing with the use of significant indentation, an extensive standard library, and garbage collection. Python supports multiple programming paradigms but with an emphasis on object-oriented programming and dynamic typing. Python is a genus of constricting snakes in the Pythonidae family native to the tropics and subtropics of the Eastern Hemisphere. The name python was proposed by François Marie Daudin in 1803 for non-venomous flecked snakes.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2569,7 +2569,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q34740>""]"
-River_Stream_01_01,"@prefix kg: <https://example.org/wikidata-description/> .
+River_Stream_01_01,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2631,7 +2631,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Dry\""@en"", ""\""Ocean\""@en"", ""\""lake\""@en"", ""\""land\""@en"", ""\""stream\""@en"", ""\""water\""@en""]"
-River_Stream_01_02,"@prefix kg: <https://example.org/wikidata-description/> .
+River_Stream_01_02,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2692,7 +2692,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/flowOn>"", ""<https://example.org/wikidata-description/flowTowards>"", ""<https://example.org/wikidata-description/inside>"", ""<https://example.org/wikidata-description/run>""]"
-River_Stream_01_03,"@prefix kg: <https://example.org/wikidata-description/> .
+River_Stream_01_03,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2744,7 +2744,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q47521>""]"
-River_Stream_02_01,"@prefix kg: <https://example.org/wikidata-description/> .
+River_Stream_02_01,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2806,7 +2806,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Banks\""@en"", ""\""Surface\""@en"", ""\""channel\""@en"", ""\""river\""@en"", ""\""watercourse\""@en""]"
-River_Stream_02_02,"@prefix kg: <https://example.org/wikidata-description/> .
+River_Stream_02_02,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2867,7 +2867,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/flowOf>"", ""<https://example.org/wikidata-description/flowWithin>""]"
-River_Stream_02_03,"@prefix kg: <https://example.org/wikidata-description/> .
+River_Stream_02_03,"A river is a natural stream of fresh water that flows on land or inside caves towards another body of water at a lower elevation, such as an ocean, lake, or another river. A river may run dry before reaching the end of its course if it runs out of water, or only flow during certain seasons. A stream is a continuous body of surface water flowing within the bed and banks of a channel. The channel is a watercourse, although the watercourse may be seasonally or periodically dry.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2919,7 +2919,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q37497814>""]"
-Saturn_01_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Saturn_01_01,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -2984,7 +2984,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Roman\""@en"", ""\""Sixth planet\""@en"", ""\""Solar\""@en"", ""\""character\""@en""]"
-Saturn_01_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Saturn_01_02,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -3048,7 +3048,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/describe>""]"
-Saturn_01_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Saturn_01_03,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -3103,7 +3103,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q933726>""]"
-Saturn_02_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Saturn_02_01,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -3168,7 +3168,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Roman\""@en"", ""\""Sixth planet\""@en"", ""\""Solar\""@en"", ""\""character\""@en""]"
-Saturn_02_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Saturn_02_02,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -3232,7 +3232,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beIn>"", ""<https://example.org/wikidata-description/describe>""]"
-Saturn_02_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Saturn_02_03,"Saturn was a god in ancient Roman religion, and a character in Roman mythology. He was described as a god of time, generation, dissolution, abundance, wealth, agriculture, periodic renewal and liberation. Saturn is the sixth planet from the Sun and the second largest in the Solar System, after Jupiter. It is a gas giant, with an average radius of about 9 times that of Earth.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -3287,7 +3287,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q7533215>""]"
-Seal_01_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Seal_01_01,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -3348,7 +3348,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Life\""@en"", ""\""award\""@en"", ""\""database\""@en"", ""\""songwriter\""@en"", ""\""taxonomy\""@en""]"
-Seal_01_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Seal_01_02,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -3408,7 +3408,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beAbout>"", ""<https://example.org/wikidata-description/beOf>"", ""<https://example.org/wikidata-description/provide>"", ""<https://example.org/wikidata-description/provideOn>""]"
-Seal_01_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Seal_01_03,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -3459,7 +3459,7 @@ WHERE {
   { ?answer ?predicate ?subject . }
 }
 ORDER BY ?answer",id,"[""<http://www.wikidata.org/entity/Q753110>""]"
-Seal_02_01,"@prefix kg: <https://example.org/wikidata-description/> .
+Seal_02_01,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -3520,7 +3520,7 @@ WHERE {
   ?answerEntity rdfs:label ?answer .
 }
 ORDER BY ?answer",entities,"[""\""Life\""@en"", ""\""database\""@en"", ""\""taxonomy\""@en""]"
-Seal_02_02,"@prefix kg: <https://example.org/wikidata-description/> .
+Seal_02_02,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
@@ -3580,7 +3580,7 @@ WHERE {
   FILTER(?neighbor != ?subject)
 }
 ORDER BY ?answer",predicates,"[""<https://example.org/wikidata-description/be>"", ""<https://example.org/wikidata-description/beAbout>"", ""<https://example.org/wikidata-description/provide>"", ""<https://example.org/wikidata-description/provideOn>""]"
-Seal_02_03,"@prefix kg: <https://example.org/wikidata-description/> .
+Seal_02_03,"Seal Henry Olusegun Olumide Adeola Samuel, known mononymously as Seal, is a British singer, songwriter, and record producer. He is the recipient of three Brit Awards, four Grammy Awards and an MTV Video Music Award, with more than 20 million albums or singles sold. SeaLifeBase is a global online database of information about marine life. It aims to provide key information on the taxonomy, distribution and ecology of all marine species in the world apart from finfish.","@prefix kg: <https://example.org/wikidata-description/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 
